@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0.html).
 
+
+## [1.9.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.8.2...v1.9.0) (2025-08-26)
+
+
+### ♻️ Code Refactoring
+
+* **theme:** remove high contrast theme variant ([f8fa83f](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/f8fa83f0bb14d860241005ffdba5904d56223878))
+
+
+### 📚 Documentation
+
+* **README:** add instructions for online installation and theme activation ([78d6586](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/78d6586c69df69f2ddec74465c44383a1863dca3))
+
+
+### ✨ Features
+
+* **docs:** enhance contributing guide with detailed process and examples ([17f9235](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/17f92351b18e2d5f56f30f97418cae68af013591))
+* **static:** add screenshot of tokyo night dark theme ([96a6cb5](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/96a6cb5d2d86d089665064b54f43bb941047292a))
+
 ### [1.8.2](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.8.1...v1.8.2) (2025-08-26)
 
 ### 🏗️ Build System
