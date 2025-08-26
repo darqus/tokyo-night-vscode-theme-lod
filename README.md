@@ -15,14 +15,28 @@
 
 ## 🚀 Quick Start
 
-### Installation
+### Online
+
+You can use the theme directly in your browser with vscode.dev:
+
+[Open in vscode.dev](https://vscode.dev/theme/lod-inc.tokyo-night-lod)
+
+After opening the link, you may need to manually select the theme:
+
+1. Open Command Palette (Ctrl+Shift+P)
+2. Type "Preferences: Color Theme"
+3. Select "Tokyo Night Lod"
+
+### Desktop
+
+#### Installation
 
 1. Open VS Code
 2. Go to Extensions (Ctrl+Shift+X)
 3. Search for "Tokyo Night Lod"
 4. Click Install
 
-### Activation
+#### Activation
 
 1. Open Command Palette (Ctrl+Shift+P)
 2. Type "Preferences: Color Theme"
