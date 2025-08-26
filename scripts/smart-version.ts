@@ -445,6 +445,14 @@ class SmartVersionManager {
       throw new Error(`Error creating release: ${error}`)
     }
 
+    // Push tags to remote repository
+    console.log('📤 Pushing tags to remote repository...')
+    try {
+      execSync('git push --tags', { stdio: 'inherit' })
+    } catch (error) {
+      throw new Error(`Error pushing tags to remote: ${error}`)
+    }
+
     // Create package
     console.log('📦 Creating VSIX package...')
     try {
