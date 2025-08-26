@@ -1,3 +1,4 @@
 node_modules
 *.vsix
 .*cache
+build-metrics.json
