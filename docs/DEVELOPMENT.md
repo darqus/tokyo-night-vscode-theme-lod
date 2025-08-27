@@ -72,9 +72,6 @@ tokyo-night-vscode-theme-lod/
 │   │   └── themeValidator.ts     # Theme validation
 │   ├── scripts/                  # Build scripts
 │   │   └── validate-theme.ts     # Theme validation script
-│   └── variants/                 # Theme variants
-│       ├── index.ts              # Variant definitions
-│       └── themeBuilder.ts       # Theme builder
 ├── themes/                       # Generated themes
 │   └── tokyo-night-dark-color-theme.json
 ├── docs/                         # Documentation
@@ -148,7 +145,7 @@ git commit -m "feat: add new feature description"
 ### 2. Building and Testing
 
 ```bash
-# Build theme from source
+# Build theme from source (using ts-node)
 npm run build
 
 # Run all tests
@@ -162,11 +159,11 @@ npm run test:smoke
 # Validate theme structure
 npm run validate
 
-# Lint code
+# Lint code (includes import cycle detection)
 npm run lint
 
-# Format code
-npm run format
+# Check for import cycles
+npm run lint:cycles
 ```
 
 ### 3. Debugging
@@ -183,6 +180,9 @@ npm run validate:verbose
 
 # Check color contrast
 npm run lint:colors
+
+# Analyze import dependencies
+npm run analyze:dependencies
 ```
 
 ## 🎨 Working with Colors
@@ -320,17 +320,14 @@ describe('Visual Testing', () => {
 ### Development Scripts
 
 ```bash
-# Development server with hot reload
-npm run dev
-
-# Build with watch mode
-npm run build:watch
-
 # Development setup
 npm run setup
 
+# Build theme
+npm run build
+
 # Clean build artifacts
-npm run clean
+npm run clean:dist
 ```
 
 ### Analysis Scripts
