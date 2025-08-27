@@ -8,7 +8,7 @@
 
 - 🎨 **Optimized color palette** - Enhanced contrast and readability
 - 🏗️ **Modern TypeScript architecture** - Type safety and modularity
-- 🤖 **Automated build process** - Theme generation from source code
+- 🤖 **Automated build process** - Single theme generation from source code
 - 🧪 **Comprehensive testing** - Validation and visual testing
 - 📚 **Complete documentation** - Detailed guides in English
 - 🔧 **Smart versioning** - Automated releases based on conventional commits
@@ -48,10 +48,11 @@ After opening the link, you may need to manually select the theme:
 tokyo-night-vscode-theme-lod/
 ├── src/                    # Source code
 │   ├── palette.ts          # Central color palette
-│   ├── build.ts            # Theme generator
+│   ├── build.ts            # Theme generator (single dark theme)
 │   ├── tokenColors.ts      # Syntax colors
 │   ├── semanticTokenColors.ts # Semantic colors
 │   ├── theme/              # Theme components
+│   │   └── colors.ts       # Colors aggregator (no side effects)
 │   ├── utils/              # Utilities
 │   ├── types/              # TypeScript types
 │   └── validation/         # Validation
@@ -87,10 +88,10 @@ npm run setup
 ### Main Commands
 
 ```bash
-# Build theme
+# Build the single dark theme
 npm run build
 
-# Validation
+# Validate the generated theme
 npm run validate
 
 # Testing

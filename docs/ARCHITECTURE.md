@@ -28,15 +28,16 @@ The Tokyo Night Lod theme follows a modern, modular architecture designed for:
 tokyo-night-vscode-theme-lod/
 ├── src/                    # Source code (TypeScript)
 │   ├── palette.ts          # Central color palette
-│   ├── build.ts            # Theme generator
+│   ├── build.ts            # Theme generator (single dark theme)
 │   ├── tokenColors.ts      # Syntax highlighting
 │   ├── semanticTokenColors.ts # Semantic tokens
 │   ├── components/         # Reusable components
 │   ├── theme/              # Theme modules
+│   │   └── colors.ts       # Colors aggregator (no side effects)
 │   ├── utils/              # Utility functions
 │   ├── types/              # TypeScript types
 │   ├── validation/         # Validation logic
-│   └── variants/           # Theme variants
+│   └── variants/           # Theme variants (single standard variant)
 ├── themes/                 # Generated themes (JSON)
 ├── scripts/                # Build and automation scripts
 ├── tests/                  # Test files
@@ -96,38 +97,20 @@ export const palette = {
 #### 2. Theme Generator (`src/build.ts`)
 
 ```typescript
-// Main theme builder
-import { palette } from './palette';
-import { tokenColors } from './tokenColors';
-import { semanticTokenColors } from './semanticTokenColors';
-import { activityBar } from './theme/activityBar';
-import { editor } from './theme/editor';
-// ... other imports
+// Single-theme generator
+import { ThemeBuilder } from './variants/themeBuilder'
 
-export function buildTheme(): VSCodeTheme {
-  return {
-    name: 'Tokyo Night Lod',
-    type: 'dark',
-    colors: {
-      // UI colors from palette
-      'activityBar.background': palette.ui.background,
-      'editor.background': palette.ui.background,
-      'editor.foreground': palette.ui.foreground,
-      // ... more UI colors
-    },
-    tokenColors: tokenColors,
-    semanticTokenColors: semanticTokenColors,
-    // ... other theme properties
-  };
-}
+// Build only the standard dark theme
+const theme = ThemeBuilder.buildStandard()
+// write/validate handled in build.ts
 ```
 
 **Benefits**:
 
-- **Automation** - Automated theme generation
-- **Consistency** - Ensures all components use same colors
+- **Single source of truth** - One standard theme only
+- **Consistency** - Shared builder used by CLI and build
 - **Validation** - Built-in validation during build
-- **Flexibility** - Easy to add new theme variants
+- **Simplicity** - No multi-variant orchestration
 
 #### 3. Theme Components (`src/theme/`)
 
@@ -241,72 +224,41 @@ export const semanticTokenColors: SemanticTokenColors = {
 
 ```mermaid
 graph TD
-    A[Source Files] --> B[TypeScript Compilation]
-    B --> C[Theme Generation]
-    C --> D[Validation]
-    D --> E[Optimization]
-    E --> F[Output JSON]
+    A[Source Files] --> B[Generate Single Theme]
+    B --> C[Validation]
+    C --> D[Output JSON]
 
-    G[Color Palette] --> C
-    H[Theme Components] --> C
-    I[Token Colors] --> C
-    J[Semantic Tokens] --> C
+    G[Color Palette] --> B
+    H[Theme Components] --> B
+    I[Token Colors] --> B
+    J[Semantic Tokens] --> B
 ```
 
 ### Build Steps
 
-1. **TypeScript Compilation**:
+1. **Generate Single Theme**:
 
    ```bash
-   # Compile TypeScript to JavaScript
-   tsc --project tsconfig.json
+   npm run build
    ```
 
-2. **Theme Generation**:
+2. **Validation**:
 
-   ```typescript
-   // Generate theme from source
-   const theme = buildTheme();
+   ```bash
+   npm run validate
    ```
 
-3. **Validation**:
+3. **Output**:
 
-   ```typescript
-   // Validate theme structure
-   const validation = validateTheme(theme);
-   if (!validation.isValid) {
-     throw new Error('Theme validation failed');
-   }
-   ```
-
-4. **Optimization**:
-
-   ```typescript
-   // Optimize theme for performance
-   const optimizedTheme = optimizeTheme(theme);
-   ```
-
-5. **Output**:
-
-   ```typescript
-   // Write to JSON file
-   fs.writeFileSync(
-     'themes/tokyo-night-dark-color-theme.json',
-     JSON.stringify(optimizedTheme, null, 2)
-   );
-   ```
+   - The result is written to `themes/tokyo-night-dark-color-theme.json`
 
 ### Build Scripts
 
 ```json
 {
   "scripts": {
-    "build": "npm run clean && npm run compile && npm run generate",
-    "clean": "rimraf themes/*.json",
-    "compile": "tsc",
-    "generate": "node dist/build.js",
-    "validate": "npm run build && npm run test:validation",
-    "watch": "npm run build -- --watch"
+    "build": "ts-node src/build.ts",
+    "validate": "ts-node src/scripts/validate-theme.ts"
   }
 }
 ```

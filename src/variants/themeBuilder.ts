@@ -1,5 +1,5 @@
-import { buildColors } from '../build'
-import { tokenColors } from '../tokenColors'
+import { buildColors } from '../theme/colors'
+import { getTokenColors } from '../tokenColors'
 import { semanticTokenColors } from '../semanticTokenColors'
 
 /**
@@ -24,15 +24,15 @@ export interface ThemeObject {
   semanticClass: string
   semanticTokenColors: typeof semanticTokenColors
   colors: ReturnType<typeof buildColors>
-  tokenColors: typeof tokenColors
+  tokenColors: ReturnType<typeof getTokenColors>
 }
 
 /**
- * Tokyo Night Lod theme builder
+ * Tokyo Night Lod theme builder (single dark theme)
  */
 export class ThemeBuilder {
   /**
-   * Create standard theme
+   * Create standard theme (dark)
    */
   static buildStandard(): ThemeObject {
     return {
@@ -44,7 +44,7 @@ export class ThemeBuilder {
       semanticClass: 'tokyo-night',
       semanticTokenColors: semanticTokenColors,
       colors: buildColors(),
-      tokenColors: tokenColors,
+      tokenColors: getTokenColors(),
     }
   }
 }
