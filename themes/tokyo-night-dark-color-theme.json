@@ -7,6 +7,7 @@
   ],
   "type": "dark",
   "semanticClass": "tokyo-night",
+  "semanticHighlighting": true,
   "semanticTokenColors": {
     "parameter.declaration": {
       "foreground": "#7cbffc"
