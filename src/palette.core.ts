@@ -1,309 +1,167 @@
 import type { Hex } from './types/palette'
 import { basePalette } from './palette.base'
-import { withAlpha, mix, lightenToward, darkenToward } from './utils/color'
+import { mix } from './utils/color'
+import { intensity } from './palette.config'
+import {
+  generatePalette,
+  coreBlack as genCoreBlack,
+  coreWhite as genCoreWhite,
+} from './palette.generator'
 
-// Определения базовых цветов для использования в утилитах
-export const coreBlack = '#0d1117' as Hex
+// Core base colors (kept as named exports)
+export const coreBlack = genCoreBlack
+export const coreWhite = genCoreWhite
 
-export const coreWhite = '#c5d0dd' as Hex
+// Generate all tokens once
+const tokens = generatePalette()
 
-const interfaceColors = {
-  editorBg: coreBlack,
-  editorFg: coreWhite,
-  border: coreBlack,
-  accent: basePalette.blue,
-  error: basePalette.red,
-  warning: basePalette.yellow,
-  success: basePalette.green,
-  info: basePalette.cyan,
-} as const
+// Recreate generatedGray for core.text.subtle consumers
+const generatedGray = mix(coreWhite, coreBlack, intensity.mix.gray)
 
-// Оптимизированный серый на основе анализа (50% смешивание)
-const generatedGray = mix(coreWhite, coreBlack, 0.5)
+// Export individual tokens as named constants for consumers that import them directly
+export const focusBorder = tokens.focusBorder
+export const extensionButtonProminentHoverBackground =
+  tokens.extensionButtonProminentHoverBackground
+export const scrollbarSliderBackground = tokens.scrollbarSliderBackground
+export const scrollbarSliderHoverBackground =
+  tokens.scrollbarSliderHoverBackground
+export const scrollbarSliderActiveBackground =
+  tokens.scrollbarSliderActiveBackground
+export const keybindingLabelBackground = tokens.keybindingLabelBackground
+export const keybindingLabelBottomBorder = tokens.keybindingLabelBottomBorder
+export const editorBracketPairGuideActiveBackground1 =
+  tokens.editorBracketPairGuideActiveBackground1
+export const editorBracketPairGuideActiveBackground2 =
+  tokens.editorBracketPairGuideActiveBackground2
+export const editorBracketPairGuideActiveBackground3 =
+  tokens.editorBracketPairGuideActiveBackground3
+export const editorBracketPairGuideActiveBackground4 =
+  tokens.editorBracketPairGuideActiveBackground4
+export const editorBracketPairGuideActiveBackground5 =
+  tokens.editorBracketPairGuideActiveBackground5
+export const editorBracketPairGuideActiveBackground6 =
+  tokens.editorBracketPairGuideActiveBackground6
+export const editorFoldBackground = tokens.editorFoldBackground
+export const editorSelectionBackground = tokens.editorSelectionBackground
+export const editorInactiveSelectionBackground =
+  tokens.editorInactiveSelectionBackground
+export const editorFindMatchBackground = tokens.editorFindMatchBackground
+export const editorFindMatchHighlightBackground =
+  tokens.editorFindMatchHighlightBackground
+export const editorFindMatchHighlightBorder =
+  tokens.editorFindMatchHighlightBorder
+export const editorFindRangeHighlightBackground =
+  tokens.editorFindRangeHighlightBackground
+export const editorFindRangeHighlightBorder =
+  tokens.editorFindRangeHighlightBorder
+export const editorRangeHighlightBackground =
+  tokens.editorRangeHighlightBackground
+export const editorWordHighlightBackground =
+  tokens.editorWordHighlightBackground
+export const editorWordHighlightBorder = tokens.editorWordHighlightBorder
+export const editorWordHighlightStrongBackground =
+  tokens.editorWordHighlightStrongBackground
+export const editorWordHighlightStrongBorder =
+  tokens.editorWordHighlightStrongBorder
+export const editorSelectionHighlightBackground =
+  tokens.editorSelectionHighlightBackground
+export const editorSelectionHighlightBorder =
+  tokens.editorSelectionHighlightBorder
+export const editorHoverHighlightBackground =
+  tokens.editorHoverHighlightBackground
+export const editorIndentGuideBackground1 = tokens.editorIndentGuideBackground1
+export const editorIndentGuideActiveBackground1 =
+  tokens.editorIndentGuideActiveBackground1
+export const editorWhitespaceForeground = tokens.editorWhitespaceForeground
+export const editorBracketMatchBorder = tokens.editorBracketMatchBorder
+export const editorInlayHintBackground = tokens.editorInlayHintBackground
+export const editorInlayHintTypeBackground =
+  tokens.editorInlayHintTypeBackground
+export const editorInlayHintParameterBackground =
+  tokens.editorInlayHintParameterBackground
+export const editorOverviewRulerFindMatchForeground =
+  tokens.editorOverviewRulerFindMatchForeground
+export const editorOverviewRulerRangeHighlightForeground =
+  tokens.editorOverviewRulerRangeHighlightForeground
+export const editorOverviewRulerSelectionHighlightForeground =
+  tokens.editorOverviewRulerSelectionHighlightForeground
+export const editorOverviewRulerWordHighlightForeground =
+  tokens.editorOverviewRulerWordHighlightForeground
+export const editorOverviewRulerWordHighlightStrongForeground =
+  tokens.editorOverviewRulerWordHighlightStrongForeground
+export const editorWidgetResizeBorder = tokens.editorWidgetResizeBorder
+export const editorSuggestWidgetBorder = tokens.editorSuggestWidgetBorder
+export const searchEditorFindMatchBackground =
+  tokens.searchEditorFindMatchBackground
+export const tabLastPinnedBorder = tokens.tabLastPinnedBorder
+export const tabSelectedForeground = tokens.tabSelectedForeground
+export const statusBarItemHoverBackground = tokens.statusBarItemHoverBackground
+export const statusBarItemProminentHoverBackground =
+  tokens.statusBarItemProminentHoverBackground
+export const statusBarItemErrorHoverBackground =
+  tokens.statusBarItemErrorHoverBackground
+export const statusBarItemWarningHoverBackground =
+  tokens.statusBarItemWarningHoverBackground
+export const statusBarItemCompactHoverBackground =
+  tokens.statusBarItemCompactHoverBackground
+export const statusBarItemOfflineHoverBackground =
+  tokens.statusBarItemOfflineHoverBackground
+export const terminalSelectionBackground = tokens.terminalSelectionBackground
+export const terminalFindMatchBackground = tokens.terminalFindMatchBackground
+export const terminalFindMatchHighlightBackground =
+  tokens.terminalFindMatchHighlightBackground
+export const terminalFindMatchHighlightBorder =
+  tokens.terminalFindMatchHighlightBorder
+export const terminalHoverHighlightBackground =
+  tokens.terminalHoverHighlightBackground
+export const terminalDropBackground = tokens.terminalDropBackground
+export const terminalOverviewRulerFindMatchForeground =
+  tokens.terminalOverviewRulerFindMatchForeground
+export const gitBlameEditorDecorationForeground =
+  tokens.gitBlameEditorDecorationForeground
+export const menuBorder = tokens.menuBorder
+export const peekViewEditorMatchHighlightBackground =
+  tokens.peekViewEditorMatchHighlightBackground
+export const peekViewResultSelectionBackground =
+  tokens.peekViewResultSelectionBackground
+export const peekViewResultMatchHighlightBackground =
+  tokens.peekViewResultMatchHighlightBackground
+export const diffEditorInsertedTextBackground =
+  tokens.diffEditorInsertedTextBackground
+export const diffEditorRemovedTextBackground =
+  tokens.diffEditorRemovedTextBackground
+export const diffEditorInsertedTextBorder = tokens.diffEditorInsertedTextBorder
+export const diffEditorRemovedTextBorder = tokens.diffEditorRemovedTextBorder
+export const diffEditorInsertedLineBackground =
+  tokens.diffEditorInsertedLineBackground
+export const diffEditorRemovedLineBackground =
+  tokens.diffEditorRemovedLineBackground
+export const diffEditorDiagonalFill = tokens.diffEditorDiagonalFill
+export const mergeCurrentHeaderBackground = tokens.mergeCurrentHeaderBackground
+export const mergeCurrentContentBackground =
+  tokens.mergeCurrentContentBackground
+export const mergeIncomingHeaderBackground =
+  tokens.mergeIncomingHeaderBackground
+export const mergeIncomingContentBackground =
+  tokens.mergeIncomingContentBackground
+export const editorStackFrameHighlightBackground =
+  tokens.editorStackFrameHighlightBackground
+export const editorFocusedStackFrameHighlightBackground =
+  tokens.editorFocusedStackFrameHighlightBackground
+export const debugViewValueChangedHighlight =
+  tokens.debugViewValueChangedHighlight
+export const toolbarHoverBackground = tokens.toolbarHoverBackground
+export const toolbarActiveBackground = tokens.toolbarActiveBackground
+export const buttonBorder = tokens.buttonBorder
+export const buttonSeparator = tokens.buttonSeparator
+export const inputValidationInfoBackground =
+  tokens.inputValidationInfoBackground
+export const inputValidationWarningBackground =
+  tokens.inputValidationWarningBackground
+export const inputValidationErrorBackground =
+  tokens.inputValidationErrorBackground
 
-export const aquaLight = lightenToward(basePalette.cyan, basePalette.blue, 0.15)
-
-export const bgElevated = darkenToward(
-  interfaceColors.editorBg,
-  coreBlack,
-  0.08
-)
-export const bgOverlay = darkenToward(interfaceColors.editorBg, coreBlack, 0.12)
-
-// Оптимизированный фон для полей ввода на основе анализа
-export const bgInput = mix(interfaceColors.editorBg, coreBlack, 0.12)
-
-// Оптимизированные состояния hover и active на основе анализа
-export const bgHover = mix(interfaceColors.editorBg, coreBlack, 0.08)
-export const bgActive = mix(interfaceColors.editorBg, coreBlack, 0.15)
-// Оптимизированные прозрачные фоны на основе анализа
-export const bgDrop = withAlpha(basePalette.blue, 0.2)
-export const bgLineHighlight = withAlpha(basePalette.blue, 0.1)
-export const bgBracketMatch = withAlpha(basePalette.blue, 0.15)
-
-// Оптимизированные цвета выделения на основе анализа
-export const bgSelectionActive = withAlpha(basePalette.blue, 0.25)
-export const bgSelectionInactive = withAlpha(basePalette.blue, 0.15)
-export const bgSelectionFocus = withAlpha(basePalette.blue, 0.2)
-export const bgSelectionMenu = withAlpha(basePalette.blue, 0.18)
-
-// Оптимизированные цвета интерфейса на основе анализа
-export const bgStateLabel = mix(interfaceColors.editorBg, generatedGray, 0.1)
-export const border = mix(coreBlack, generatedGray, 0.25)
-export const textPrimary = coreWhite
-
-// Оптимизированные текстовые цвета на основе анализа
-export const textMuted = mix(coreWhite, generatedGray, 0.4)
-
-export const textInactive = mix(coreWhite, generatedGray, 0.6)
-
-export const textSoft = mix(coreWhite, basePalette.cyan, 0.12)
-
-export const textSubtle2 = mix(coreWhite, generatedGray, 0.5)
-
-export const textGray600 = mix(generatedGray, coreBlack, 0.4)
-
-export const textComment = mix(generatedGray, coreBlack, 0.4)
-
-export const textCommentDoc = mix(generatedGray, coreBlack, 0.35)
-
-export const textCommentDocEmphasized = mix(generatedGray, coreBlack, 0.3)
-
-export const textPreformat = mix(coreWhite, basePalette.cyan, 0.18)
-
-export const textPlaceholder = mix(coreWhite, generatedGray, 0.7)
-
-export const textEditorLinkActive = mix(coreWhite, basePalette.blue, 0.2)
-
-// Оптимизированные цвета кнопок на основе анализа
-export const brandButtonPrimary = mix(coreBlack, basePalette.blue, 0.2)
-
-export const brandButtonHover = mix(coreBlack, basePalette.blue, 0.3)
-
-// Оптимизированные UI элементы на основе анализа
-export const uiShadow = withAlpha(basePalette.blue, 0.2)
-
-export const uiSelectionWash = withAlpha(basePalette.blue, 0.15)
-
-export const uiScrollbarBase = mix(basePalette.blue, generatedGray, 0.4)
-
-export const uiTabUnfocusedActive = mix(basePalette.blue, coreBlack, 0.25)
-
-export const uiGitIgnored = mix(coreWhite, generatedGray, 0.95)
-
-export const uiGitDeleted = mix(basePalette.red, basePalette.magenta, 0.15)
-
-export const uiGitConflicting = mix(aquaLight, basePalette.blue, 0.2)
-
-export const uiGitStageDeleted = mix(basePalette.red, basePalette.magenta, 0.1)
-
-export const uiGitStageModified = mix(basePalette.blue, basePalette.blue, 0.15)
-
-// Terminal colors with alpha
-export const terminalSelectionBackground = withAlpha(textSubtle2, 0.19)
-export const terminalFindMatchBackground = withAlpha(basePalette.blue, 0.4)
-export const terminalFindMatchHighlightBackground = withAlpha(
-  basePalette.blue,
-  0.4
-)
-export const terminalFindMatchHighlightBorder = withAlpha(basePalette.blue, 0.6)
-export const terminalHoverHighlightBackground = withAlpha(
-  brandButtonPrimary,
-  0.2
-)
-export const terminalDropBackground = withAlpha(bgDrop, 0.5)
-export const terminalOverviewRulerFindMatchForeground = withAlpha(
-  textPrimary,
-  0.27
-)
-
-// Base theme colors with alpha
-export const focusBorder = withAlpha(basePalette.blue, 0.3)
-export const extensionButtonProminentHoverBackground = withAlpha(
-  brandButtonPrimary,
-  0.3
-)
-export const scrollbarSliderBackground = withAlpha(uiScrollbarBase, 0.25)
-export const scrollbarSliderHoverBackground = withAlpha(uiScrollbarBase, 0.38)
-export const scrollbarSliderActiveBackground = withAlpha(uiScrollbarBase, 0.5)
-export const keybindingLabelBackground = withAlpha(bgElevated, 0.6)
-export const keybindingLabelBottomBorder = withAlpha(border, 0.67)
-
-// Misc colors with alpha
-export const toolbarHoverBackground = withAlpha(interfaceColors.editorBg, 0.13)
-export const toolbarActiveBackground = withAlpha(interfaceColors.editorBg, 0.13)
-
-// Peek view colors with alpha
-export const peekViewEditorMatchHighlightBackground = withAlpha(
-  brandButtonPrimary,
-  0.15
-)
-export const peekViewResultSelectionBackground = withAlpha(
-  brandButtonPrimary,
-  0.2
-)
-export const peekViewResultMatchHighlightBackground = withAlpha(
-  brandButtonPrimary,
-  0.15
-)
-
-// Tabs colors with alpha
-export const tabLastPinnedBorder = withAlpha(textSubtle2, 0.8)
-export const tabSelectedForeground = withAlpha(textPrimary, 0.63)
-
-// Menus colors with alpha
-export const menuBorder = withAlpha(border, 0)
-
-// Git colors with alpha
-export const gitBlameEditorDecorationForeground = withAlpha(textSubtle2, 0.5)
-
-// Diff editor colors with alpha
-export const diffEditorInsertedTextBackground = withAlpha(
-  basePalette.blue,
-  0.15
-)
-export const diffEditorRemovedTextBackground = withAlpha(basePalette.red, 0.15)
-export const diffEditorInsertedTextBorder = withAlpha(basePalette.blue, 0)
-export const diffEditorRemovedTextBorder = withAlpha(basePalette.red, 0)
-export const diffEditorInsertedLineBackground = withAlpha(basePalette.blue, 0.1)
-export const diffEditorRemovedLineBackground = withAlpha(basePalette.red, 0.1)
-export const diffEditorDiagonalFill = withAlpha(textSubtle2, 0.2)
-
-// Merge colors with alpha
-export const mergeCurrentHeaderBackground = withAlpha(basePalette.teal, 0.67)
-export const mergeCurrentContentBackground = withAlpha(basePalette.teal, 0.27)
-export const mergeIncomingHeaderBackground = withAlpha(brandButtonPrimary, 0.67)
-export const mergeIncomingContentBackground = withAlpha(
-  brandButtonPrimary,
-  0.27
-)
-
-// Debug colors with alpha
-export const editorStackFrameHighlightBackground = withAlpha(
-  basePalette.yellow,
-  0.15
-)
-export const editorFocusedStackFrameHighlightBackground = withAlpha(
-  basePalette.teal,
-  0.15
-)
-export const debugViewValueChangedHighlight = withAlpha(
-  brandButtonPrimary,
-  0.67
-)
-
-// Input validation colors with alpha
-export const inputValidationInfoBackground = withAlpha(basePalette.blue, 0.13)
-export const inputValidationWarningBackground = withAlpha(
-  basePalette.yellow,
-  0.13
-)
-export const inputValidationErrorBackground = withAlpha(basePalette.red, 0.13)
-
-// Status bar colors with alpha
-export const statusBarItemHoverBackground = withAlpha(bgHover, 0.6)
-export const statusBarItemProminentHoverBackground = withAlpha(bgHover, 0.4)
-export const statusBarItemErrorHoverBackground = withAlpha(basePalette.red, 0.8)
-export const statusBarItemWarningHoverBackground = withAlpha(
-  basePalette.yellow,
-  0.8
-)
-export const statusBarItemCompactHoverBackground = withAlpha(bgHover, 0.5)
-export const statusBarItemOfflineHoverBackground = withAlpha(
-  basePalette.red,
-  0.8
-)
-
-// Button colors with alpha
-export const buttonBorder = withAlpha(basePalette.blue, 0.5)
-export const buttonSeparator = withAlpha(basePalette.blue, 0.4)
-
-// Editor bracket pair guide colors with alpha
-export const editorBracketPairGuideActiveBackground1 = withAlpha(
-  basePalette.blue,
-  0.15
-)
-export const editorBracketPairGuideActiveBackground2 = withAlpha(
-  basePalette.orange,
-  0.15
-)
-export const editorBracketPairGuideActiveBackground3 = withAlpha(
-  basePalette.green,
-  0.15
-)
-export const editorBracketPairGuideActiveBackground4 = withAlpha(
-  basePalette.yellow,
-  0.15
-)
-export const editorBracketPairGuideActiveBackground5 = withAlpha(
-  basePalette.red,
-  0.15
-)
-export const editorBracketPairGuideActiveBackground6 = withAlpha(
-  basePalette.magenta,
-  0.15
-)
-
-// Editor colors with alpha
-export const editorFoldBackground = withAlpha(bgElevated, 0.15)
-export const editorSelectionBackground = withAlpha(basePalette.blue, 0.15)
-export const editorInactiveSelectionBackground = withAlpha(
-  basePalette.blue,
-  0.15
-)
-export const editorFindMatchBackground = withAlpha(basePalette.yellow, 0.15)
-export const editorFindMatchHighlightBackground = withAlpha(
-  basePalette.purple,
-  0.15
-)
-export const editorFindMatchHighlightBorder = withAlpha(basePalette.blue, 0.15)
-export const editorFindRangeHighlightBackground = withAlpha(textSoft, 0.25)
-export const editorFindRangeHighlightBorder = withAlpha(textMuted, 0.45)
-export const editorRangeHighlightBackground = withAlpha(textSubtle2, 0.15)
-export const editorWordHighlightBackground = withAlpha(basePalette.blue, 0.05)
-export const editorWordHighlightBorder = withAlpha(basePalette.blue, 0.45)
-export const editorWordHighlightStrongBackground = withAlpha(
-  basePalette.blue,
-  0.15
-)
-export const editorWordHighlightStrongBorder = withAlpha(basePalette.blue, 0.45)
-export const editorSelectionHighlightBackground = withAlpha(
-  basePalette.blue,
-  0.15
-)
-export const editorSelectionHighlightBorder = withAlpha(basePalette.blue, 0.45)
-export const editorHoverHighlightBackground = withAlpha(basePalette.blue, 0.15)
-export const editorIndentGuideBackground1 = withAlpha(textSubtle2, 0.15)
-export const editorIndentGuideActiveBackground1 = withAlpha(textSubtle2, 0.15)
-export const editorWhitespaceForeground = withAlpha(textSubtle2, 0.15)
-export const editorBracketMatchBorder = withAlpha(basePalette.blue, 0.15)
-export const editorInlayHintBackground = withAlpha(bgElevated, 0.15)
-export const editorInlayHintTypeBackground = withAlpha(bgElevated, 0.15)
-export const editorInlayHintParameterBackground = withAlpha(bgElevated, 0.15)
-export const editorOverviewRulerFindMatchForeground = withAlpha(
-  textPrimary,
-  0.15
-)
-export const editorOverviewRulerRangeHighlightForeground = withAlpha(
-  textPrimary,
-  0.15
-)
-export const editorOverviewRulerSelectionHighlightForeground = withAlpha(
-  textPrimary,
-  0.15
-)
-export const editorOverviewRulerWordHighlightForeground = withAlpha(
-  basePalette.blue,
-  0.15
-)
-export const editorOverviewRulerWordHighlightStrongForeground = withAlpha(
-  basePalette.blue,
-  0.15
-)
-export const editorWidgetResizeBorder = withAlpha(textSubtle2, 0.15)
-export const editorSuggestWidgetBorder = withAlpha(coreBlack, 0)
-export const searchEditorFindMatchBackground = withAlpha(basePalette.blue, 0.15)
-
+// Derived object assembled from token constants
 export const derived = {
   editor: {
     bracketPairGuideActiveBackground1: editorBracketPairGuideActiveBackground1,
@@ -373,12 +231,8 @@ export const derived = {
     hoverBackground: toolbarHoverBackground,
     activeBackground: toolbarActiveBackground,
   },
-  menu: {
-    border: menuBorder,
-  },
-  git: {
-    blameEditorDecorationForeground: gitBlameEditorDecorationForeground,
-  },
+  menu: { border: menuBorder },
+  git: { blameEditorDecorationForeground: gitBlameEditorDecorationForeground },
   peekView: {
     editorMatchHighlightBackground: peekViewEditorMatchHighlightBackground,
     resultSelectionBackground: peekViewResultSelectionBackground,
@@ -404,53 +258,45 @@ export const derived = {
     editorFocusedStackFrameHighlightBackground,
     debugViewValueChangedHighlight,
   },
-  button: {
-    border: buttonBorder,
-    separator: buttonSeparator,
-  },
-  inputValidation: {
-    infoBackground: inputValidationInfoBackground,
-    warningBackground: inputValidationWarningBackground,
-    errorBackground: inputValidationErrorBackground,
-  },
 } as const
 
+// Public core object assembled from tokens and base palette
 export const core = {
   bg: {
-    base: interfaceColors.editorBg,
-    elevated: bgElevated,
-    overlay: bgOverlay,
-    input: bgInput,
-    hover: bgHover,
-    active: bgActive,
-    drop: bgDrop,
-    lineHighlight: bgLineHighlight,
-    bracketMatch: bgBracketMatch,
-    tabs: interfaceColors.editorBg,
+    base: coreBlack,
+    elevated: tokens.bgElevated,
+    overlay: tokens.bgOverlay,
+    input: tokens.bgInput,
+    hover: tokens.bgHover,
+    active: tokens.bgActive,
+    drop: tokens.bgDrop,
+    lineHighlight: tokens.bgLineHighlight,
+    bracketMatch: tokens.bgBracketMatch,
+    tabs: coreBlack,
     selection: {
-      active: bgSelectionActive,
-      inactive: bgSelectionInactive,
-      focus: bgSelectionFocus,
-      menu: bgSelectionMenu,
+      active: tokens.editorSelectionBackground,
+      inactive: tokens.editorInactiveSelectionBackground,
+      focus: tokens.editorSelectionBackground,
+      menu: tokens.peekViewResultSelectionBackground,
     },
-    stateLabel: bgStateLabel,
+    stateLabel: tokens.bgStateLabel,
   },
-  border: border,
+  border: tokens.border,
   text: {
-    primary: textPrimary,
-    muted: textMuted,
+    primary: tokens.textPrimary,
+    muted: tokens.textMuted,
     subtle: generatedGray,
-    inactive: textInactive,
-    soft: textSoft,
+    inactive: tokens.textInactive,
+    soft: tokens.textSoft,
     selection: coreWhite,
-    subtle2: textSubtle2,
-    gray600: textGray600,
-    comment: textComment,
-    commentDoc: textCommentDoc,
-    commentDocEmphasized: textCommentDocEmphasized,
-    preformat: textPreformat,
-    placeholder: textPlaceholder,
-    editorLinkActive: textEditorLinkActive,
+    subtle2: tokens.textSubtle2,
+    gray600: tokens.textGray600,
+    comment: tokens.textComment,
+    commentDoc: tokens.textCommentDoc,
+    commentDocEmphasized: tokens.textCommentDocEmphasized,
+    preformat: tokens.textPreformat,
+    placeholder: tokens.textPlaceholder,
+    editorLinkActive: tokens.textEditorLinkActive,
   },
   accent: {
     blue: basePalette.blue,
@@ -465,25 +311,25 @@ export const core = {
   },
   brand: {
     button: {
-      primary: brandButtonPrimary,
-      hover: brandButtonHover,
+      primary: tokens.brandButtonPrimary,
+      hover: tokens.brandButtonHover,
     },
   },
   ui: {
-    shadow: uiShadow,
-    selectionWash: uiSelectionWash,
-    scrollbarBase: uiScrollbarBase,
+    shadow: tokens.uiShadow,
+    selectionWash: tokens.uiSelectionWash,
+    scrollbarBase: tokens.uiScrollbarBase,
     tab: {
       activeModified: basePalette.purple,
       inactiveModified: basePalette.cyan,
-      unfocusedActive: uiTabUnfocusedActive,
+      unfocusedActive: tokens.uiTabUnfocusedActive,
     },
     git: {
-      ignored: uiGitIgnored,
-      deleted: uiGitDeleted,
-      conflicting: uiGitConflicting,
-      stageDeleted: uiGitStageDeleted,
-      stageModified: uiGitStageModified,
+      ignored: tokens.uiGitIgnored,
+      deleted: tokens.uiGitDeleted,
+      conflicting: tokens.uiGitConflicting,
+      stageDeleted: tokens.uiGitStageDeleted,
+      stageModified: tokens.uiGitStageModified,
     },
   },
 } as const
