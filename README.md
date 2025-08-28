@@ -65,6 +65,8 @@ tokyo-night-vscode-theme-lod/
 
 ## 🛠️ Development
 
+Architecture is simplified: one dark variant generated from TypeScript sources. Do not edit themes/*.json directly — run build instead.
+
 ### Prerequisites
 
 - Node.js 18+

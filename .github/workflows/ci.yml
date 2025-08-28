@@ -92,7 +92,7 @@ jobs:
         run: npm run test
 
       - name: Build themes
-        run: npm run build:all
+        run: npm run build
 
       - name: Validate themes
         run: npm run validate:all
@@ -100,7 +100,8 @@ jobs:
       - name: Test CLI
         run: |
           npm run cli info
-          npm run cli plugins list
+          npm run cli build
+          npm run validate themes/tokyo-night-dark-color-theme.json
 
       - name: Check theme file sizes
         run: |
