@@ -343,6 +343,7 @@ export const palette: Palette = {
 
 // Re-export internal computed colors from palette.core for theme modules
 export {
+  derived,
   focusBorder,
   extensionButtonProminentHoverBackground,
   scrollbarSliderBackground,

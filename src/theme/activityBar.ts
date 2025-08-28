@@ -1,6 +1,8 @@
 import { palette } from '../palette'
+import type { VSCodeColorKey } from '../validation/allowedProperties'
+import type { Hex } from '../types/palette'
 
-export const getActivityBarColors = () => ({
+export const getActivityBarColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
   // Панель действий (Activity Bar)
   'activityBar.background': palette.bg.elevated, // Фон панели действий
   'activityBar.foreground': palette.fg.primary, // Цвет иконок в панели действий

@@ -4,7 +4,7 @@
  * Последнее обновление: август 2025
  */
 
-export const ALLOWED_THEME_PROPERTIES = new Set([
+export const VS_CODE_COLOR_KEYS = [
   // Contrast colors
   'contrastActiveBorder',
   'contrastBorder',
@@ -894,7 +894,13 @@ export const ALLOWED_THEME_PROPERTIES = new Set([
 
   // Simple Find Widget colors
   'simpleFindWidget.sashBorder',
-])
+] as const
+
+export type VSCodeColorKey = typeof VS_CODE_COLOR_KEYS[number]
+
+export const ALLOWED_THEME_PROPERTIES: ReadonlySet<string> = new Set<string>(
+  VS_CODE_COLOR_KEYS as unknown as string[]
+)
 
 /**
  * Недопустимые/устаревшие свойства, которые нужно избегать

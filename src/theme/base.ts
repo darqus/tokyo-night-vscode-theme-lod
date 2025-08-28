@@ -8,8 +8,10 @@ import {
   keybindingLabelBackground,
   keybindingLabelBottomBorder,
 } from '../palette'
+import type { VSCodeColorKey } from '../validation/allowedProperties'
+import type { Hex } from '../types/palette'
 
-export const getBaseColors = () => ({
+export const getBaseColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
   // Верхний уровень и основа
   foreground: palette.fg.primary,
   descriptionForeground: palette.fg.muted,

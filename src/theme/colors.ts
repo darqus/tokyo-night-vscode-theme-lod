@@ -18,9 +18,11 @@ import { getChartColors } from './charts'
 import { getDebugColors } from './debug'
 import { getQuickInputColors } from './quickInput'
 import { getMiscColors } from './misc'
+import type { VSCodeColorKey } from '../validation/allowedProperties'
+import type { Hex } from '../types/palette'
 
 // Aggregates all theme color segments into a single flat map
-export const buildColors = (): Record<string, string> => ({
+export const buildColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
   ...getBaseColors(),
   ...getButtonColors(),
   ...getInputColors(),
