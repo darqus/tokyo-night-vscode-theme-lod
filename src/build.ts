@@ -26,9 +26,7 @@ const validateAndSaveTheme = (
 
   // Validate theme properties
   const propertyValidator = new PropertyValidator()
-  const propertyValidation = propertyValidator.validateThemeProperties(
-    theme
-  )
+  const propertyValidation = propertyValidator.validateThemeProperties(theme)
 
   if (!propertyValidation.passed) {
     console.warn(`⚠️  Issues found with properties in ${themeName}:`)
@@ -46,9 +44,7 @@ const validateAndSaveTheme = (
     })
 
     // Automatically fix invalid properties
-    const { fixedTheme, fixes } = propertyValidator.fixInvalidProperties(
-      theme
-    )
+    const { fixedTheme, fixes } = propertyValidator.fixInvalidProperties(theme)
     if (fixes.length > 0) {
       console.log(`🔧 Automatically fixed ${fixes.length} issues:`)
       fixes.forEach((fix) => {
@@ -99,7 +95,7 @@ const main = async (): Promise<void> => {
   console.log('🏗️  Building Tokyo Night Lod (single dark theme)...')
 
   // Import performance monitor lazily
-  const { BuildPerformanceMonitor } = require('../scripts/build-monitor.js')
+  const { BuildPerformanceMonitor } = require('../scripts/build-monitor.ts')
   const monitor = new BuildPerformanceMonitor()
   monitor.start()
 

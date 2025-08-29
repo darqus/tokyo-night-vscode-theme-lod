@@ -5,26 +5,36 @@
  * Analyzes theme file sizes and structure
  */
 
-const fs = require('fs')
-const path = require('path')
-const { promisify } = require('util')
+import * as fs from 'fs'
+import * as path from 'path'
+import { promisify } from 'util'
 
 const readFile = promisify(fs.readFile)
 const stat = promisify(fs.stat)
 
+interface Theme {
+  colors?: Record<string, string>
+  tokenColors?: any[]
+  semanticTokenColors?: Record<string, any>
+  [key: string]: any
+}
+
 class ThemeBundleAnalyzer {
+  private themesDir: string
+
   constructor() {
     this.themesDir = path.join(process.cwd(), 'themes')
   }
 
-  async analyzeThemes() {
+  async analyzeThemes(): Promise<void> {
     if (!fs.existsSync(this.themesDir)) {
       console.error('❌ Themes directory not found')
       return
     }
 
-    const themeFiles = fs.readdirSync(this.themesDir)
-      .filter(file => file.endsWith('.json'))
+    const themeFiles = fs
+      .readdirSync(this.themesDir)
+      .filter((file) => file.endsWith('.json'))
 
     if (themeFiles.length === 0) {
       console.log('No theme files found')
@@ -43,12 +53,12 @@ class ThemeBundleAnalyzer {
     console.log(`Total themes analyzed: ${themeFiles.length}`)
   }
 
-  async analyzeThemeFile(fileName) {
+  private async analyzeThemeFile(fileName: string): Promise<void> {
     const filePath = path.join(this.themesDir, fileName)
     try {
       const stats = await stat(filePath)
       const content = await readFile(filePath, 'utf8')
-      const theme = JSON.parse(content)
+      const theme: Theme = JSON.parse(content)
 
       const sizeKB = (stats.size / 1024).toFixed(2)
       const lineCount = content.split('\n').length
@@ -60,36 +70,39 @@ class ThemeBundleAnalyzer {
       console.log(`   Properties: ${propertyCount}`)
 
       // Analyze theme structure
-      this.analyzeThemeStructure(theme, fileName)
+      this.analyzeThemeStructure(theme)
 
       // Check for optimization opportunities
-      this.checkOptimizationOpportunities(theme, fileName)
-
-    } catch (error) {
+      this.checkOptimizationOpportunities(theme)
+    } catch (error: any) {
       console.error(`❌ Error analyzing ${fileName}: ${error.message}`)
     }
   }
 
-  countProperties(obj) {
+  private countProperties(obj: any): number {
     if (typeof obj !== 'object' || obj === null) {
       return 0
     }
 
     let count = 0
     for (const key in obj) {
-      count++
-      if (typeof obj[key] === 'object' && obj[key] !== null) {
-        count += this.countProperties(obj[key])
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        count++
+        if (typeof obj[key] === 'object' && obj[key] !== null) {
+          count += this.countProperties(obj[key])
+        }
       }
     }
     return count
   }
 
-  analyzeThemeStructure(theme, fileName) {
+  private analyzeThemeStructure(theme: Theme): void {
     const sections = {
       'UI Colors': theme.colors ? Object.keys(theme.colors).length : 0,
       'Token Colors': theme.tokenColors ? theme.tokenColors.length : 0,
-      'Semantic Tokens': theme.semanticTokenColors ? Object.keys(theme.semanticTokenColors).length : 0
+      'Semantic Tokens': theme.semanticTokenColors
+        ? Object.keys(theme.semanticTokenColors).length
+        : 0,
     }
 
     console.log('   Structure:')
@@ -100,20 +113,20 @@ class ThemeBundleAnalyzer {
     }
   }
 
-  checkOptimizationOpportunities(theme, fileName) {
-    const opportunities = []
+  private checkOptimizationOpportunities(theme: Theme): void {
+    const opportunities: string[] = []
 
     // Check for duplicate colors
     if (theme.colors) {
-      const colorCounts = {}
-      for (const [key, value] of Object.entries(theme.colors)) {
+      const colorCounts: Record<string, number> = {}
+      for (const value of Object.values(theme.colors)) {
         if (typeof value === 'string') {
           colorCounts[value] = (colorCounts[value] || 0) + 1
         }
       }
 
       const duplicates = Object.entries(colorCounts)
-        .filter(([color, count]) => count > 1)
+        .filter(([, count]) => count > 1)
         .map(([color, count]) => `${color} (${count} times)`)
 
       if (duplicates.length > 0) {
@@ -123,7 +136,9 @@ class ThemeBundleAnalyzer {
 
     // Check for overly specific token colors
     if (theme.tokenColors && theme.tokenColors.length > 500) {
-      opportunities.push(`Large number of token colors (${theme.tokenColors.length})`)
+      opportunities.push(
+        `Large number of token colors (${theme.tokenColors.length})`
+      )
     }
 
     // Check for unused semantic tokens
@@ -136,7 +151,7 @@ class ThemeBundleAnalyzer {
 
     if (opportunities.length > 0) {
       console.log('   🔧 Optimization opportunities:')
-      opportunities.forEach(opp => {
+      opportunities.forEach((opp) => {
         console.log(`     • ${opp}`)
       })
     }
@@ -149,10 +164,10 @@ async function main() {
 }
 
 if (require.main === module) {
-  main().catch(error => {
+  main().catch((error: any) => {
     console.error('❌ Analysis failed:', error)
     process.exit(1)
   })
 }
 
-module.exports = { ThemeBundleAnalyzer }
+export { ThemeBundleAnalyzer }

@@ -4,13 +4,13 @@
  * Test script to verify visual regression testing detects changes
  */
 
-const fs = require('fs')
-const path = require('path')
-const { execSync } = require('child_process')
+import * as fs from 'fs'
+import * as path from 'path'
+import { execSync } from 'child_process'
 
-function runTest() {
+function runTest(): void {
   console.log('Testing visual regression detection...')
-  
+
   // Run the visual tests to confirm they pass initially
   console.log('\n1. Running initial tests...')
   try {
@@ -20,20 +20,20 @@ function runTest() {
     console.log('❌ Initial tests failed')
     process.exit(1)
   }
-  
+
   // Temporarily modify a theme color to simulate a change
   console.log('\n2. Modifying theme to simulate change...')
   const buttonsPath = path.join(__dirname, '..', 'src', 'theme', 'buttons.ts')
   const originalContent = fs.readFileSync(buttonsPath, 'utf8')
-  
+
   // Change the button background color
   const modifiedContent = originalContent.replace(
     "'button.background': palette.brand.button.primary,",
     "'button.background': '#ff0000' as `#${string}`, // Temporary change for testing"
   )
-  
+
   fs.writeFileSync(buttonsPath, modifiedContent)
-  
+
   // Rebuild the theme
   console.log('3. Rebuilding theme with modified color...')
   try {
@@ -45,7 +45,7 @@ function runTest() {
     fs.writeFileSync(buttonsPath, originalContent)
     process.exit(1)
   }
-  
+
   // Run visual tests again - they should fail now
   console.log('\n4. Running tests with modified theme...')
   let visualTestsPassed = true
@@ -56,11 +56,11 @@ function runTest() {
   } catch (error) {
     console.log('✅ Visual tests correctly failed')
   }
-  
+
   // Restore original content
   console.log('\n5. Restoring original theme...')
   fs.writeFileSync(buttonsPath, originalContent)
-  
+
   // Rebuild the theme again
   console.log('6. Rebuilding theme with original color...')
   try {
@@ -70,7 +70,7 @@ function runTest() {
     console.log('❌ Failed to rebuild theme')
     process.exit(1)
   }
-  
+
   // Run visual tests one more time - they should pass again
   console.log('\n7. Running tests with original theme...')
   try {
@@ -80,7 +80,7 @@ function runTest() {
     console.log('❌ Visual tests failed with original theme')
     visualTestsPassed = false
   }
-  
+
   // Final result
   console.log('\n🎉 Test Results:')
   if (visualTestsPassed) {

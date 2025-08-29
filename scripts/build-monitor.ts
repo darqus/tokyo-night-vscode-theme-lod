@@ -5,111 +5,121 @@
  * Tracks build times and resource usage
  */
 
-const fs = require('fs')
-const path = require('path')
+import * as fs from 'fs'
+import * as path from 'path'
+
+interface BuildMetrics {
+  timestamp: string
+  buildTimeMs: number
+  memoryUsedBytes: number
+  memoryUsedMB: string
+}
 
 class BuildPerformanceMonitor {
-  constructor() {
-    this.startTime = null
-    this.startMemory = null
-    this.metrics = []
-  }
+  private startTime: bigint | null = null
+  private startMemory: NodeJS.MemoryUsage | null = null
+  private metrics: BuildMetrics[] = []
 
-  start() {
+  start(): void {
     this.startTime = process.hrtime.bigint()
     this.startMemory = process.memoryUsage()
     console.log('⏱️  Starting build performance monitoring...')
   }
 
-  end() {
-    if (!this.startTime) {
+  end(): BuildMetrics | undefined {
+    if (!this.startTime || !this.startMemory) {
       console.warn('Build performance monitoring was not started')
       return
     }
 
     const endTime = process.hrtime.bigint()
     const endMemory = process.memoryUsage()
-    
-    const buildTime = Number(endTime - this.startTime) / 1000000 // Convert to milliseconds
+
+    const buildTime = Number(endTime - this.startTime) / 1_000_000 // Convert to milliseconds
     const memoryUsed = endMemory.heapUsed - this.startMemory.heapUsed
-    
-    const metrics = {
+
+    const metrics: BuildMetrics = {
       timestamp: new Date().toISOString(),
       buildTimeMs: buildTime,
       memoryUsedBytes: memoryUsed,
-      memoryUsedMB: (memoryUsed / 1024 / 1024).toFixed(2)
+      memoryUsedMB: (memoryUsed / 1024 / 1024).toFixed(2),
     }
-    
+
     this.metrics.push(metrics)
-    
+
     console.log(`\n📊 Build Performance Metrics:`)
     console.log(`   Build Time: ${buildTime.toFixed(2)}ms`)
     console.log(`   Memory Used: ${metrics.memoryUsedMB}MB`)
-    
+
     // Save metrics to file
     this.saveMetrics(metrics)
-    
+
     return metrics
   }
 
-  saveMetrics(metrics) {
+  private saveMetrics(metrics: BuildMetrics): void {
     const metricsFile = path.join(process.cwd(), 'build-metrics.json')
-    let existingMetrics = []
-    
+    let existingMetrics: BuildMetrics[] = []
+
     // Load existing metrics if file exists
     if (fs.existsSync(metricsFile)) {
       try {
         const content = fs.readFileSync(metricsFile, 'utf8')
         existingMetrics = JSON.parse(content)
-      } catch (error) {
+      } catch (error: any) {
         console.warn('Could not read existing metrics file:', error.message)
       }
     }
-    
+
     // Add new metrics
     existingMetrics.push(metrics)
-    
+
     // Keep only last 50 metrics
     if (existingMetrics.length > 50) {
       existingMetrics = existingMetrics.slice(-50)
     }
-    
+
     // Save metrics
     try {
       fs.writeFileSync(metricsFile, JSON.stringify(existingMetrics, null, 2))
       console.log(`   Metrics saved to ${metricsFile}`)
-    } catch (error) {
+    } catch (error: any) {
       console.warn('Could not save metrics file:', error.message)
     }
   }
 
-  getAverageMetrics() {
+  getAverageMetrics(): {
+    averageBuildTimeMs: number
+    averageMemoryUsedMB: string
+  } | null {
     const metricsFile = path.join(process.cwd(), 'build-metrics.json')
-    
+
     if (!fs.existsSync(metricsFile)) {
       return null
     }
-    
+
     try {
       const content = fs.readFileSync(metricsFile, 'utf8')
-      const metrics = JSON.parse(content)
-      
+      const metrics: BuildMetrics[] = JSON.parse(content)
+
       if (metrics.length === 0) {
         return null
       }
-      
-      const avgBuildTime = metrics.reduce((sum, m) => sum + m.buildTimeMs, 0) / metrics.length
-      const avgMemory = metrics.reduce((sum, m) => sum + m.memoryUsedBytes, 0) / metrics.length
-      
+
+      const avgBuildTime =
+        metrics.reduce((sum, m) => sum + m.buildTimeMs, 0) / metrics.length
+      const avgMemory =
+        metrics.reduce((sum, m) => sum + m.memoryUsedBytes, 0) / metrics.length
+
       return {
         averageBuildTimeMs: avgBuildTime,
-        averageMemoryUsedMB: (avgMemory / 1024 / 1024).toFixed(2)
+        averageMemoryUsedMB: (avgMemory / 1024 / 1024).toFixed(2),
       }
-    } catch (error) {
+    } catch (error: any) {
       console.warn('Could not read metrics file:', error.message)
       return null
     }
   }
 }
 
-module.exports = { BuildPerformanceMonitor }
+export { BuildPerformanceMonitor }
