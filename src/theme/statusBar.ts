@@ -1,12 +1,4 @@
-import { palette } from '../palette'
-import {
-  statusBarItemHoverBackground,
-  statusBarItemProminentHoverBackground,
-  statusBarItemErrorHoverBackground,
-  statusBarItemWarningHoverBackground,
-  statusBarItemCompactHoverBackground,
-  statusBarItemOfflineHoverBackground,
-} from '../palette'
+import { palette, core } from '../palette'
 
 export const getStatusBarColors = () => ({
   // Строка состояния
@@ -23,11 +15,11 @@ export const getStatusBarColors = () => ({
   'statusBar.focusBorder': palette.ui.sash.hover,
   'statusBarItem.activeBackground': palette.bg.active,
   'statusBarItem.hoverForeground': palette.fg.primary,
-  'statusBarItem.hoverBackground': statusBarItemHoverBackground,
+  'statusBarItem.hoverBackground': core.tokens.statusBarItemHoverBackground,
   'statusBarItem.prominentBackground': palette.bg.overlay,
   'statusBarItem.prominentForeground': palette.fg.primary,
   'statusBarItem.prominentHoverBackground':
-    statusBarItemProminentHoverBackground,
+    core.tokens.statusBarItemProminentHoverBackground,
   'statusBarItem.prominentHoverForeground': palette.fg.onSelection,
   // Remote индикатор
   'statusBarItem.remoteBackground': palette.brand.button.primary,
@@ -37,17 +29,21 @@ export const getStatusBarColors = () => ({
   // Ошибки/предупреждения
   'statusBarItem.errorBackground': palette.accent.red,
   'statusBarItem.errorForeground': palette.ui.semantic.white,
-  'statusBarItem.errorHoverBackground': statusBarItemErrorHoverBackground,
+  'statusBarItem.errorHoverBackground':
+    core.tokens.statusBarItemErrorHoverBackground,
   'statusBarItem.errorHoverForeground': palette.ui.semantic.white,
   'statusBarItem.warningBackground': palette.accent.yellow,
   'statusBarItem.warningForeground': palette.bg.base,
-  'statusBarItem.warningHoverBackground': statusBarItemWarningHoverBackground,
+  'statusBarItem.warningHoverBackground':
+    core.tokens.statusBarItemWarningHoverBackground,
   'statusBarItem.warningHoverForeground': palette.bg.base,
   // Прочее
-  'statusBarItem.compactHoverBackground': statusBarItemCompactHoverBackground,
+  'statusBarItem.compactHoverBackground':
+    core.tokens.statusBarItemCompactHoverBackground,
   'statusBarItem.focusBorder': palette.ui.sash.hover,
   'statusBarItem.offlineBackground': palette.ui.semantic.offline,
   'statusBarItem.offlineForeground': palette.ui.semantic.white,
-  'statusBarItem.offlineHoverBackground': statusBarItemOfflineHoverBackground,
+  'statusBarItem.offlineHoverBackground':
+    core.tokens.statusBarItemOfflineHoverBackground,
   'statusBarItem.offlineHoverForeground': palette.ui.semantic.white,
 })

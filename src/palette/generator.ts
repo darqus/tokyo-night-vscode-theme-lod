@@ -26,7 +26,8 @@ const uiBase = {
 const alpha = withAlpha
 const blend = mix
 const toward = (a: Hex, b: Hex, k: number) => lightenToward(a, b, k)
-const darkenBg = (k: number) => darkenToward(uiBase.editorBg, coreBlack, k)
+const darken = (a: Hex, b: Hex, k: number) => darkenToward(a, b, k)
+const darkenBg = (k: number) => darken(uiBase.editorBg, coreBlack, k)
 const generatedGray = blend(coreWhite, coreBlack, intensity.mix.gray)
 const aquaLight = toward(basePalette.cyan, basePalette.blue, 0.15)
 
@@ -294,11 +295,53 @@ const formulas = {
     alpha(coreBlack, intensity.alpha.suggestWidgetBorder),
   searchEditorFindMatchBackground: () =>
     alpha(basePalette.blue, intensity.alpha.searchEditorFindMatch),
+
+  // Accent colors
+  tealSoft: () => toward(basePalette.teal, basePalette.cyan, 0.25),
+  skyLight: () => toward(basePalette.cyan, basePalette.blue, 0.35),
+  indigo: () => blend(basePalette.blue, basePalette.purple, 0.5),
+  rose: () => toward(basePalette.red, basePalette.magenta, 0.3),
+  azureLight: () => toward(basePalette.cyan, basePalette.blue, 0.18),
+  tealDeep: () => darken(basePalette.teal, basePalette.blue, 0.25),
+  bluePunctuation: () => darken(basePalette.blue, basePalette.purple, 0.18),
+  mint: () => toward(basePalette.green, basePalette.cyan, 0.18),
+  lilac: () => toward(basePalette.magenta, basePalette.blue, 0.18),
+  pinkMuted: () => blend(basePalette.red, basePalette.magenta, 0.5),
+  azure: () => toward(basePalette.cyan, basePalette.blue, 0.12),
+  maroon: () => darken(basePalette.red, basePalette.purple, 0.18),
+  blueMuted: () => blend(basePalette.blue, formulas.textMuted(), 0.4),
+  sky: () => toward(basePalette.cyan, basePalette.blue, 0.22),
+  grayBlue400: () => blend(basePalette.blue, generatedGray, 0.5),
+  blueBright: () => toward(basePalette.blue, basePalette.cyan, 0.25),
+  blueSoft: () => toward(basePalette.blue, generatedGray, 0.18),
+  violet: () => toward(basePalette.purple, basePalette.blue, 0.18),
+  cyan500: () => darken(basePalette.cyan, basePalette.blue, 0.18),
+  slate: () => blend(basePalette.blue, basePalette.cyan, 0.3),
+  steel: () => darken(basePalette.blue, formulas.textMuted(), 0.35),
+  steelAlt: () => toward(basePalette.blue, formulas.textMuted(), 0.18),
+  steelMuted: () => blend(basePalette.blue, formulas.textMuted(), 0.8),
+  brick: () => darken(basePalette.red, basePalette.orange, 0.18),
+  redMuted: () => blend(basePalette.red, formulas.textMuted(), 0.5),
+  badgeBase: () => toward(basePalette.blue, basePalette.cyan, 0.35),
+  windowBorder: () => darken(basePalette.blue, formulas.textMuted(), 0.22),
+  blue400: () => toward(basePalette.blue, basePalette.cyan, 0.18),
+
+  // Brackets & Punctuation
+  bracketRound: () => toward(basePalette.cyan, basePalette.blue, 0.15),
+  bracketSquare: () => toward(basePalette.teal, basePalette.cyan, 0.25),
+  bracketCurly: () => toward(basePalette.magenta, basePalette.purple, 0.25),
+  bracketAngle: () => toward(basePalette.blue, basePalette.cyan, 0.35),
+  punctuationComma: () => toward(basePalette.cyan, basePalette.blue, 0.45),
+  punctuationDot: () => toward(basePalette.blue, basePalette.cyan, 0.25),
+  punctuationColon: () => blend(basePalette.teal, basePalette.cyan, 0.3),
+  punctuationSemicolon: () =>
+    blend(basePalette.purple, basePalette.magenta, 0.25),
+  punctuationOperator: () => blend(basePalette.teal, basePalette.cyan, 0.4),
 } as const
 
 export type TokenKey = keyof typeof formulas
 
-export function generatePalette(): Record<TokenKey, Hex> {
+export function generateTokens(): Record<TokenKey, Hex> {
   const cache = new Map<TokenKey, Hex>()
   const resolve = (key: TokenKey): Hex => {
     if (cache.has(key)) return cache.get(key)!

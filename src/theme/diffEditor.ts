@@ -1,21 +1,16 @@
-import { palette } from '../palette'
-import {
-  diffEditorInsertedTextBackground,
-  diffEditorRemovedTextBackground,
-  diffEditorInsertedTextBorder,
-  diffEditorRemovedTextBorder,
-  diffEditorInsertedLineBackground,
-  diffEditorRemovedLineBackground,
-  diffEditorDiagonalFill,
-} from '../palette'
+import { core } from '../palette'
 
 export const getDiffEditorColors = () => ({
   // Редактор сравнения (Diff)
-  'diffEditor.insertedTextBackground': diffEditorInsertedTextBackground,
-  'diffEditor.removedTextBackground': diffEditorRemovedTextBackground,
-  'diffEditor.insertedTextBorder': diffEditorInsertedTextBorder,
-  'diffEditor.removedTextBorder': diffEditorRemovedTextBorder,
-  'diffEditor.insertedLineBackground': diffEditorInsertedLineBackground,
-  'diffEditor.removedLineBackground': diffEditorRemovedLineBackground,
-  'diffEditor.diagonalFill': diffEditorDiagonalFill,
+  'diffEditor.insertedTextBackground':
+    core.tokens.diffEditorInsertedTextBackground,
+  'diffEditor.removedTextBackground':
+    core.tokens.diffEditorRemovedTextBackground,
+  'diffEditor.insertedTextBorder': core.tokens.diffEditorInsertedTextBorder,
+  'diffEditor.removedTextBorder': core.tokens.diffEditorRemovedTextBorder,
+  'diffEditor.insertedLineBackground':
+    core.tokens.diffEditorInsertedLineBackground,
+  'diffEditor.removedLineBackground':
+    core.tokens.diffEditorRemovedLineBackground,
+  'diffEditor.diagonalFill': core.tokens.diffEditorDiagonalFill,
 })

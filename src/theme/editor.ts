@@ -1,43 +1,4 @@
-import { palette } from '../palette'
-import {
-  editorBracketPairGuideActiveBackground1,
-  editorBracketPairGuideActiveBackground2,
-  editorBracketPairGuideActiveBackground3,
-  editorBracketPairGuideActiveBackground4,
-  editorBracketPairGuideActiveBackground5,
-  editorBracketPairGuideActiveBackground6,
-  editorFoldBackground,
-  editorSelectionBackground,
-  editorInactiveSelectionBackground,
-  editorFindMatchBackground,
-  editorFindMatchHighlightBackground,
-  editorFindMatchHighlightBorder,
-  editorFindRangeHighlightBackground,
-  editorFindRangeHighlightBorder,
-  editorRangeHighlightBackground,
-  editorWordHighlightBackground,
-  editorWordHighlightBorder,
-  editorWordHighlightStrongBackground,
-  editorWordHighlightStrongBorder,
-  editorSelectionHighlightBackground,
-  editorSelectionHighlightBorder,
-  editorHoverHighlightBackground,
-  editorIndentGuideBackground1,
-  editorIndentGuideActiveBackground1,
-  editorWhitespaceForeground,
-  editorBracketMatchBorder,
-  editorInlayHintBackground,
-  editorInlayHintTypeBackground,
-  editorInlayHintParameterBackground,
-  editorOverviewRulerFindMatchForeground,
-  editorOverviewRulerRangeHighlightForeground,
-  editorOverviewRulerSelectionHighlightForeground,
-  editorOverviewRulerWordHighlightForeground,
-  editorOverviewRulerWordHighlightStrongForeground,
-  editorWidgetResizeBorder,
-  editorSuggestWidgetBorder,
-  searchEditorFindMatchBackground,
-} from '../palette'
+import { palette, core } from '../palette'
 
 export const getEditorColors = () => ({
   // === ПОДСВЕТКА СКОБОК И НАПРАВЛЯЮЩИЕ ===
@@ -58,22 +19,22 @@ export const getEditorColors = () => ({
   'editorBracketHighlight.unexpectedBracket.foreground': palette.accent.red,
   /** Цвет фона для активной направляющей первой пары скобок */
   'editorBracketPairGuide.activeBackground1':
-    editorBracketPairGuideActiveBackground1,
+    core.tokens.editorBracketPairGuideActiveBackground1,
   /** Цвет фона для активной направляющей второй пары скобок */
   'editorBracketPairGuide.activeBackground2':
-    editorBracketPairGuideActiveBackground2,
+    core.tokens.editorBracketPairGuideActiveBackground2,
   /** Цвет фона для активной направляющей третьей пары скобок */
   'editorBracketPairGuide.activeBackground3':
-    editorBracketPairGuideActiveBackground3,
+    core.tokens.editorBracketPairGuideActiveBackground3,
   /** Цвет фона для активной направляющей четвертой пары скобок */
   'editorBracketPairGuide.activeBackground4':
-    editorBracketPairGuideActiveBackground4,
+    core.tokens.editorBracketPairGuideActiveBackground4,
   /** Цвет фона для активной направляющей пятой пары скобок */
   'editorBracketPairGuide.activeBackground5':
-    editorBracketPairGuideActiveBackground5,
+    core.tokens.editorBracketPairGuideActiveBackground5,
   /** Цвет фона для активной направляющей шестой пары скобок */
   'editorBracketPairGuide.activeBackground6':
-    editorBracketPairGuideActiveBackground6,
+    core.tokens.editorBracketPairGuideActiveBackground6,
 
   // === ОСНОВНЫЕ ЦВЕТА РЕДАКТОРА ===
   /** Цвет фона для общего выделения (не в редакторе) */
@@ -85,56 +46,63 @@ export const getEditorColors = () => ({
   /** Цвет текста-заполнителя в редакторе */
   'editor.placeholder.foreground': palette.ui.input.placeholder,
   /** Цвет фона для свернутых (collapsed) областей кода */
-  'editor.foldBackground': editorFoldBackground,
+  'editor.foldBackground': core.tokens.editorFoldBackground,
   /** Цвет активных ссылок в редакторе (Ctrl+Click) */
   'editorLink.activeForeground': palette.ui.badge.base,
   // === ВЫДЕЛЕНИЕ ТЕКСТА И ПОИСК ===
   /** Цвет фона для выделенного текста (основное выделение) */
-  'editor.selectionBackground': editorSelectionBackground,
+  'editor.selectionBackground': core.tokens.editorSelectionBackground,
   /** Цвет текста для выделенного текста */
   'editor.selectionForeground': palette.fg.selectionText,
   /** Цвет фона для неактивного выделения */
-  'editor.inactiveSelectionBackground': editorInactiveSelectionBackground,
+  'editor.inactiveSelectionBackground':
+    core.tokens.editorInactiveSelectionBackground,
 
   // === ПОИСК И СОВПАДЕНИЯ ===
   /** Цвет фона для текущего найденного совпадения (активное) */
-  'editor.findMatchBackground': editorFindMatchBackground,
+  'editor.findMatchBackground': core.tokens.editorFindMatchBackground,
   /** Цвет рамки для текущего найденного совпадения */
   'editor.findMatchBorder': palette.accent.red,
   /** Цвет фона для других найденных совпадений (неактивные) */
-  'editor.findMatchHighlightBackground': editorFindMatchHighlightBackground,
+  'editor.findMatchHighlightBackground':
+    core.tokens.editorFindMatchHighlightBackground,
   /** Цвет рамки для других найденных совпадений */
-  'editor.findMatchHighlightBorder': editorFindMatchHighlightBorder,
+  'editor.findMatchHighlightBorder': core.tokens.editorFindMatchHighlightBorder,
   /** Цвет фона для выделения диапазона поиска */
-  'editor.findRangeHighlightBackground': editorFindRangeHighlightBackground,
+  'editor.findRangeHighlightBackground':
+    core.tokens.editorFindRangeHighlightBackground,
   /** Цвет рамки для выделения диапазона поиска */
-  'editor.findRangeHighlightBorder': editorFindRangeHighlightBorder,
+  'editor.findRangeHighlightBorder': core.tokens.editorFindRangeHighlightBorder,
   /** Цвет фона для общего выделения диапазона */
-  'editor.rangeHighlightBackground': editorRangeHighlightBackground,
+  'editor.rangeHighlightBackground': core.tokens.editorRangeHighlightBackground,
 
   // === ВЫДЕЛЕНИЕ СЛОВ И СИМВОЛОВ ===
   /** Цвет фона для выделения слова под курсором (read access) */
-  'editor.wordHighlightBackground': editorWordHighlightBackground,
+  'editor.wordHighlightBackground': core.tokens.editorWordHighlightBackground,
   /** Цвет рамки для выделения слова под курсором */
-  'editor.wordHighlightBorder': editorWordHighlightBorder,
+  'editor.wordHighlightBorder': core.tokens.editorWordHighlightBorder,
   /** Цвет фона для "сильного" выделения слова (write access) */
-  'editor.wordHighlightStrongBackground': editorWordHighlightStrongBackground,
+  'editor.wordHighlightStrongBackground':
+    core.tokens.editorWordHighlightStrongBackground,
   /** Цвет рамки для "сильного" выделения слова */
-  'editor.wordHighlightStrongBorder': editorWordHighlightStrongBorder,
+  'editor.wordHighlightStrongBorder':
+    core.tokens.editorWordHighlightStrongBorder,
   /** Цвет фона для выделения похожих символов при выделении */
-  'editor.selectionHighlightBackground': editorSelectionHighlightBackground,
+  'editor.selectionHighlightBackground':
+    core.tokens.editorSelectionHighlightBackground,
   /** Цвет рамки для выделения похожих символов */
-  'editor.selectionHighlightBorder': editorSelectionHighlightBorder,
+  'editor.selectionHighlightBorder': core.tokens.editorSelectionHighlightBorder,
   /** Цвет фона при наведении курсора на элемент */
-  'editor.hoverHighlightBackground': editorHoverHighlightBackground,
+  'editor.hoverHighlightBackground': core.tokens.editorHoverHighlightBackground,
 
   // === КУРСОР, СТРОКИ И ОТСТУПЫ ===
   /** Цвет курсора в редакторе */
   'editorCursor.foreground': palette.fg.primary,
   /** Цвет вертикальных направляющих отступов */
-  'editorIndentGuide.background1': editorIndentGuideBackground1,
+  'editorIndentGuide.background1': core.tokens.editorIndentGuideBackground1,
   /** Цвет активной направляющей отступа (текущий уровень) */
-  'editorIndentGuide.activeBackground1': editorIndentGuideActiveBackground1,
+  'editorIndentGuide.activeBackground1':
+    core.tokens.editorIndentGuideActiveBackground1,
   /** Цвет номеров строк */
   'editorLineNumber.foreground': palette.fg.subtle,
   /** Цвет номера активной строки */
@@ -142,7 +110,7 @@ export const getEditorColors = () => ({
   /** Цвет фона подсветки текущей строки */
   'editor.lineHighlightBackground': palette.bg.lineHighlight,
   /** Цвет отображения пробелов, табов и переносов строк */
-  'editorWhitespace.foreground': editorWhitespaceForeground,
+  'editorWhitespace.foreground': core.tokens.editorWhitespaceForeground,
 
   // === STICKY SCROLL (ЗАКРЕПЛЕННЫЕ ЗАГОЛОВКИ) ===
   /** Цвет фона для закрепленных заголовков функций/классов */
@@ -166,19 +134,20 @@ export const getEditorColors = () => ({
   /** Цвет фона для выделения парной скобки */
   'editorBracketMatch.background': palette.bg.bracketMatch,
   /** Цвет рамки вокруг парной скобки */
-  'editorBracketMatch.border': editorBracketMatchBorder,
+  'editorBracketMatch.border': core.tokens.editorBracketMatchBorder,
 
   // === INLAY HINTS (ВСТРОЕННЫЕ ПОДСКАЗКИ ТИПОВ) ===
   /** Цвет фона для встроенных подсказок (общие) */
-  'editorInlayHint.background': editorInlayHintBackground,
+  'editorInlayHint.background': core.tokens.editorInlayHintBackground,
   /** Цвет текста встроенных подсказок (общие) */
   'editorInlayHint.foreground': palette.fg.muted,
   /** Цвет фона для подсказок типов переменных */
-  'editorInlayHint.typeBackground': editorInlayHintTypeBackground,
+  'editorInlayHint.typeBackground': core.tokens.editorInlayHintTypeBackground,
   /** Цвет текста подсказок типов переменных */
   'editorInlayHint.typeForeground': palette.fg.muted,
   /** Цвет фона для подсказок имен параметров */
-  'editorInlayHint.parameterBackground': editorInlayHintParameterBackground,
+  'editorInlayHint.parameterBackground':
+    core.tokens.editorInlayHintParameterBackground,
   /** Цвет текста подсказок имен параметров */
   'editorInlayHint.parameterForeground': palette.fg.muted,
 
@@ -190,24 +159,24 @@ export const getEditorColors = () => ({
   /** Цвет индикаторов предупреждений в миниатюре */
   'editorOverviewRuler.warningForeground': palette.accent.yellow,
   /** Цвет индикаторов информации в миниатюре */
-  'editorOverviewRuler.infoForeground': palette.ui.editorOverview.info,
+  'editorOverviewRuler.infoForeground': palette.ui.debug.info,
   /** Цвет индикаторов парных скобок в миниатюре */
   'editorOverviewRuler.bracketMatchForeground': palette.bg.overlay,
   /** Цвет индикаторов найденных совпадений в миниатюре */
   'editorOverviewRuler.findMatchForeground':
-    editorOverviewRulerFindMatchForeground,
+    core.tokens.editorOverviewRulerFindMatchForeground,
   /** Цвет индикаторов выделенного диапазона в миниатюре */
   'editorOverviewRuler.rangeHighlightForeground':
-    editorOverviewRulerRangeHighlightForeground,
+    core.tokens.editorOverviewRulerRangeHighlightForeground,
   /** Цвет индикаторов похожих символов в миниатюре */
   'editorOverviewRuler.selectionHighlightForeground':
-    editorOverviewRulerSelectionHighlightForeground,
+    core.tokens.editorOverviewRulerSelectionHighlightForeground,
   /** Цвет индикаторов выделенных слов (read) в миниатюре */
   'editorOverviewRuler.wordHighlightForeground':
-    editorOverviewRulerWordHighlightForeground,
+    core.tokens.editorOverviewRulerWordHighlightForeground,
   /** Цвет индикаторов выделенных слов (write) в миниатюре */
   'editorOverviewRuler.wordHighlightStrongForeground':
-    editorOverviewRulerWordHighlightStrongForeground,
+    core.tokens.editorOverviewRulerWordHighlightStrongForeground,
   /** Цвет индикаторов измененных строк в миниатюре */
   'editorOverviewRuler.modifiedForeground': palette.ui.editorOverview.modified,
   /** Цвет индикаторов добавленных строк в миниатюре */
@@ -265,11 +234,11 @@ export const getEditorColors = () => ({
   /** Цвет текста в виджетах редактора */
   'editorWidget.foreground': palette.fg.primary,
   /** Цвет границы изменения размера виджета */
-  'editorWidget.resizeBorder': editorWidgetResizeBorder,
+  'editorWidget.resizeBorder': core.tokens.editorWidgetResizeBorder,
   /** Цвет фона списка автодополнения */
   'editorSuggestWidget.background': palette.bg.elevated,
   /** Цвет границы списка автодополнения */
-  'editorSuggestWidget.border': editorSuggestWidgetBorder,
+  'editorSuggestWidget.border': core.tokens.editorSuggestWidgetBorder,
   /** Цвет текста в списке автодополнения */
   'editorSuggestWidget.foreground': palette.fg.primary,
   /** Цвет фона выбранного элемента автодополнения */
@@ -287,7 +256,8 @@ export const getEditorColors = () => ({
 
   // === РЕДАКТОР ПОИСКА (SEARCH EDITOR) ===
   /** Цвет фона найденных совпадений в редакторе поиска */
-  'searchEditor.findMatchBackground': searchEditorFindMatchBackground,
+  'searchEditor.findMatchBackground':
+    core.tokens.searchEditorFindMatchBackground,
   /** Цвет границы найденных совпадений в редакторе поиска */
   'searchEditor.findMatchBorder': palette.accent.cyan,
   /** Цвет границы поля ввода в редакторе поиска */

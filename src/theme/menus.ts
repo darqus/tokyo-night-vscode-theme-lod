@@ -1,5 +1,4 @@
-import { palette } from '../palette'
-import { menuBorder } from '../palette'
+import { palette, core } from '../palette'
 
 export const getMenuColors = () => ({
   // Меню
@@ -11,5 +10,5 @@ export const getMenuColors = () => ({
   'menu.selectionForeground': palette.fg.selectionText, // Текст выбранного элемента меню
   'menu.selectionBackground': palette.brand.button.primary, // Фон выбранного элемента меню
   'menu.separatorBackground': palette.line.border, // Разделитель в меню
-  'menu.border': menuBorder, // Граница меню (прозрачная)
+  'menu.border': core.tokens.menuBorder, // Граница меню (прозрачная)
 })

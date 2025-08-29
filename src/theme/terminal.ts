@@ -1,31 +1,26 @@
-import { palette } from '../palette'
-import {
-  terminalSelectionBackground,
-  terminalFindMatchBackground,
-  terminalFindMatchHighlightBackground,
-  terminalFindMatchHighlightBorder,
-  terminalHoverHighlightBackground,
-  terminalDropBackground,
-  terminalOverviewRulerFindMatchForeground,
-} from '../palette'
+import { palette, core } from '../palette'
 
 export const getTerminalColors = () => ({
   // Терминал
   'terminal.background': palette.bg.base, // Фон терминала
   'terminal.foreground': palette.fg.primary, // Основной текст терминала
-  'terminal.selectionBackground': terminalSelectionBackground, // Фон выделения текста
-  'terminal.inactiveSelectionBackground': terminalSelectionBackground, // Фон неактивного выделения
+  'terminal.selectionBackground': core.tokens.terminalSelectionBackground, // Фон выделения текста
+  'terminal.inactiveSelectionBackground':
+    core.tokens.terminalSelectionBackground, // Фон неактивного выделения
   'terminalCursor.background': palette.bg.base, // Фон курсора
   'terminalCursor.foreground': palette.fg.primary, // Цвет курсора
-  'terminal.findMatchBackground': terminalFindMatchBackground, // Фон найденного совпадения
+  'terminal.findMatchBackground': core.tokens.terminalFindMatchBackground, // Фон найденного совпадения
   'terminal.findMatchBorder': palette.accent.yellow, // Граница найденного совпадения
-  'terminal.findMatchHighlightBackground': terminalFindMatchHighlightBackground,
+  'terminal.findMatchHighlightBackground':
+    core.tokens.terminalFindMatchHighlightBackground,
   // Фон других совпадений
-  'terminal.findMatchHighlightBorder': terminalFindMatchHighlightBorder, // Граница других совпадений
-  'terminal.hoverHighlightBackground': terminalHoverHighlightBackground, // Фон при наведении
-  'terminal.dropBackground': terminalDropBackground, // Фон при перетаскивании
+  'terminal.findMatchHighlightBorder':
+    core.tokens.terminalFindMatchHighlightBorder, // Граница других совпадений
+  'terminal.hoverHighlightBackground':
+    core.tokens.terminalHoverHighlightBackground, // Фон при наведении
+  'terminal.dropBackground': core.tokens.terminalDropBackground, // Фон при перетаскивании
   'terminalOverviewRuler.findMatchForeground':
-    terminalOverviewRulerFindMatchForeground, // Индикатор совпадений в обзорной линейке
+    core.tokens.terminalOverviewRulerFindMatchForeground, // Индикатор совпадений в обзорной линейке
   'terminalOverviewRuler.cursorForeground': palette.fg.primary, // Индикатор курсора в обзорной линейке
   // ANSI цвета терминала
   'terminal.ansiBlack': palette.ansi.black, // Черный

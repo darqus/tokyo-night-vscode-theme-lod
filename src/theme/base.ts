@@ -1,13 +1,4 @@
-import { palette } from '../palette'
-import {
-  focusBorder,
-  extensionButtonProminentHoverBackground,
-  scrollbarSliderBackground,
-  scrollbarSliderHoverBackground,
-  scrollbarSliderActiveBackground,
-  keybindingLabelBackground,
-  keybindingLabelBottomBorder,
-} from '../palette'
+import { palette, core } from '../palette'
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
 
@@ -16,7 +7,7 @@ export const getBaseColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
   foreground: palette.fg.primary,
   descriptionForeground: palette.fg.muted,
   disabledForeground: palette.fg.inactive,
-  focusBorder: focusBorder, // Используем цвет бейджа для фокуса
+  focusBorder: core.tokens.focusBorder, // Используем цвет бейджа для фокуса
   errorForeground: palette.accent.red,
   'widget.border': palette.line.border, // Граница для виджетов поиска/замены
   'widget.shadow': palette.ui.shadow.widget,
@@ -36,15 +27,16 @@ export const getBaseColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
   // Кнопки/значки расширений - стандартизация с VS Code
   'extensionButton.prominentBackground': palette.brand.primary,
   'extensionButton.prominentHoverBackground':
-    extensionButtonProminentHoverBackground,
+    core.tokens.extensionButtonProminentHoverBackground,
   'extensionButton.prominentForeground': palette.fg.selectionText,
   'extensionBadge.remoteBackground': palette.ui.badge.base,
   'extensionBadge.remoteForeground': palette.ui.badge.fg,
 
   // Ползунок полосы прокрутки - улучшенная видимость
-  'scrollbarSlider.background': scrollbarSliderBackground,
-  'scrollbarSlider.hoverBackground': scrollbarSliderHoverBackground,
-  'scrollbarSlider.activeBackground': scrollbarSliderActiveBackground,
+  'scrollbarSlider.background': core.tokens.scrollbarSliderBackground,
+  'scrollbarSlider.hoverBackground': core.tokens.scrollbarSliderHoverBackground,
+  'scrollbarSlider.activeBackground':
+    core.tokens.scrollbarSliderActiveBackground,
 
   // Текст
   'walkThrough.embeddedEditorBackground': palette.bg.base,
@@ -77,8 +69,8 @@ export const getBaseColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
   'banner.iconForeground': palette.brand.primary, // Иконка баннера
 
   // Подписи клавиш
-  'keybindingLabel.background': keybindingLabelBackground, // Фон подписи клавиш
+  'keybindingLabel.background': core.tokens.keybindingLabelBackground, // Фон подписи клавиш
   'keybindingLabel.foreground': palette.fg.primary, // Текст подписи клавиш
   'keybindingLabel.border': palette.line.border, // Граница подписи клавиш
-  'keybindingLabel.bottomBorder': keybindingLabelBottomBorder, // Нижняя граница подписи клавиш
+  'keybindingLabel.bottomBorder': core.tokens.keybindingLabelBottomBorder, // Нижняя граница подписи клавиш
 })

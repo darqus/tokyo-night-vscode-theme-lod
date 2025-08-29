@@ -1,4 +1,4 @@
-import { palette, derived } from '../palette'
+import { palette, core } from '../palette'
 
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
@@ -18,7 +18,7 @@ export const getTabColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
   'tab.activeModifiedBorder': palette.ui.tab.activeModifiedBorder,
   'tab.inactiveModifiedBorder': palette.ui.tab.inactiveModifiedBorder,
   'tab.unfocusedActiveBorder': palette.ui.badge.base, // Синхронизация с бейджами
-  'tab.lastPinnedBorder': derived.tabs.lastPinnedBorder, // Более заметная граница
+  'tab.lastPinnedBorder': core.tokens.tabLastPinnedBorder, // Более заметная граница
   'tab.selectedBackground': palette.bg.base, // Фон выбранной вкладки - соответствует активной
-  'tab.selectedForeground': derived.tabs.selectedForeground, // Текст выбранной вкладки
+  'tab.selectedForeground': core.tokens.tabSelectedForeground, // Текст выбранной вкладки
 })

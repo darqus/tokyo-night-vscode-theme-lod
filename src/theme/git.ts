@@ -1,5 +1,4 @@
-import { palette } from '../palette'
-import { gitBlameEditorDecorationForeground } from '../palette'
+import { palette, core } from '../palette'
 
 export const getGitColors = () => ({
   // Оформление Git
@@ -12,7 +11,8 @@ export const getGitColors = () => ({
   'gitDecoration.conflictingResourceForeground': palette.ui.git.conflicting, // Конфликтующие файлы
   'gitDecoration.stageDeletedResourceForeground': palette.ui.git.stageDeleted, // Удаленные в стейдже
   'gitDecoration.stageModifiedResourceForeground': palette.ui.git.stageModified, // Измененные в стейдже
-  'git.blame.editorDecorationForeground': gitBlameEditorDecorationForeground, // Git blame аннотации
+  'git.blame.editorDecorationForeground':
+    core.tokens.gitBlameEditorDecorationForeground, // Git blame аннотации
 
   // SCM Graph - исправление проблемы с читаемостью тегов во всплывающих подсказках
   'scmGraph.historyItemHoverDefaultLabelForeground': palette.fg.dark, // Темный текст для лучшей читаемости на светлом фоне
