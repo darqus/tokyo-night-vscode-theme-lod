@@ -186,8 +186,9 @@ print(f"Fibonacci of 10 is {result}")
 
     for (const [lang, code] of Object.entries(examples)) {
       await page.evaluate((code) => {
-        ;(document.getElementById('code-content') as HTMLElement).textContent =
-          code
+        const doc = (globalThis as any).document
+        const el = doc && doc.getElementById('code-content')
+        if (el) (el as any).textContent = code
       }, code)
       await page.screenshot({
         path: path.join(
