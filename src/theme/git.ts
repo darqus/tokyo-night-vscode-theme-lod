@@ -5,9 +5,9 @@ export const getGitColors = () => ({
   'gitDecoration.modifiedResourceForeground': palette.accent.blue, // Измененные файлы
   'gitDecoration.ignoredResourceForeground': palette.ui.git.ignored, // Игнорируемые файлы
   'gitDecoration.deletedResourceForeground': palette.ui.git.deleted, // Удаленные файлы
-  'gitDecoration.renamedResourceForeground': palette.accent.teal, // Переименованные файлы
-  'gitDecoration.addedResourceForeground': palette.accent.teal, // Добавленные файлы
-  'gitDecoration.untrackedResourceForeground': palette.accent.teal, // Неотслеживаемые файлы
+  'gitDecoration.renamedResourceForeground': palette.accent.purple, // Переименованные файлы — фиолетовый
+  'gitDecoration.addedResourceForeground': core.accent.green, // Добавленные файлы — зелёный
+  'gitDecoration.untrackedResourceForeground': core.accent.green, // Неотслеживаемые — зелёный
   'gitDecoration.conflictingResourceForeground': palette.ui.git.conflicting, // Конфликтующие файлы
   'gitDecoration.stageDeletedResourceForeground': palette.ui.git.stageDeleted, // Удаленные в стейдже
   'gitDecoration.stageModifiedResourceForeground': palette.ui.git.stageModified, // Измененные в стейдже

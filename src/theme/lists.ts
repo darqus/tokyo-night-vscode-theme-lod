@@ -3,7 +3,8 @@ import { palette } from '../palette'
 export const getListColors = () => ({
   // Списки
   'list.dropBackground': palette.bg.drop,
-  'list.deemphasizedForeground': palette.fg.panelText,
+  // Менее контрастный текст для деэмфазы
+  'list.deemphasizedForeground': palette.fg.muted,
   'list.activeSelectionBackground': palette.bg.selection.active,
   'list.activeSelectionForeground': palette.fg.selectionText, // Белый текст для максимальной контрастности
   'list.activeSelectionIconForeground': palette.fg.selectionText, // Белые иконки для выбранных элементов

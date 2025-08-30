@@ -10,5 +10,6 @@ export const getMenuColors = () => ({
   'menu.selectionForeground': palette.fg.selectionText, // Текст выбранного элемента меню
   'menu.selectionBackground': palette.brand.button.primary, // Фон выбранного элемента меню
   'menu.separatorBackground': palette.line.border, // Разделитель в меню
-  'menu.border': core.tokens.menuBorder, // Граница меню (прозрачная)
+  // Видимая граница меню
+  'menu.border': palette.line.border,
 })

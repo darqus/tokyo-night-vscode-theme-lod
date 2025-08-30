@@ -39,5 +39,6 @@ export const getInputColors = () => ({
   'radio.inactiveForeground': palette.fg.panelText,
   'radio.inactiveBackground': palette.bg.input,
   'radio.inactiveBorder': palette.line.border,
-  'radio.inactiveHoverBackground': palette.brand.primary, // Активный hover для radio
+  // Спокойный hover для radio, без агрессивного залития
+  'radio.inactiveHoverBackground': palette.bg.hover,
 })

@@ -14,7 +14,7 @@ export const getEditorColors = () => ({
   /** Цвет для пятой пары скобок */
   'editorBracketHighlight.foreground5': palette.accent.red, // красный
   /** Цвет для шестой пары скобок */
-  'editorBracketHighlight.foreground6': palette.accent.blue, // холоднее, вместо магенты
+  'editorBracketHighlight.foreground6': palette.accent.teal, // уникальный шестой цвет
   /** Цвет для неожиданных/несоответствующих скобок */
   'editorBracketHighlight.unexpectedBracket.foreground': palette.accent.red,
   /** Цвет фона для активной направляющей первой пары скобок */
@@ -238,6 +238,7 @@ export const getEditorColors = () => ({
   /** Цвет фона списка автодополнения */
   'editorSuggestWidget.background': palette.bg.elevated,
   /** Цвет границы списка автодополнения */
+  // Делаем границу видимой (берётся из токена, уже усилен)
   'editorSuggestWidget.border': core.tokens.editorSuggestWidgetBorder,
   /** Цвет текста в списке автодополнения */
   'editorSuggestWidget.foreground': palette.fg.primary,

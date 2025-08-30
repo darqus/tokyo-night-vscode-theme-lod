@@ -154,8 +154,8 @@ const formulas = {
   // Tabs
   tabLastPinnedBorder: () =>
     alpha(formulas.textSubtle2(), intensity.alpha.tab.lastPinnedBorder),
-  tabSelectedForeground: () =>
-    alpha(formulas.textPrimary(), intensity.alpha.tab.selectedFg),
+  // Текст выбранной вкладки полностью непрозрачный
+  tabSelectedForeground: () => alpha(formulas.textPrimary(), 1),
 
   // Menus
   menuBorder: () => alpha(formulas.border(), 0),
@@ -165,14 +165,15 @@ const formulas = {
     alpha(formulas.textSubtle2(), intensity.alpha.gitBlame),
 
   // Diff editor
+  // Вставки — зелёные для традиционной семантики
   diffEditorInsertedTextBackground: () =>
-    alpha(basePalette.blue, intensity.alpha.diff.text),
+    alpha(basePalette.green, intensity.alpha.diff.text),
   diffEditorRemovedTextBackground: () =>
     alpha(basePalette.red, intensity.alpha.diff.text),
-  diffEditorInsertedTextBorder: () => alpha(basePalette.blue, 0),
+  diffEditorInsertedTextBorder: () => alpha(basePalette.green, 0),
   diffEditorRemovedTextBorder: () => alpha(basePalette.red, 0),
   diffEditorInsertedLineBackground: () =>
-    alpha(basePalette.blue, intensity.alpha.diff.line),
+    alpha(basePalette.green, intensity.alpha.diff.line),
   diffEditorRemovedLineBackground: () =>
     alpha(basePalette.red, intensity.alpha.diff.line),
   diffEditorDiagonalFill: () =>
@@ -233,7 +234,7 @@ const formulas = {
   editorBracketPairGuideActiveBackground5: () =>
     alpha(basePalette.red, intensity.selection.editorHighlightBg),
   editorBracketPairGuideActiveBackground6: () =>
-    alpha(basePalette.magenta, intensity.selection.editorHighlightBg),
+    alpha(basePalette.teal, intensity.selection.editorHighlightBg),
 
   // Editor
   editorFoldBackground: () =>
@@ -291,8 +292,8 @@ const formulas = {
     alpha(basePalette.blue, intensity.alpha.editorOverviewRuler),
   editorWidgetResizeBorder: () =>
     alpha(formulas.textSubtle2(), intensity.alpha.editorOverviewRuler),
-  editorSuggestWidgetBorder: () =>
-    alpha(coreBlack, intensity.alpha.suggestWidgetBorder),
+  // Видимая граница для лучшей иерархии
+  editorSuggestWidgetBorder: () => alpha(formulas.border(), 1),
   searchEditorFindMatchBackground: () =>
     alpha(basePalette.blue, intensity.alpha.searchEditorFindMatch),
 

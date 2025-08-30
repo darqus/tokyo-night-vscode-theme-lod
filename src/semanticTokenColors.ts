@@ -13,7 +13,8 @@ export type SemanticTokenStyle = {
 const tokenMappings: { style: SemanticTokenStyle; selectors: string[] }[] = [
   // Акцентные цвета
   {
-    style: { foreground: palette.accent.yellow },
+    // Приводим числа/константы к единому стилю с TM (palette.token.number)
+    style: { foreground: palette.token.number },
     selectors: [
       'parameter.declaration',
       'enum.declaration',
@@ -27,7 +28,7 @@ const tokenMappings: { style: SemanticTokenStyle; selectors: string[] }[] = [
     ],
   },
   {
-    style: { foreground: palette.accent.yellow, bold: true },
+    style: { foreground: palette.token.number, bold: true },
     selectors: ['constant.readonly'],
   },
   {

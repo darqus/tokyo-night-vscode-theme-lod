@@ -52,7 +52,8 @@ export const palette: Palette = {
     cyan: core.accent.cyan,
     teal: tokens.tealSoft,
     magenta: core.accent.magenta,
-    yellow: tokens.skyLight,
+    // Жёлтый возвращаем к ядру для корректной семантики warning
+    yellow: core.accent.yellow,
     orange: tokens.indigo,
     red: core.accent.red,
     purple: core.accent.purple,
@@ -176,14 +177,15 @@ export const palette: Palette = {
     inserted: tokens.lilac,
   },
   ansi: {
-    black: tokens.indigo,
+    // Корректные ANSI по семантике терминала
+    black: core.bg.base,
     brightBlack: core.text.gray600,
     red: core.accent.red,
     brightRed: core.accent.red,
     green: core.accent.green,
     brightGreen: core.accent.green,
-    yellow: tokens.skyLight,
-    brightYellow: tokens.skyLight,
+    yellow: core.accent.yellow,
+    brightYellow: core.accent.yellow,
     blue: core.accent.blue,
     brightBlue: core.accent.blue,
     magenta: core.accent.magenta,

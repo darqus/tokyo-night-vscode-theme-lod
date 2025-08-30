@@ -25,7 +25,8 @@ export const intensity = {
     drop: 0.2,
     lineHighlight: 0.1,
     bracketMatch: 0.15,
-    focusBorder: 0.3,
+    // Усиливаем заметность фокуса для лучшей доступности
+    focusBorder: 0.5,
     scrollbar: { base: 0.25, hover: 0.38, active: 0.5 },
     keybindingBg: 0.6,
     keybindingBottomBorder: 0.67,
