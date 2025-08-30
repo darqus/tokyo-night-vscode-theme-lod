@@ -213,23 +213,43 @@ print(f"Fibonacci of 10 is {result}")
   private async generateUIComponentScreenshots(
     browser: Browser
   ): Promise<void> {
-    const theme = JSON.parse(fs.readFileSync(this.themePath, 'utf8'))
+    // Use the static visual template and capture individual elements by selector
+    const templatePath = path.join(this.testDir, 'template.html')
+    const templateHtml = fs.readFileSync(templatePath, 'utf8')
 
-    const components = [
-      { name: 'activity-bar', html: `...` },
-      { name: 'sidebar', html: `...` },
-    ]
+    // Map component names to CSS selectors in the template
+    const selectorMap: Record<string, string> = {
+      'activity-bar': '.activity-bar',
+      // Sidebar isn't explicitly in the template; reuse activity bar as a stable proxy
+      sidebar: '.activity-bar',
+      'status-bar': '.status-bar',
+      'button-primary': '.button:not(.secondary)',
+      'button-secondary': '.button.secondary',
+      'input-field': 'input.input',
+      'list-item': '.list',
+      tabs: '.tabs',
+      terminal: '.terminal',
+    }
 
-    for (const component of components) {
+    for (const [name, selector] of Object.entries(selectorMap)) {
       const page = await browser.newPage()
       await page.setViewport({ width: 900, height: 600, deviceScaleFactor: 1 })
-      await page.setContent(`...`)
-      await page.screenshot({
-        path: path.join(
-          this.screenshotsDir,
-          `${component.name}.png`
-        ) as `${string}.png`,
-        fullPage: false,
+      await page.setContent(templateHtml, { waitUntil: 'load' })
+
+      // Wait briefly for styles and layout without relying on Page.waitForTimeout typings
+      await new Promise((resolve) => setTimeout(resolve, 50))
+
+      const handle = await page.$(selector)
+      if (!handle) {
+        console.warn(
+          `Could not find selector for component ${name}: ${selector}`
+        )
+        await page.close()
+        continue
+      }
+
+      await (handle as any).screenshot({
+        path: path.join(this.screenshotsDir, `${name}.png`) as `${string}.png`,
       })
       await page.close()
     }
