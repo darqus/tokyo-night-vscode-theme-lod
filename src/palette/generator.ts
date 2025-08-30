@@ -332,6 +332,15 @@ const formulas = {
   bracketSquare: () => toward(basePalette.teal, basePalette.cyan, 0.25),
   bracketCurly: () => toward(basePalette.magenta, basePalette.purple, 0.25),
   bracketAngle: () => toward(basePalette.blue, basePalette.cyan, 0.35),
+
+  // Editor bracket highlighting (editorBracketHighlight.foreground1..6)
+  bracketFg1: () => toward(basePalette.cyan, basePalette.blue, 0.2),
+  bracketFg2: () => toward(basePalette.green, basePalette.teal, 0.3),
+  bracketFg3: () => toward(basePalette.orange, basePalette.yellow, 0.25),
+  bracketFg4: () => toward(basePalette.magenta, basePalette.purple, 0.35),
+  bracketFg5: () => toward(basePalette.teal, basePalette.cyan, 0.4),
+  bracketFg6: () => blend(basePalette.blue, basePalette.purple, 0.3),
+
   punctuationComma: () => toward(basePalette.cyan, basePalette.blue, 0.45),
   punctuationDot: () => toward(basePalette.blue, basePalette.cyan, 0.25),
   punctuationColon: () => blend(basePalette.teal, basePalette.cyan, 0.3),

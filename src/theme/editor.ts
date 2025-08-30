@@ -4,17 +4,17 @@ export const getEditorColors = () => ({
   // === ПОДСВЕТКА СКОБОК И НАПРАВЛЯЮЩИЕ ===
   // Оптимизированная различимость цветов для вложенных скобок
   /** Цвет для первой пары скобок */
-  'editorBracketHighlight.foreground1': palette.accent.blue, // синий
+  'editorBracketHighlight.foreground1': core.tokens.bracketFg1, // уникальный cyan-blue
   /** Цвет для второй пары скобок */
-  'editorBracketHighlight.foreground2': palette.accent.orange, // оранжевый (вместо cyan)
+  'editorBracketHighlight.foreground2': core.tokens.bracketFg2, // green-teal
   /** Цвет для третьей пары скобок */
-  'editorBracketHighlight.foreground3': palette.token.string, // зеленый (вместо magenta)
+  'editorBracketHighlight.foreground3': core.tokens.bracketFg3, // orange-yellow
   /** Цвет для четвертой пары скобок */
-  'editorBracketHighlight.foreground4': palette.accent.yellow, // желтый
+  'editorBracketHighlight.foreground4': core.tokens.bracketFg4, // magenta-purple
   /** Цвет для пятой пары скобок */
-  'editorBracketHighlight.foreground5': palette.accent.red, // красный
+  'editorBracketHighlight.foreground5': core.tokens.bracketFg5, // teal-cyan
   /** Цвет для шестой пары скобок */
-  'editorBracketHighlight.foreground6': palette.accent.teal, // уникальный шестой цвет
+  'editorBracketHighlight.foreground6': core.tokens.bracketFg6, // blue-purple blend
   /** Цвет для неожиданных/несоответствующих скобок */
   'editorBracketHighlight.unexpectedBracket.foreground': palette.accent.red,
   /** Цвет фона для активной направляющей первой пары скобок */
