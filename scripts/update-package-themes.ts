@@ -62,7 +62,6 @@ function generateThemeLabel(themeName: string): string {
     summer: 'Tokyo Night Summer',
     autumn: 'Tokyo Night Autumn',
     winter: 'Tokyo Night Winter',
-    neon: 'Tokyo Night Neon',
     pastel: 'Tokyo Night Pastel',
     retro: 'Tokyo Night Retro',
     'protanopia-friendly': 'Tokyo Night Protanopia Friendly',

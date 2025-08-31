@@ -7,18 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 
 ## 🌟 **Major Version 2.0.0** (Planned)
 
-> 🚀 **Revolutionary Update**: Complete transformation from single theme to 18-variant collection with centralized palette system.
+> 🚀 **Revolutionary Update**: Complete transformation from single theme to 17-variant collection with centralized palette system.
 
 ### **🎯 Breaking Changes**
 
-- **Theme Structure**: Migrated from single dark theme to 18 adaptive variants
+- **Theme Structure**: Migrated from single dark theme to 17 adaptive variants
 - **Palette System**: Eliminated all 200+ hardcoded colors in favor of centralized `extendedPalette`
 - **Build Process**: New programmatic generation system replacing manual theme editing
-- **Package.json**: Auto-managed theme contributions (18 variants)
+- **Package.json**: Auto-managed theme contributions (17 variants)
 
 ### **✨ New Features**
 
-- **🌈 18 Theme Variants**: Complete collection including seasonal, accessibility, and creative variants
+- **🌈 17 Theme Variants**: Complete collection including seasonal, accessibility, and creative variants
 - **🤖 CLI Tools**: `theme-cli` for creating custom themes with HSL transformations
 - **🎨 Adaptive Palette System**: HSL-based color manipulation engine
 - **♿ Accessibility Support**: WCAG-compliant variants for color-blind users
@@ -29,7 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 
 - **Zero Hardcoded Colors**: 80+ centralized semantic color definitions
 - **Type Safety**: Full TypeScript architecture with comprehensive type coverage
-- **Performance**: Maintained ~4.5ms build times despite 18× theme count
+- **Performance**: Maintained ~4.5ms build times despite 17× theme count
 - **Quality Assurance**: Enhanced validation and testing systems
 - **Documentation**: Complete rewrite with user and developer guides
 
@@ -38,7 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 - **Core**: Dark, Light, Storm, Moon
 - **Seasonal**: Spring, Summer, Autumn, Winter
 - **Accessibility**: High/Low Contrast, Protanopia/Deuteranopia Friendly
-- **Creative**: Neon, Pastel, Retro
+- **Creative**: Pastel, Retro
 - **Experimental**: Gradient transitions (3 variants)
 
 ---

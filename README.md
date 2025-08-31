@@ -10,7 +10,7 @@ A comprehensive collection of **17 Tokyo Night theme variants** featuring:
 
 - **Seasonal themes** (Spring, Summer, Autumn, Winter)
 - **Accessibility options** (High/Low Contrast, Color-blind friendly)
-- **Creative variants** (Neon, Pastel, Retro)
+- **Creative variants** (Pastel, Retro)
 - **Gradient transitions** and **experimental palettes**
 
 All themes are **programmatically generated** from a centralized palette system with **zero hardcoded colors**.
@@ -50,7 +50,6 @@ All themes are **programmatically generated** from a centralized palette system 
 
 ### 🎭 **Creative Variants**
 
-- **Tokyo Night Neon** - Vibrant neon style (2.0× saturation)
 - **Tokyo Night Pastel** - Soft pastel tones (0.3× saturation)
 - **Tokyo Night Retro** - Nostalgic retro palette
 
