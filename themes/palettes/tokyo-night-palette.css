@@ -118,7 +118,7 @@
   --tokyo-text-badge: #acb0d0;
   --tokyo-text-preformat: #d2e1ea;
   --tokyo-border-widget: #272a31;
-  --tokyo-border-focus: #545c7e33;
+  --tokyo-border-focus: #7aa2f766;
   --tokyo-border-window: #0d0f17;
   --tokyo-border-sash: #29355a;
   --tokyo-border-input: #272a31;
@@ -127,11 +127,11 @@
   --tokyo-border-checkbox: #272a31;
   --tokyo-border-radio: #272a31;
   --tokyo-border-dropdown: #272a31;
-  --tokyo-button-primary: #3d59a1dd;
-  --tokyo-button-primaryHover: #2d3b5a;
+  --tokyo-button-primary: #3d59a1f0;
+  --tokyo-button-primaryHover: #4d69b1;
   --tokyo-button-secondary: #222c44;
   --tokyo-button-secondaryHover: #2d3b5a;
-  --tokyo-button-border: #7aa2f780;
+  --tokyo-button-border: #7aa2f7cc;
   --tokyo-button-separator: #7aa2f766;
   --tokyo-button-foreground: #ffffff;
   --tokyo-scrollbar-shadow: #00000033;

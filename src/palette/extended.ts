@@ -195,7 +195,7 @@ export const extendedPalette = {
   // === ГРАНИЦЫ И РАМКИ ===
   border: {
     widget: '#272a31' as Hex, // Границы виджетов
-    focus: '#545c7e33' as Hex, // Граница фокуса (с прозрачностью)
+    focus: '#7aa2f766' as Hex, // Граница фокуса (более контрастная, синяя)
     window: '#0d0f17' as Hex, // Границы окон
     sash: '#29355a' as Hex, // Границы разделителей
     input: '#272a31' as Hex, // Границы полей ввода
@@ -208,11 +208,11 @@ export const extendedPalette = {
 
   // === ЦВЕТА КНОПОК И ИНТЕРАКТИВНЫХ ЭЛЕМЕНТОВ ===
   button: {
-    primary: '#3d59a1dd' as Hex, // Основная кнопка
-    primaryHover: '#2d3b5a' as Hex, // Наведение на основную кнопку
+    primary: '#3d59a1f0' as Hex, // Основная кнопка (более непрозрачная)
+    primaryHover: '#4d69b1' as Hex, // Наведение на основную кнопку (ярче)
     secondary: '#222c44' as Hex, // Вторичная кнопка
     secondaryHover: '#2d3b5a' as Hex, // Наведение на вторичную кнопку
-    border: '#7aa2f780' as Hex, // Граница кнопки
+    border: '#7aa2f7cc' as Hex, // Граница кнопки (более контрастная)
     separator: '#7aa2f766' as Hex, // Разделитель кнопок
     foreground: '#ffffff' as Hex, // Текст кнопок
   },

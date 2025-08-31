@@ -5,21 +5,23 @@ import {
   getAdaptiveBaseBackground,
   getAdaptiveWidgetBackground,
 } from '../utils/adaptive-background'
+import { getAdaptiveFocusBorder } from '../utils/adaptive-border'
 import type { ThemeContext } from '../generators/adaptive-theme-generator'
 
 export const getBaseColors = (
   context?: ThemeContext
 ): Partial<Record<VSCodeColorKey, Hex>> => {
-  // Адаптивные фоны для базовых элементов
+  // Адаптивные фоны и границы для базовых элементов
   const baseBackground = getAdaptiveBaseBackground(context)
   const widgetBackground = getAdaptiveWidgetBackground(context)
+  const focusBorder = getAdaptiveFocusBorder(context)
 
   return {
     // Верхний уровень и основа - используем централизованную палитру
     foreground: extendedPalette.text.muted, // #787c99
     descriptionForeground: extendedPalette.text.description, // #515670
     disabledForeground: extendedPalette.text.disabled, // #545c7e
-    focusBorder: extendedPalette.border.focus, // #545c7e33
+    focusBorder: focusBorder, // АДАПТИВНАЯ граница фокуса
     errorForeground: extendedPalette.text.error, // #515670
     'widget.border': extendedPalette.border.widget, // #272a31
     'widget.shadow': extendedPalette.special.transparent, // #ffffff00

@@ -5,21 +5,23 @@ import {
   getAdaptiveButtonBackground,
   getAdaptiveWidgetBackground,
 } from '../utils/adaptive-background'
+import { getAdaptiveButtonBorder } from '../utils/adaptive-border'
 import type { ThemeContext } from '../generators/adaptive-theme-generator'
 
 export const getButtonColors = (
   context?: ThemeContext
 ): Partial<Record<VSCodeColorKey, Hex>> => {
-  // Адаптивные фоны для кнопочных элементов
+  // Адаптивные фоны и границы для кнопочных элементов
   const buttonBackground = getAdaptiveButtonBackground(context)
   const widgetBackground = getAdaptiveWidgetBackground(context)
+  const buttonBorder = getAdaptiveButtonBorder(context)
 
   return {
-    // Кнопки - АДАПТИВНЫЕ фоны в зависимости от типа темы
+    // Кнопки - АДАПТИВНЫЕ фоны и границы в зависимости от типа темы
     'button.background': buttonBackground, // АДАПТИВНЫЙ фон основной кнопки
-    'button.hoverBackground': extendedPalette.button.primaryHover, // #2d3b5a
+    'button.hoverBackground': extendedPalette.button.primaryHover, // #4d69b1
     'button.foreground': extendedPalette.button.foreground, // #ffffff
-    'button.border': extendedPalette.button.border, // #7aa2f780
+    'button.border': buttonBorder, // АДАПТИВНАЯ граница кнопки
     'button.separator': extendedPalette.button.separator, // #7aa2f766
     'button.secondaryBackground': widgetBackground, // АДАПТИВНЫЙ фон вторичной кнопки
     'button.secondaryHoverBackground': extendedPalette.button.secondaryHover, // #2d3b5a

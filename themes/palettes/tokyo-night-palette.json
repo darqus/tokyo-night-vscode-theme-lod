@@ -511,7 +511,7 @@
       "type": "color"
     },
     "focus": {
-      "value": "#545c7e33",
+      "value": "#7aa2f766",
       "type": "color"
     },
     "window": {
@@ -549,11 +549,11 @@
   },
   "button": {
     "primary": {
-      "value": "#3d59a1dd",
+      "value": "#3d59a1f0",
       "type": "color"
     },
     "primaryHover": {
-      "value": "#2d3b5a",
+      "value": "#4d69b1",
       "type": "color"
     },
     "secondary": {
@@ -565,7 +565,7 @@
       "type": "color"
     },
     "border": {
-      "value": "#7aa2f780",
+      "value": "#7aa2f7cc",
       "type": "color"
     },
     "separator": {
