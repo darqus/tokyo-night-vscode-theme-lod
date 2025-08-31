@@ -79,27 +79,27 @@
       },
       "sideBar": {
         "dark": {
-          "value": "#16161e",
+          "value": "#1d1e2a",
           "type": "color"
         },
         "light": {
-          "value": "#f1f2f3",
+          "value": "#fcfcfc",
           "type": "color"
         },
         "storm": {
-          "value": "#1f2335",
+          "value": "#272b3f",
           "type": "color"
         },
         "moon": {
-          "value": "#1e1e2e",
+          "value": "#232538",
           "type": "color"
         },
         "contrast": {
-          "value": "#0a0a0a",
+          "value": "#030303",
           "type": "color"
         },
         "pastel": {
-          "value": "#1c1c28",
+          "value": "#21222b",
           "type": "color"
         }
       },
@@ -418,27 +418,27 @@
         },
         "activityBarActive": {
           "dark": {
-            "value": "#1e202e",
+            "value": "#1d1e2a",
             "type": "color"
           },
           "light": {
-            "value": "#dedfe3",
+            "value": "#fcfcfc",
             "type": "color"
           },
           "storm": {
-            "value": "#1c1f35",
+            "value": "#272b3f",
             "type": "color"
           },
           "moon": {
-            "value": "#20203e",
+            "value": "#232538",
             "type": "color"
           },
           "contrast": {
-            "value": "#1c2b3a",
+            "value": "#030303",
             "type": "color"
           },
           "pastel": {
-            "value": "#1c1d2a",
+            "value": "#21222b",
             "type": "color"
           }
         }

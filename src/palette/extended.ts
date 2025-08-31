@@ -40,12 +40,12 @@ export const extendedPalette = {
 
       // Фоны боковых панелей (Explorer, Extensions, etc.)
       sideBar: {
-        dark: '#16161e' as Hex, // Классический темный
-        light: '#f1f2f3' as Hex, // Светлый серый (холодный)
-        storm: '#1f2335' as Hex, // Storm стиль
-        moon: '#1e1e2e' as Hex, // Moon стиль
-        contrast: '#0a0a0a' as Hex, // Высокий контраст
-        pastel: '#1c1c28' as Hex, // Пастельный
+        dark: '#1d1e2a' as Hex, // Классический темный (+1% от основного фона)
+        light: '#fcfcfc' as Hex, // Светлый серый (-1% от белого фона)
+        storm: '#272b3f' as Hex, // Storm стиль (+1% от основного фона)
+        moon: '#232538' as Hex, // Moon стиль (+1% от основного фона)
+        contrast: '#030303' as Hex, // Высокий контраст (+1% от основного фона)
+        pastel: '#21222b' as Hex, // Пастельный (+1% от основного фона)
       },
 
       // Фоны панели активности (Activity Bar)
@@ -172,12 +172,12 @@ export const extendedPalette = {
 
         // Активные элементы панели активности (Activity Bar)
         activityBarActive: {
-          dark: '#1e202e' as Hex, // Темные темы - немного светлее фона
-          light: '#dedfe3' as Hex, // Светлые темы - холодный серый (H=230° S=8% L=88%)
-          storm: '#1c1f35' as Hex, // Storm
-          moon: '#20203e' as Hex, // Moon
-          contrast: '#1c2b3a' as Hex, // Контрастный
-          pastel: '#1c1d2a' as Hex, // Пастельный
+          dark: '#1d1e2a' as Hex, // Темные темы - на 1% светлее основного фона
+          light: '#fcfcfc' as Hex, // Светлые темы - на 1% темнее белого фона
+          storm: '#272b3f' as Hex, // Storm (+1% от основного фона)
+          moon: '#232538' as Hex, // Moon (+1% от основного фона)
+          contrast: '#030303' as Hex, // Контрастный (+1% от основного фона)
+          pastel: '#21222b' as Hex, // Пастельный (+1% от основного фона)
         },
       },
 
