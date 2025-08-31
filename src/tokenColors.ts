@@ -64,7 +64,7 @@ export const getTokenColors = (): TokenColor[] => [
       'constant.other.caps',
     ],
     settings: {
-      foreground: '#ff9e64' as Hex,
+      foreground: '#6366f1' as Hex, // Изменено с #ff9e64 на холодный индиго
     },
   },
   {
@@ -145,7 +145,7 @@ export const getTokenColors = (): TokenColor[] => [
       'meta.function-call.arguments',
     ],
     settings: {
-      foreground: '#e0af68' as Hex,
+      foreground: '#7dd3fc' as Hex, // Изменено с #e0af68 на холодный голубой-желтый
     },
   },
   {

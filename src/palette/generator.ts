@@ -255,19 +255,21 @@ const formulas = {
   buttonBackground: () => formulas.brandButtonPrimary(),
   buttonHover: () => formulas.brandButtonHover(),
   buttonSecondaryBackground: () => formulas.bgInput(),
-  buttonSecondaryHover: () => formulas.bgHover(), // Editor bracket pair guides
+  buttonSecondaryHover: () => formulas.bgHover(),
+
+  // Editor bracket pair guides - холодные цвета
   editorBracketPairGuideActiveBackground1: () =>
     alpha(basePalette.blue, intensity.selection.editorHighlightBg),
   editorBracketPairGuideActiveBackground2: () =>
-    alpha(basePalette.orange, intensity.selection.editorHighlightBg),
+    alpha(basePalette.cyan, intensity.selection.editorHighlightBg), // Заменен оранжевый
   editorBracketPairGuideActiveBackground3: () =>
     alpha(basePalette.green, intensity.selection.editorHighlightBg),
   editorBracketPairGuideActiveBackground4: () =>
-    alpha(basePalette.yellow, intensity.selection.editorHighlightBg),
+    alpha(basePalette.teal, intensity.selection.editorHighlightBg), // Заменен желтый
   editorBracketPairGuideActiveBackground5: () =>
     alpha(basePalette.red, intensity.selection.editorHighlightBg),
   editorBracketPairGuideActiveBackground6: () =>
-    alpha(basePalette.teal, intensity.selection.editorHighlightBg),
+    alpha(basePalette.purple, intensity.selection.editorHighlightBg), // Заменен teal
 
   // Editor
   editorFoldBackground: () =>
@@ -366,10 +368,10 @@ const formulas = {
   bracketCurly: () => toward(basePalette.magenta, basePalette.purple, 0.25),
   bracketAngle: () => toward(basePalette.blue, basePalette.cyan, 0.35),
 
-  // Editor bracket highlighting (editorBracketHighlight.foreground1..6)
+  // Editor bracket highlighting (editorBracketHighlight.foreground1..6) - холодные цвета
   bracketFg1: () => toward(basePalette.cyan, basePalette.blue, 0.2),
   bracketFg2: () => toward(basePalette.green, basePalette.teal, 0.3),
-  bracketFg3: () => toward(basePalette.orange, basePalette.yellow, 0.25),
+  bracketFg3: () => toward(basePalette.blue, basePalette.cyan, 0.25), // Заменен теплый оранжевый
   bracketFg4: () => toward(basePalette.magenta, basePalette.purple, 0.35),
   bracketFg5: () => toward(basePalette.teal, basePalette.cyan, 0.4),
   bracketFg6: () => blend(basePalette.blue, basePalette.purple, 0.3),
@@ -381,29 +383,29 @@ const formulas = {
     blend(basePalette.purple, basePalette.magenta, 0.25),
   punctuationOperator: () => blend(basePalette.teal, basePalette.cyan, 0.4),
 
-  // Property access levels - объектные ключи по глубине
+  // Property access levels - объектные ключи по глубине (холодные цвета)
   objectKeyLevel1: () => toward(basePalette.cyan, basePalette.blue, 0.2),
   objectKeyLevel2: () => toward(basePalette.green, basePalette.teal, 0.3),
-  objectKeyLevel3: () => toward(basePalette.orange, basePalette.yellow, 0.25),
+  objectKeyLevel3: () => toward(basePalette.blue, basePalette.cyan, 0.25), // Заменен теплый
   objectKeyLevel4: () => toward(basePalette.magenta, basePalette.purple, 0.3),
   objectKeyLevel5: () => toward(basePalette.teal, basePalette.cyan, 0.4),
   objectKeyLevel6: () => blend(basePalette.blue, basePalette.purple, 0.25),
-  objectKeyLevel7: () => blend(basePalette.red, basePalette.orange, 0.3),
+  objectKeyLevel7: () => blend(basePalette.cyan, basePalette.purple, 0.3), // Заменен теплый
   objectKeyLevel8: () => blend(basePalette.green, basePalette.cyan, 0.35),
 
-  // Property chain access - цепочки доступа к свойствам
+  // Property chain access - цепочки доступа к свойствам (холодные цвета)
   propertyChain1: () => toward(basePalette.cyan, basePalette.blue, 0.15),
   propertyChain2: () => toward(basePalette.teal, basePalette.green, 0.25),
-  propertyChain3: () => toward(basePalette.yellow, basePalette.orange, 0.2),
+  propertyChain3: () => toward(basePalette.blue, basePalette.purple, 0.2), // Заменен теплый
   propertyChain4: () => toward(basePalette.purple, basePalette.magenta, 0.3),
   propertyChain5: () => blend(basePalette.blue, basePalette.cyan, 0.4),
   propertyChain6: () => blend(basePalette.magenta, basePalette.red, 0.25),
 
-  // Array access - доступ к элементам массива
-  arrayAccess1: () => toward(basePalette.orange, basePalette.red, 0.2),
+  // Array access - доступ к элементам массива (холодные цвета)
+  arrayAccess1: () => toward(basePalette.cyan, basePalette.blue, 0.2), // Заменен теплый
   arrayAccess2: () => toward(basePalette.purple, basePalette.blue, 0.3),
   arrayAccess3: () => blend(basePalette.teal, basePalette.green, 0.25),
-  arrayAccess4: () => blend(basePalette.yellow, basePalette.cyan, 0.3),
+  arrayAccess4: () => blend(basePalette.blue, basePalette.cyan, 0.3), // Заменен теплый
 } as const
 
 export type TokenKey = keyof typeof formulas

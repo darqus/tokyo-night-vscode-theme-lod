@@ -12,9 +12,9 @@ export type SemanticTokenStyle = {
 // Группировка селекторов по стилям для устранения дублирования
 // Соответствует оригинальной Tokyo Night теме
 const tokenMappings: { style: SemanticTokenStyle; selectors: string[] }[] = [
-  // Числа, константы, параметры - розоватый (#d081b7 в оригинале)
+  // Числа, константы, параметры - холодный фиолетовый (заменен розоватый)
   {
-    style: { foreground: '#d081b7' as Hex },
+    style: { foreground: '#6366f1' as Hex },
     selectors: [
       'parameter.declaration',
       'enum.declaration',
@@ -28,7 +28,7 @@ const tokenMappings: { style: SemanticTokenStyle; selectors: string[] }[] = [
     ],
   },
   {
-    style: { foreground: '#d081b7' as Hex, bold: true },
+    style: { foreground: '#6366f1' as Hex, bold: true },
     selectors: ['constant.readonly'],
   },
 
@@ -189,13 +189,13 @@ const tokenMappings: { style: SemanticTokenStyle; selectors: string[] }[] = [
     selectors: ['comment.keyword'],
   },
 
-  // Ошибки и предупреждения
+  // Ошибки и предупреждения (оптимизированы)
   {
-    style: { foreground: '#d76c88' as Hex, underline: true },
+    style: { foreground: '#f7768e' as Hex, underline: true }, // Красный оставлен для семантики ошибок
     selectors: ['error'],
   },
   {
-    style: { foreground: '#7cc7fe' as Hex, underline: true },
+    style: { foreground: '#22d3ee' as Hex, underline: true }, // Холодный циан для предупреждений
     selectors: ['warning'],
   },
   {
