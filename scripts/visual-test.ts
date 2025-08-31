@@ -187,7 +187,7 @@ class VisualRegressionTester {
         <span class="keyword">return</span> <span class="parameter">n</span>
     <span class="keyword">return</span> <span class="function">fibonacci</span><span class="punctuation">(</span><span class="parameter">n</span> <span class="operator">-</span> <span class="number">1</span><span class="punctuation">)</span> <span class="operator">+</span> <span class="function">fibonacci</span><span class="punctuation">(</span><span class="parameter">n</span> <span class="operator">-</span> <span class="number">2</span><span class="punctuation">)</span>
 <span class="variable">result</span> <span class="operator">=</span> <span class="function">fibonacci</span><span class="punctuation">(</span><span class="number">10</span><span class="punctuation">)</span>
-<span class="function">print</span><span class="punctuation">(</span><span class="string">f"Fibonacci of 10 is {</span><span class="variable">result</span><span class="string">}"</span><span class="punctuation">)</span>`
+<span class="function">print</span><span class="punctuation">(</span><span class="string">f"Fibonacci of 10 is {</span><span class="variable">result</span><span class="string">}"</span><span class="punctuation">)</span>`,
     }
 
     for (const [lang, code] of Object.entries(examples)) {
@@ -213,38 +213,53 @@ class VisualRegressionTester {
   private generateSyntaxCSS(theme: any): string {
     // Извлекаем цвета из tokenColors темы
     const tokenColors = theme.tokenColors || []
-    
+
     // Создаём маппинг scope -> цвет из темы
     const scopeColors: Record<string, string> = {}
-    
+
     tokenColors.forEach((token: any) => {
       const scopes = Array.isArray(token.scope) ? token.scope : [token.scope]
       const color = token.settings?.foreground
-      
+
       if (color) {
         scopes.forEach((scope: string) => {
           if (scope.includes('keyword')) scopeColors.keyword = color
           if (scope.includes('storage')) scopeColors.storage = color
-          if (scope.includes('function') || scope.includes('entity.name.function')) scopeColors.function = color
-          if (scope.includes('entity.name') && !scope.includes('function')) scopeColors.entity = color
-          if (scope.includes('support.type') || scope.includes('entity.name.type')) scopeColors.type = color
+          if (
+            scope.includes('function') ||
+            scope.includes('entity.name.function')
+          )
+            scopeColors.function = color
+          if (scope.includes('entity.name') && !scope.includes('function'))
+            scopeColors.entity = color
+          if (
+            scope.includes('support.type') ||
+            scope.includes('entity.name.type')
+          )
+            scopeColors.type = color
           if (scope.includes('string')) scopeColors.string = color
           if (scope.includes('constant.numeric')) scopeColors.number = color
           if (scope.includes('variable')) scopeColors.variable = color
-          if (scope.includes('variable.parameter')) scopeColors.parameter = color
-          if (scope.includes('support.type.property-name')) scopeColors.property = color
+          if (scope.includes('variable.parameter'))
+            scopeColors.parameter = color
+          if (scope.includes('support.type.property-name'))
+            scopeColors.property = color
           if (scope.includes('punctuation')) scopeColors.punctuation = color
           if (scope.includes('keyword.operator')) scopeColors.operator = color
-          if (scope.includes('support.function') || scope.includes('support.class')) scopeColors.support = color
+          if (
+            scope.includes('support.function') ||
+            scope.includes('support.class')
+          )
+            scopeColors.support = color
           if (scope.includes('comment')) scopeColors.comment = color
         })
       }
     })
-    
+
     // Дефолтные цвета если не найдены в теме
     const defaults = {
       keyword: '#bb9af7',
-      storage: '#9d7cd8', 
+      storage: '#9d7cd8',
       function: '#7aa2f7',
       entity: '#7aa2f7',
       type: '#0db9d7',
@@ -256,13 +271,17 @@ class VisualRegressionTester {
       punctuation: '#89ddff',
       operator: '#bb9af7',
       support: '#0db9d7',
-      comment: '#51597d'
+      comment: '#51597d',
     }
-    
+
     return `
       /* Syntax highlighting based on theme tokenColors */
-      .keyword { color: ${scopeColors.keyword || defaults.keyword}; font-style: italic; }
-      .storage { color: ${scopeColors.storage || defaults.storage}; font-style: italic; }
+      .keyword { color: ${
+        scopeColors.keyword || defaults.keyword
+      }; font-style: italic; }
+      .storage { color: ${
+        scopeColors.storage || defaults.storage
+      }; font-style: italic; }
       .function { color: ${scopeColors.function || defaults.function}; }
       .entity { color: ${scopeColors.entity || defaults.entity}; }
       .type { color: ${scopeColors.type || defaults.type}; }
@@ -271,10 +290,14 @@ class VisualRegressionTester {
       .variable { color: ${scopeColors.variable || defaults.variable}; }
       .parameter { color: ${scopeColors.parameter || defaults.parameter}; }
       .property { color: ${scopeColors.property || defaults.property}; }
-      .punctuation { color: ${scopeColors.punctuation || defaults.punctuation}; }
+      .punctuation { color: ${
+        scopeColors.punctuation || defaults.punctuation
+      }; }
       .operator { color: ${scopeColors.operator || defaults.operator}; }
       .support { color: ${scopeColors.support || defaults.support}; }
-      .comment { color: ${scopeColors.comment || defaults.comment}; font-style: italic; }
+      .comment { color: ${
+        scopeColors.comment || defaults.comment
+      }; font-style: italic; }
     `
   }
 
