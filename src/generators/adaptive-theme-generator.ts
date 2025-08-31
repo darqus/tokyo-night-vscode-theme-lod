@@ -1,7 +1,6 @@
 import type { ThemeData, ThemeObject } from '../types/theme'
 import {
-  createAdaptedPalette,
-  paletteVariants,
+  getAdaptedPalette,
   PaletteModification,
   PaletteVariant,
 } from '../palette/adapters'
@@ -24,7 +23,7 @@ export interface ThemeGeneratorConfig {
  * Контекст для генерации темы с адаптированной палитрой
  */
 export interface ThemeContext {
-  adaptedPalette: ReturnType<typeof createAdaptedPalette>
+  adaptedPalette: ReturnType<typeof getAdaptedPalette>
   variant: PaletteVariant
   displayName: string
   type: 'dark' | 'light' | 'storm' | 'moon' | 'contrast' | 'pastel'
@@ -39,10 +38,7 @@ export class AdaptiveThemeGenerator {
    */
   static generateTheme(config: ThemeGeneratorConfig): ThemeObject {
     // Создаем адаптированную палитру
-    const adaptedPalette = createAdaptedPalette(
-      config.variant,
-      config.customModification
-    )
+    const adaptedPalette = getAdaptedPalette(config.variant)
 
     // Определяем тип темы на основе варианта (VS Code поддерживает только dark/light/hc-dark/hc-light)
     let themeType: 'dark' | 'light' = config.type === 'light' ? 'light' : 'dark'
@@ -117,7 +113,7 @@ export class AdaptiveThemeGenerator {
       {
         name: 'tokyo-night-moon',
         displayName: 'Tokyo Night Moon',
-        variant: 'tokyo-moon',
+        variant: 'tokyo-night',
         type: 'moon',
       },
       {
@@ -211,8 +207,8 @@ export class PaletteUtils {
 
     for (let i = 0; i < steps; i++) {
       const ratio = i / (steps - 1)
-      const palette1 = createAdaptedPalette(variant1)
-      const palette2 = createAdaptedPalette(variant2)
+      const palette1 = getAdaptedPalette(variant1)
+      const palette2 = getAdaptedPalette(variant2)
 
       // Создаем промежуточные модификации
       const modification: PaletteModification = {
@@ -235,7 +231,7 @@ export class PaletteUtils {
   /**
    * Анализирует палитру и предлагает улучшения
    */
-  static analyzePalette(palette: ReturnType<typeof createAdaptedPalette>) {
+  static analyzePalette(palette: ReturnType<typeof getAdaptedPalette>) {
     // Можно добавить анализ контрастности, цветовой гармонии и т.д.
     return {
       dominantHue: 'blue', // Пример
@@ -250,7 +246,7 @@ export class PaletteUtils {
    * Экспортирует палитру в различные форматы
    */
   static exportPalette(
-    palette: ReturnType<typeof createAdaptedPalette>,
+    palette: ReturnType<typeof getAdaptedPalette>,
     format: 'json' | 'css' | 'scss' | 'figma'
   ): string {
     switch (format) {

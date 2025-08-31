@@ -15,13 +15,24 @@ export const getActivityBarColors = (
   const activityBarActiveBackground =
     getAdaptiveActivityBarActiveBackground(context)
 
+  // Адаптивный текст для панели активности
+  const activityBarForeground =
+    context?.type === 'light'
+      ? ('#57606a' as Hex) // Тёмно-серый для светлой темы
+      : extendedPalette.text.muted
+
+  const activityBarInactiveForeground =
+    context?.type === 'light'
+      ? ('#8c959f' as Hex) // Приглушённый серый для светлой темы
+      : extendedPalette.activityBar.inactive
+
   return {
     // Панель действий (Activity Bar) - АДАПТИВНЫЙ фон в зависимости от типа темы
     'activityBar.background': activityBarBackground,
-    'activityBar.foreground': extendedPalette.text.muted, // #787c99
+    'activityBar.foreground': activityBarForeground,
     'activityBar.activeBorder': palette.brand.primary, // Активная граница
     'activityBar.activeBackground': activityBarActiveBackground, // АДАПТИВНЫЙ активный фон
-    'activityBar.inactiveForeground': extendedPalette.activityBar.inactive, // #3b3e52
+    'activityBar.inactiveForeground': activityBarInactiveForeground,
     'activityBar.border': activityBarBackground,
 
     // Значки уведомлений на иконках - используем централизованную палитру
@@ -30,7 +41,7 @@ export const getActivityBarColors = (
 
     // Панель действий в верхней позиции (Activity Bar: Top) - используем централизованную палитру
     'activityBarTop.background': activityBarBackground,
-    'activityBarTop.foreground': extendedPalette.text.muted, // #787c99
-    'activityBarTop.inactiveForeground': extendedPalette.activityBar.inactive, // #3b3e52
+    'activityBarTop.foreground': activityBarForeground,
+    'activityBarTop.inactiveForeground': activityBarInactiveForeground,
   }
 }

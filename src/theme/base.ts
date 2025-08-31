@@ -31,7 +31,10 @@ export const getBaseColors = (
     'badge.background': extendedPalette.badge.background, // #7e83b230
     'badge.foreground': extendedPalette.text.badge, // #acb0d0
     'icon.foreground': extendedPalette.text.muted, // #787c99
-    'settings.headerForeground': extendedPalette.text.settings, // #6183bb
+    'settings.headerForeground':
+      context?.type === 'light'
+        ? ('#24292f' as Hex)
+        : extendedPalette.text.settings,
 
     // Окно и разделитель
     'window.activeBorder': extendedPalette.border.window, // #0d0f17
@@ -63,18 +66,32 @@ export const getBaseColors = (
     'textCodeBlock.background': widgetBackground,
     'textSeparator.foreground': extendedPalette.special.textSeparator, // #7bb0f9
 
-    // Заголовок окна - используем адаптивный фон
-    'titleBar.activeForeground': extendedPalette.text.muted, // #787c99
-    'titleBar.inactiveForeground': extendedPalette.text.muted, // #787c99
+    // Заголовок окна - адаптивный текст
+    'titleBar.activeForeground':
+      context?.type === 'light'
+        ? ('#57606a' as Hex)
+        : extendedPalette.text.muted,
+    'titleBar.inactiveForeground':
+      context?.type === 'light'
+        ? ('#8c959f' as Hex)
+        : extendedPalette.text.muted,
     'titleBar.activeBackground': baseBackground,
     'titleBar.inactiveBackground': baseBackground,
     'titleBar.border': extendedPalette.bg.border, // #101014
 
-    // Command Center - используем адаптивный фон
-    'commandCenter.foreground': extendedPalette.command.foreground, // #bababc
-    'commandCenter.activeForeground': extendedPalette.command.activeForeground, // #e5e5e5
+    // Command Center - адаптивный текст
+    'commandCenter.foreground':
+      context?.type === 'light'
+        ? ('#57606a' as Hex)
+        : extendedPalette.command.foreground,
+    'commandCenter.activeForeground':
+      context?.type === 'light'
+        ? ('#24292f' as Hex)
+        : extendedPalette.command.activeForeground,
     'commandCenter.inactiveForeground':
-      extendedPalette.command.inactiveForeground, // #a4a5a7
+      context?.type === 'light'
+        ? ('#8c959f' as Hex)
+        : extendedPalette.command.inactiveForeground,
     'commandCenter.background': widgetBackground,
     'commandCenter.activeBackground': extendedPalette.command.activeBackground, // #13151d
     'commandCenter.border': extendedPalette.border.widget, // #272a31
