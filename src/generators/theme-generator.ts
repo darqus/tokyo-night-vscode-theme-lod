@@ -4,7 +4,7 @@ import {
   AdaptiveThemeGenerator,
   PaletteUtils,
 } from './adaptive-theme-generator'
-import type { ThemeData } from '../types/theme'
+import type { ThemeData, ThemeObject } from '../types/theme'
 import type { PaletteModification } from '../palette/adapters'
 
 /**
@@ -49,7 +49,7 @@ export class ThemeGenerator {
     displayName: string,
     modification: PaletteModification,
     type: 'dark' | 'light' = 'dark'
-  ): ThemeData {
+  ): ThemeObject {
     const theme = AdaptiveThemeGenerator.createCustomTheme(
       name,
       displayName,
@@ -141,7 +141,7 @@ export class ThemeGenerator {
         },
       },
       {
-        name: 'tokyo-night-protanopia',
+        name: 'tokyo-night-protanopia-friendly',
         displayName: 'Tokyo Night Protanopia Friendly',
         modification: {
           hueShift: 45,
@@ -149,7 +149,7 @@ export class ThemeGenerator {
         },
       },
       {
-        name: 'tokyo-night-deuteranopia',
+        name: 'tokyo-night-deuteranopia-friendly',
         displayName: 'Tokyo Night Deuteranopia Friendly',
         modification: {
           hueShift: -45,
@@ -172,7 +172,7 @@ export class ThemeGenerator {
   /**
    * Сохраняет тему в файл
    */
-  private saveTheme(theme: ThemeData): void {
+  private saveTheme(theme: ThemeObject): void {
     const filename = `${theme.name
       .replace(/\s+/g, '-')
       .toLowerCase()}-color-theme.json`
@@ -216,6 +216,7 @@ export class ThemeGenerator {
 
     gradientThemes.forEach((theme) => {
       this.saveTheme(theme)
+      console.log(`✅ Сгенерирована кастомная тема: ${theme.displayName}`)
     })
 
     // Экспериментальные цветовые схемы

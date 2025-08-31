@@ -166,7 +166,7 @@ export class AdaptiveThemeGenerator {
     displayName: string,
     modification: PaletteModification,
     type: 'dark' | 'light' | 'storm' | 'moon' | 'contrast' | 'pastel' = 'dark'
-  ): ThemeData {
+  ): ThemeObject {
     return this.generateTheme({
       name,
       displayName,
@@ -206,8 +206,8 @@ export class PaletteUtils {
     variant1: PaletteVariant,
     variant2: PaletteVariant,
     steps: number = 5
-  ): ThemeData[] {
-    const themes: ThemeData[] = []
+  ): ThemeObject[] {
+    const themes: ThemeObject[] = []
 
     for (let i = 0; i < steps; i++) {
       const ratio = i / (steps - 1)
