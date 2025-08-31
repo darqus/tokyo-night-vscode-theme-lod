@@ -1,5 +1,6 @@
 import { Hex } from '../types'
 import { extendedPalette } from './extended'
+import { createLightThemePalette } from './light-theme'
 
 /**
  * Система адаптации палитр для генерации вариантов тем
@@ -157,18 +158,15 @@ export function createAdaptedPalette(
   variant: PaletteVariant,
   customModification?: PaletteModification
 ): typeof extendedPalette {
+  // Специальная обработка для светлой темы
+  if (variant === 'tokyo-light') {
+    return createLightThemeAdaptedPalette()
+  }
+
   let modification: PaletteModification = {}
 
   // Предустановленные варианты
   switch (variant) {
-    case 'tokyo-light':
-      modification = {
-        lightnessOffset: 35,
-        saturationMultiplier: 0.8,
-        contrastBoost: 1.2,
-      }
-      break
-
     case 'tokyo-storm':
       modification = {
         hueShift: 15,
@@ -310,4 +308,129 @@ export function mixPalettes(
   }
 
   return mixObjects(palette1, palette2, ratio)
+}
+
+/**
+ * Создает специализированную адаптированную палитру для светлой темы
+ * Обеспечивает правильную контрастность и читаемость
+ */
+function createLightThemeAdaptedPalette(): typeof extendedPalette {
+  const lightPalette = createLightThemePalette()
+
+  // Создаем новую палитру на основе базовой, но с заменой критических элементов
+  return {
+    ...extendedPalette,
+
+    // Обновляем основные текстовые цвета
+    text: {
+      ...extendedPalette.text,
+      primary: lightPalette.text.primary,
+      muted: lightPalette.text.muted, // Используем правильный цвет muted
+      disabled: lightPalette.text.disabled,
+      description: lightPalette.text.secondary,
+      settings: lightPalette.text.primary, // Для лучшего контраста заголовков настроек
+      white: lightPalette.text.primary, // Заменяем белый на темный для светлой темы
+      light: lightPalette.text.secondary,
+    },
+
+    // Обновляем фоновые цвета
+    bg: {
+      ...extendedPalette.bg,
+      adaptive: {
+        ...extendedPalette.bg.adaptive,
+        editor: {
+          ...extendedPalette.bg.adaptive.editor,
+          light: lightPalette.background.primary,
+        },
+        sideBar: {
+          ...extendedPalette.bg.adaptive.sideBar,
+          light: lightPalette.background.sidebar,
+        },
+        activityBar: {
+          ...extendedPalette.bg.adaptive.activityBar,
+          light: lightPalette.background.activitybar,
+        },
+        statusBar: {
+          ...extendedPalette.bg.adaptive.statusBar,
+          light: lightPalette.background.statusbar,
+        },
+        base: {
+          ...extendedPalette.bg.adaptive.base,
+          light: lightPalette.background.primary,
+        },
+        terminal: {
+          ...extendedPalette.bg.adaptive.terminal,
+          light: lightPalette.background.primary,
+        },
+        tabBar: {
+          ...extendedPalette.bg.adaptive.tabBar,
+          light: lightPalette.background.primary,
+        },
+        menu: {
+          ...extendedPalette.bg.adaptive.menu,
+          light: lightPalette.background.secondary,
+        },
+        notification: {
+          ...extendedPalette.bg.adaptive.notification,
+          light: lightPalette.background.elevated,
+        },
+        widget: {
+          ...extendedPalette.bg.adaptive.widget,
+          light: lightPalette.background.secondary,
+        },
+        list: {
+          ...extendedPalette.bg.adaptive.list,
+          light: lightPalette.background.primary,
+        },
+        button: {
+          ...extendedPalette.bg.adaptive.button,
+          light: lightPalette.background.button,
+        },
+      },
+    },
+
+    // Обновляем цвета кнопок
+    button: {
+      ...extendedPalette.button,
+      primary: lightPalette.background.button,
+      primaryHover: lightPalette.background.buttonHover,
+      foreground: lightPalette.text.inverse,
+      secondary: lightPalette.background.buttonSecondary,
+    },
+
+    // Обновляем границы
+    border: {
+      ...extendedPalette.border,
+      widget: lightPalette.background.border,
+      input: lightPalette.background.border,
+      focus: lightPalette.background.focus,
+    },
+
+    // Обновляем специальные элементы для лучшей читаемости
+    special: {
+      ...extendedPalette.special,
+      textLink: lightPalette.text.link,
+      textLinkActive: lightPalette.text.linkHover,
+    },
+
+    // Обновляем элементы расширений
+    extension: {
+      ...extendedPalette.extension,
+      prominentBackground: lightPalette.background.button,
+      prominentForeground: lightPalette.text.inverse,
+    },
+
+    // Обновляем командный центр и баннеры
+    command: {
+      ...extendedPalette.command,
+      foreground: lightPalette.text.primary,
+      activeForeground: lightPalette.text.primary,
+      inactiveForeground: lightPalette.text.secondary,
+    },
+
+    banner: {
+      ...extendedPalette.banner,
+      foreground: lightPalette.text.primary,
+    },
+  } as typeof extendedPalette
 }
