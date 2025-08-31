@@ -236,7 +236,7 @@
     "searchEditor.findMatchBorder": "#7dcfff",
     "searchEditor.textInputBorder": "#2f3140",
     "tab.activeBackground": "#1a1b26",
-    "tab.inactiveBackground": "#1f202c",
+    "tab.inactiveBackground": "#1a1b26",
     "tab.activeForeground": "#a9b1d6",
     "tab.hoverForeground": "#c0caf5",
     "tab.activeBorder": "#3d59a1",
