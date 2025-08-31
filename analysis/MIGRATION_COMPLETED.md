@@ -51,7 +51,6 @@ npm run theme-cli -- custom --name=my-theme --hue=60 --saturation=1.3
 #### ✅ Предустановленные варианты
 
 - **tokyo-night**: Оригинальная тёмная
-- **tokyo-light**: Светлая версия
 - **tokyo-storm**: Штормовая
 - **tokyo-moon**: Лунная
 - **tokyo-high-contrast**: Высококонтрастная

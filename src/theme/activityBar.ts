@@ -15,16 +15,10 @@ export const getActivityBarColors = (
   const activityBarActiveBackground =
     getAdaptiveActivityBarActiveBackground(context)
 
-  // Адаптивный текст для панели активности
-  const activityBarForeground =
-    context?.type === 'light'
-      ? ('#57606a' as Hex) // Тёмно-серый для светлой темы
-      : extendedPalette.text.muted
+  // Стандартные цвета текста
+  const activityBarForeground = extendedPalette.text.muted
 
-  const activityBarInactiveForeground =
-    context?.type === 'light'
-      ? ('#8c959f' as Hex) // Приглушённый серый для светлой темы
-      : extendedPalette.activityBar.inactive
+  const activityBarInactiveForeground = extendedPalette.activityBar.inactive
 
   return {
     // Панель действий (Activity Bar) - АДАПТИВНЫЙ фон в зависимости от типа темы

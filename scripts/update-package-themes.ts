@@ -53,7 +53,6 @@ function generateThemeLabel(themeName: string): string {
   // Специальные случаи
   const specialNames: Record<string, string> = {
     dark: 'Tokyo Night Dark',
-    light: 'Tokyo Night Light',
     storm: 'Tokyo Night Storm',
     moon: 'Tokyo Night Moon',
     'high-contrast': 'Tokyo Night High Contrast',

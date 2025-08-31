@@ -29,7 +29,7 @@ The theme must follow VS Code's theme structure:
 ```typescript
 interface VSCodeTheme {
   name: string;
-  type: 'dark' | 'light' | 'hc';
+  type: 'dark' | 'hc';
   colors: Record<string, string>;
   tokenColors: TokenColor[];
   semanticTokenColors?: SemanticTokenColors;

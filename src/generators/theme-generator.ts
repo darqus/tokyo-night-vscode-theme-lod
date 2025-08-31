@@ -210,7 +210,7 @@ export class ThemeGenerator {
     const gradientThemes = PaletteUtils.createGradient(
       'tokyo-night-gradient',
       'tokyo-night',
-      'tokyo-light',
+      'tokyo-storm',
       3
     )
 

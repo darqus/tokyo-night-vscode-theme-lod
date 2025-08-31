@@ -30,7 +30,6 @@ All themes are **programmatically generated** from a centralized palette system 
 ### 🌃 **Core Themes**
 
 - **Tokyo Night Dark** - Original dark theme
-- **Tokyo Night Light** - Light variant for daytime
 - **Tokyo Night Storm** - Cooler storm variant
 - **Tokyo Night Moon** - Muted lunar variant
 

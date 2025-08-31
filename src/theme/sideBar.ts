@@ -10,16 +10,10 @@ export const getSideBarColors = (
   // Получаем адаптивный фон боковой панели
   const sideBarBackground = getAdaptiveSideBarBackground(context)
 
-  // Адаптивный текст для боковой панели
-  const sideBarForeground =
-    context?.type === 'light'
-      ? ('#57606a' as Hex) // Тёмно-серый для светлой темы
-      : extendedPalette.text.muted
+  // Стандартные цвета текста
+  const sideBarForeground = extendedPalette.text.muted
 
-  const sideBarTitleForeground =
-    context?.type === 'light'
-      ? ('#24292f' as Hex) // Основной тёмный текст для светлой темы
-      : extendedPalette.text.primary
+  const sideBarTitleForeground = extendedPalette.text.primary
 
   return {
     // Боковая панель - АДАПТИВНЫЙ фон в зависимости от типа темы

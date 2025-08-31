@@ -19,7 +19,6 @@
 ### ✅ Готовые варианты тем
 
 - **tokyo-night**: Оригинальная тёмная тема
-- **tokyo-light**: Светлый вариант
 - **tokyo-storm**: Штормовая версия
 - **tokyo-moon**: Лунная версия
 - **Сезонные**: spring, summer, autumn, winter
@@ -85,7 +84,7 @@ const adaptedPalette = createAdaptedPalette('tokyo-storm')
 
 // Смешать палитры
 const mixedPalette = createAdaptedPalette('custom', {
-  mixWith: 'tokyo-light',
+  mixWith: 'tokyo-storm',
   mixRatio: 0.3
 })
 ```
@@ -149,7 +148,6 @@ colors: {
 
 ```typescript
 const variants = {
-  'tokyo-light': () => lightVariant(),
   'tokyo-storm': () => stormVariant(),
   'tokyo-moon': () => moonVariant(),
   'warm': () => warmVariant(),

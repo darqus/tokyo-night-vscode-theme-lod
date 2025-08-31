@@ -13,19 +13,12 @@ export const getInputColors = (
   const widgetBackground = getAdaptiveWidgetBackground(context)
   const menuBackground = getAdaptiveMenuBackground(context)
 
-  // Адаптивные цвета текста для светлой темы
-  const inputForeground =
-    context?.type === 'light' ? ('#1f2328' as Hex) : basePalette.inputFg
-  const dropdownForeground =
-    context?.type === 'light'
-      ? ('#3d4752' as Hex)
-      : extendedPalette.dropdown.foreground
+  // Базовые цвета для полей ввода
+  const inputForeground = basePalette.inputFg
+  const dropdownForeground = extendedPalette.dropdown.foreground
 
-  // Адаптивные границы для светлой темы
-  const inputBorder =
-    context?.type === 'light'
-      ? ('#d1d5da' as Hex)
-      : extendedPalette.border.input
+  // Базовые границы
+  const inputBorder = extendedPalette.border.input
 
   return {
     // Поля ввода - используем АДАПТИВНЫЕ фоны

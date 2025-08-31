@@ -99,12 +99,6 @@ export class AdaptiveThemeGenerator {
         type: 'dark',
       },
       {
-        name: 'tokyo-night-light',
-        displayName: 'Tokyo Night Light',
-        variant: 'tokyo-light',
-        type: 'light',
-      },
-      {
         name: 'tokyo-night-storm',
         displayName: 'Tokyo Night Storm',
         variant: 'tokyo-storm',

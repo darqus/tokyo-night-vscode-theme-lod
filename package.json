@@ -32,7 +32,6 @@
     "tokyo",
     "night",
     "dark",
-    "light",
     "storm",
     "moon",
     "seasonal",
@@ -88,11 +87,6 @@
         "label": "Tokyo Night High Contrast",
         "uiTheme": "vs-dark",
         "path": "./themes/tokyo-night-high-contrast-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night Light",
-        "uiTheme": "vs",
-        "path": "./themes/tokyo-night-light-color-theme.json"
       },
       {
         "label": "Tokyo Night Low Contrast",
