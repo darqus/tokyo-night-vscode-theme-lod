@@ -84,6 +84,11 @@ export function getAdaptiveSelectionBackground(
     return extendedPalette.bg.adaptive.selection[type].dark
   }
 
+  // Для светлых тем всегда используем статическую адаптивную палитру
+  if (context.type === 'light') {
+    return extendedPalette.bg.adaptive.selection[type].light
+  }
+
   // Используем модифицированную палитру из контекста, если доступна
   if (context.adaptedPalette?.selection) {
     switch (type) {
