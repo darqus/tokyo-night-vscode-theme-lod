@@ -1,74 +1,78 @@
-import { palette, core } from '../palette'
+import { palette, core, extendedPalette } from '../palette'
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
 
 export const getBaseColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
-  // Верхний уровень и основа - соответствует оригинальной Tokyo Night
-  foreground: palette.fg.muted, // #787c99 - основной foreground интерфейса (через palette)
-  descriptionForeground: '#515670' as Hex, // как в оригинале
-  disabledForeground: '#545c7e' as Hex, // как в оригинале
-  focusBorder: '#545c7e33' as Hex, // как в оригинале
-  errorForeground: '#515670' as Hex, // как в оригинале
-  'widget.border': '#272a31' as Hex,
-  'widget.shadow': '#ffffff00' as Hex, // как в оригинале (прозрачный)
-  'scrollbar.shadow': '#00000033' as Hex, // как в оригинале
+  // Верхний уровень и основа - используем централизованную палитру
+  foreground: extendedPalette.text.muted, // #787c99
+  descriptionForeground: extendedPalette.text.description, // #515670
+  disabledForeground: extendedPalette.text.disabled, // #545c7e
+  focusBorder: extendedPalette.border.focus, // #545c7e33
+  errorForeground: extendedPalette.text.error, // #515670
+  'widget.border': extendedPalette.border.widget, // #272a31
+  'widget.shadow': extendedPalette.special.transparent, // #ffffff00
+  'scrollbar.shadow': extendedPalette.scrollbar.shadow, // #00000033
 
   // Значки, иконки, настройки
-  'badge.background': '#7e83b230' as Hex, // как в оригинале
-  'badge.foreground': '#acb0d0' as Hex, // как в оригинале
-  'icon.foreground': palette.fg.muted, // #787c99 - как в оригинале
-  'settings.headerForeground': '#6183bb' as Hex, // как в оригинале
+  'badge.background': extendedPalette.badge.background, // #7e83b230
+  'badge.foreground': extendedPalette.text.badge, // #acb0d0
+  'icon.foreground': extendedPalette.text.muted, // #787c99
+  'settings.headerForeground': extendedPalette.text.settings, // #6183bb
 
   // Окно и разделитель
-  'window.activeBorder': '#0d0f17' as Hex, // как в оригинале
-  'window.inactiveBorder': '#0d0f17' as Hex, // как в оригинале
-  'sash.hoverBorder': '#29355a' as Hex, // как в оригинале
+  'window.activeBorder': extendedPalette.border.window, // #0d0f17
+  'window.inactiveBorder': extendedPalette.border.window, // #0d0f17
+  'sash.hoverBorder': extendedPalette.border.sash, // #29355a
 
   // Кнопки/значки расширений
-  'extensionButton.prominentBackground': '#7dcfff' as Hex,
-  'extensionButton.prominentHoverBackground': '#222c444d' as Hex,
-  'extensionButton.prominentForeground': '#e5e5e5' as Hex,
-  'extensionBadge.remoteBackground': '#7bb2fa' as Hex,
-  'extensionBadge.remoteForeground': '#0c0f17' as Hex,
+  'extensionButton.prominentBackground':
+    extendedPalette.extension.prominentBackground, // #7dcfff
+  'extensionButton.prominentHoverBackground':
+    extendedPalette.extension.prominentHover, // #222c444d
+  'extensionButton.prominentForeground':
+    extendedPalette.extension.prominentForeground, // #e5e5e5
+  'extensionBadge.remoteBackground': extendedPalette.badge.extension, // #7bb2fa
+  'extensionBadge.remoteForeground': extendedPalette.badge.extensionForeground, // #0c0f17
 
-  // Ползунок полосы прокрутки - точная копия оригинальной Tokyo Night
-  'scrollbarSlider.background': '#868bc415' as Hex, // точно как в оригинале
-  'scrollbarSlider.hoverBackground': '#868bc410' as Hex, // точно как в оригинале
-  'scrollbarSlider.activeBackground': '#868bc422' as Hex, // точно как в оригинале
+  // Ползунок полосы прокрутки - используем централизованную палитру
+  'scrollbarSlider.background': extendedPalette.scrollbar.background, // #868bc415
+  'scrollbarSlider.hoverBackground': extendedPalette.scrollbar.hover, // #868bc410
+  'scrollbarSlider.activeBackground': extendedPalette.scrollbar.active, // #868bc422
 
   // Текст
-  'walkThrough.embeddedEditorBackground': '#0c0f17' as Hex,
-  'textLink.foreground': '#94acdf' as Hex,
-  'textLink.activeForeground': '#7dcfff' as Hex,
-  'textPreformat.foreground': '#d2e1ea' as Hex,
-  'textBlockQuote.background': '#0c0f17' as Hex,
-  'textCodeBlock.background': '#0c0f17' as Hex,
-  'textSeparator.foreground': '#7bb0f9' as Hex,
+  'walkThrough.embeddedEditorBackground': extendedPalette.special.walkThrough, // #0c0f17
+  'textLink.foreground': extendedPalette.special.textLink, // #94acdf
+  'textLink.activeForeground': extendedPalette.special.textLinkActive, // #7dcfff
+  'textPreformat.foreground': extendedPalette.text.preformat, // #d2e1ea
+  'textBlockQuote.background': extendedPalette.special.textBlockQuote, // #0c0f17
+  'textCodeBlock.background': extendedPalette.special.textCodeBlock, // #0c0f17
+  'textSeparator.foreground': extendedPalette.special.textSeparator, // #7bb0f9
 
-  // Заголовок окна - точная копия оригинальной Tokyo Night
-  'titleBar.activeForeground': '#787c99' as Hex, // точно как в оригинале
-  'titleBar.inactiveForeground': '#787c99' as Hex, // точно как в оригинале
-  'titleBar.activeBackground': '#16161e' as Hex, // точно как в оригинале
-  'titleBar.inactiveBackground': '#16161e' as Hex, // точно как в оригинале
-  'titleBar.border': '#101014' as Hex, // точно как в оригинале
+  // Заголовок окна - используем централизованную палитру
+  'titleBar.activeForeground': extendedPalette.text.muted, // #787c99
+  'titleBar.inactiveForeground': extendedPalette.text.muted, // #787c99
+  'titleBar.activeBackground': extendedPalette.bg.secondary, // #16161e
+  'titleBar.inactiveBackground': extendedPalette.bg.secondary, // #16161e
+  'titleBar.border': extendedPalette.bg.border, // #101014
 
   // Command Center
-  'commandCenter.foreground': '#bababc' as Hex,
-  'commandCenter.activeForeground': '#e5e5e5' as Hex,
-  'commandCenter.inactiveForeground': '#a4a5a7' as Hex,
-  'commandCenter.background': '#0c0f17' as Hex,
-  'commandCenter.activeBackground': '#13151d' as Hex,
-  'commandCenter.border': '#272a31' as Hex,
-  'commandCenter.inactiveBorder': '#272a31' as Hex,
+  'commandCenter.foreground': extendedPalette.command.foreground, // #bababc
+  'commandCenter.activeForeground': extendedPalette.command.activeForeground, // #e5e5e5
+  'commandCenter.inactiveForeground':
+    extendedPalette.command.inactiveForeground, // #a4a5a7
+  'commandCenter.background': extendedPalette.command.background, // #0c0f17
+  'commandCenter.activeBackground': extendedPalette.command.activeBackground, // #13151d
+  'commandCenter.border': extendedPalette.border.widget, // #272a31
+  'commandCenter.inactiveBorder': extendedPalette.border.widget, // #272a31
 
   // Баннер
-  'banner.background': '#0c0f17' as Hex,
-  'banner.foreground': '#e5e5e5' as Hex,
-  'banner.iconForeground': '#7dcfff' as Hex,
+  'banner.background': extendedPalette.banner.background, // #0c0f17
+  'banner.foreground': extendedPalette.banner.foreground, // #e5e5e5
+  'banner.iconForeground': extendedPalette.banner.iconForeground, // #7dcfff
 
   // Подписи клавиш
-  'keybindingLabel.background': '#0c0f1799' as Hex,
-  'keybindingLabel.foreground': '#e5e5e5' as Hex,
-  'keybindingLabel.border': '#272a31' as Hex,
-  'keybindingLabel.bottomBorder': '#272a31ab' as Hex,
+  'keybindingLabel.background': extendedPalette.keybinding.background, // #0c0f1799
+  'keybindingLabel.foreground': extendedPalette.keybinding.foreground, // #e5e5e5
+  'keybindingLabel.border': extendedPalette.border.keybinding, // #272a31
+  'keybindingLabel.bottomBorder': extendedPalette.border.keybindingBottom, // #272a31ab
 })

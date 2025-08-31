@@ -1,18 +1,18 @@
-import { palette, core } from '../palette'
+import { palette, extendedPalette } from '../palette'
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
 
 export const getMenuColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
-  // Панель меню (menubar) - точная копия оригинальной Tokyo Night
-  'menubar.selectionForeground': '#a9b1d6' as Hex, // точно как в оригинале
-  'menubar.selectionBackground': '#1e202e' as Hex, // точно как в оригинале
-  'menubar.selectionBorder': '#1b1e2e' as Hex, // точно как в оригинале
+  // Панель меню (menubar) - используем централизованную палитру
+  'menubar.selectionForeground': extendedPalette.text.primary, // #a9b1d6
+  'menubar.selectionBackground': extendedPalette.selection.menuSelection, // #1e202e
+  'menubar.selectionBorder': extendedPalette.selection.menuBorder, // #1b1e2e
 
-  // Выпадающие меню - точная копия оригинальной Tokyo Night
-  'menu.foreground': '#787c99' as Hex, // точно как в оригинале
-  'menu.background': '#16161e' as Hex, // точно как в оригинале
-  'menu.selectionForeground': '#a9b1d6' as Hex, // точно как в оригинале
-  'menu.selectionBackground': '#1e202e' as Hex, // точно как в оригинале
-  'menu.separatorBackground': '#101014' as Hex, // точно как в оригинале
-  'menu.border': '#101014' as Hex, // точно как в оригинале
+  // Выпадающие меню - используем централизованную палитру
+  'menu.foreground': extendedPalette.text.muted, // #787c99
+  'menu.background': extendedPalette.bg.secondary, // #16161e
+  'menu.selectionForeground': extendedPalette.text.primary, // #a9b1d6
+  'menu.selectionBackground': extendedPalette.selection.menuSelection, // #1e202e
+  'menu.separatorBackground': extendedPalette.bg.border, // #101014
+  'menu.border': extendedPalette.bg.border, // #101014
 })

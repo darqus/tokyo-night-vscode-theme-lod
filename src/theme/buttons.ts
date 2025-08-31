@@ -1,16 +1,16 @@
-import { basePalette } from '../palette'
+import { basePalette, extendedPalette } from '../palette'
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
 
 export const getButtonColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
-  // Кнопки / индикатор выполнения - соответствует оригинальной Tokyo Night
-  'button.background': basePalette.buttonBg, // #3d59a1dd как в оригинале
-  'button.hoverBackground': '#2d3b5a' as Hex,
-  'button.foreground': basePalette.buttonFg, // #ffffff как в оригинале
-  'button.border': '#7aa2f780' as Hex,
-  'button.separator': '#7aa2f766' as Hex,
-  'button.secondaryBackground': '#222c44' as Hex,
-  'button.secondaryHoverBackground': '#2d3b5a' as Hex,
-  'button.secondaryForeground': basePalette.buttonFg, // #ffffff как в оригинале
-  'progressBar.background': '#7dcfff' as Hex,
+  // Кнопки / индикатор выполнения - используем централизованную палитру
+  'button.background': basePalette.buttonBg, // #3d59a1dd
+  'button.hoverBackground': extendedPalette.button.primaryHover, // #2d3b5a
+  'button.foreground': extendedPalette.button.foreground, // #ffffff
+  'button.border': extendedPalette.button.border, // #7aa2f780
+  'button.separator': extendedPalette.button.separator, // #7aa2f766
+  'button.secondaryBackground': extendedPalette.button.secondary, // #222c44
+  'button.secondaryHoverBackground': extendedPalette.button.secondaryHover, // #2d3b5a
+  'button.secondaryForeground': extendedPalette.button.foreground, // #ffffff
+  'progressBar.background': extendedPalette.special.progressBar, // #7dcfff
 })

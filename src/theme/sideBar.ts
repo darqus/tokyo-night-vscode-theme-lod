@@ -1,17 +1,17 @@
-import { palette, basePalette } from '../palette'
+import { palette, basePalette, extendedPalette } from '../palette'
 
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
 
 export const getSideBarColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
-  // Боковая панель - точная копия оригинальной Tokyo Night
-  'tree.indentGuidesStroke': '#2b2b3b' as Hex, // точно как в оригинале
-  'sideBar.foreground': '#787c99' as Hex, // точно как в оригинале
-  'sideBar.background': '#16161e' as Hex, // точно как в оригинале
-  'sideBar.border': '#101014' as Hex, // точно как в оригинале
-  'sideBarTitle.foreground': '#787c99' as Hex, // точно как в оригинале
-  'sideBarSectionHeader.background': '#16161e' as Hex, // точно как в оригинале
-  'sideBarSectionHeader.foreground': '#a9b1d6' as Hex, // точно как в оригинале
-  'sideBarSectionHeader.border': '#101014' as Hex, // точно как в оригинале
-  'sideBar.dropBackground': '#1e202e' as Hex, // точно как в оригинале
+  // Боковая панель - используем централизованную палитру
+  'tree.indentGuidesStroke': extendedPalette.bg.tree, // #2b2b3b
+  'sideBar.foreground': extendedPalette.text.muted, // #787c99
+  'sideBar.background': extendedPalette.bg.secondary, // #16161e
+  'sideBar.border': extendedPalette.bg.border, // #101014
+  'sideBarTitle.foreground': extendedPalette.text.muted, // #787c99
+  'sideBarSectionHeader.background': extendedPalette.bg.secondary, // #16161e
+  'sideBarSectionHeader.foreground': extendedPalette.text.primary, // #a9b1d6
+  'sideBarSectionHeader.border': extendedPalette.bg.border, // #101014
+  'sideBar.dropBackground': extendedPalette.selection.listDrop, // #1e202e
 })

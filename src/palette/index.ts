@@ -1,6 +1,7 @@
 import type { Palette } from '../types/palette'
 import { core } from './core'
 import { basePalette } from './base'
+import { extendedPalette } from './extended'
 
 const { tokens } = core
 
@@ -327,4 +328,4 @@ export const palette: Palette = {
 }
 
 // Re-export for convenience in theme modules
-export { core, basePalette }
+export { core, basePalette, extendedPalette }

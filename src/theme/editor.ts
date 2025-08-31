@@ -1,4 +1,4 @@
-import { palette, core } from '../palette'
+import { palette, core, extendedPalette } from '../palette'
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
 
@@ -105,10 +105,10 @@ export const getEditorColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
   /** Цвет активной направляющей отступа (текущий уровень) */
   'editorIndentGuide.activeBackground1':
     core.tokens.editorIndentGuideActiveBackground1,
-  /** Цвет номеров строк - точная копия оригинальной Tokyo Night */
-  'editorLineNumber.foreground': '#363b54' as Hex, // точно как в оригинале
-  /** Цвет номера активной строки - точная копия оригинальной Tokyo Night */
-  'editorLineNumber.activeForeground': '#787c99' as Hex, // точно как в оригинале
+  /** Цвет номеров строк - используем централизованную палитру */
+  'editorLineNumber.foreground': extendedPalette.text.lineNumber, // #363b54
+  /** Цвет номера активной строки - используем централизованную палитру */
+  'editorLineNumber.activeForeground': extendedPalette.text.lineNumberActive, // #787c99
   /** Цвет фона подсветки текущей строки */
   'editor.lineHighlightBackground': palette.bg.lineHighlight,
   /** Цвет отображения пробелов, табов и переносов строк */
