@@ -25,7 +25,7 @@ export const getInputColors = (
     'input.background': widgetBackground, // АДАПТИВНЫЙ фон полей ввода
     'input.foreground': inputForeground, // АДАПТИВНЫЙ цвет текста
     'input.border': inputBorder, // АДАПТИВНАЯ граница
-    'input.placeholderForeground': extendedPalette.text.placeholder, // #999a9d
+    'input.placeholderForeground': extendedPalette.text.placeholder, // #8891b5
     'inputOption.activeForeground': extendedPalette.text.light, // #e5e5e5
     'inputOption.activeBackground': extendedPalette.input.optionActive, // #7aa2f733
     'inputOption.activeBorder': extendedPalette.border.input, // #272a31
@@ -61,5 +61,9 @@ export const getInputColors = (
     'radio.inactiveBackground': extendedPalette.radio.inactiveBackground, // #0c0f17
     'radio.inactiveBorder': extendedPalette.border.radio, // #272a31
     'radio.inactiveHoverBackground': extendedPalette.radio.inactiveHover, // #13151d
+
+    // Inline Chat Input
+    'inlineChatInput.placeholderForeground':
+      extendedPalette.text.placeholderChat, // #8a95b8
   }
 }

@@ -243,7 +243,9 @@ export const extendedPalette = {
     disabled: '#787c99' as Hex, // Отключенный текст
     description: '#515670' as Hex, // Описания
     error: '#515670' as Hex, // Текст ошибок
-    placeholder: '#999a9d' as Hex, // Placeholder текст
+    placeholder: '#8891b5' as Hex, // Placeholder текст (холодный серо-синий)
+    placeholderFold: '#7b87a3' as Hex, // Placeholder для свернутых блоков кода (приглушенный)
+    placeholderChat: '#8a95b8' as Hex, // Placeholder для inline chat (более светлый)
     lineNumber: '#363b54' as Hex, // Номера строк
     lineNumberActive: '#c0caf5' as Hex, // Активная строка (максимальная контрастность)
     settings: '#6183bb' as Hex, // Заголовки настроек

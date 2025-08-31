@@ -67,6 +67,8 @@ export const getEditorColors = (
     'editor.placeholder.foreground': palette.ui.input.placeholder,
     /** Цвет фона для свернутых (collapsed) областей кода */
     'editor.foldBackground': core.tokens.editorFoldBackground,
+    /** Цвет текста placeholder для свернутых блоков кода */
+    'editor.foldPlaceholderForeground': extendedPalette.text.placeholderFold,
     /** Цвет активных ссылок в редакторе (Ctrl+Click) */
     'editorLink.activeForeground': palette.ui.badge.base,
     // === ВЫДЕЛЕНИЕ ТЕКСТА И ПОИСК ===

@@ -599,7 +599,15 @@
       "type": "color"
     },
     "placeholder": {
-      "value": "#999a9d",
+      "value": "#8891b5",
+      "type": "color"
+    },
+    "placeholderFold": {
+      "value": "#7b87a3",
+      "type": "color"
+    },
+    "placeholderChat": {
+      "value": "#8a95b8",
       "type": "color"
     },
     "lineNumber": {
