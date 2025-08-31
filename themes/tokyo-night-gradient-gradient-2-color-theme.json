@@ -127,7 +127,7 @@
     "list.warningForeground": "#c49a5a",
     "list.activeSelectionIconForeground": "#a9b1d6",
     "list.inactiveFocusBackground": "#1c1d29",
-    "listFilterWidget.background": "#2f3140",
+    "listFilterWidget.background": "#1a1b26",
     "listFilterWidget.outline": "#7dcfff",
     "listFilterWidget.noMatchesOutline": "#7aa2f7",
     "editorBracketHighlight.foreground1": "#7cc6fd",

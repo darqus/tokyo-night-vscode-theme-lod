@@ -11,8 +11,8 @@ export const getMiscColors = (context?: ThemeContext) => {
   const widgetBackground = getAdaptiveWidgetBackground(context)
 
   return {
-    // Панели - соответствует оригинальной Tokyo Night
-    'panel.background': basePalette.panelBg, // #16161e как в оригинале
+    // Панели - АДАПТИВНЫЙ фон в зависимости от типа темы
+    'panel.background': baseBackground, // АДАПТИВНЫЙ фон панелей
     'panel.border': palette.line.border,
     'panelTitle.activeForeground': palette.fg.muted, // #787c99 как в оригинале
     'panelTitle.inactiveForeground': palette.fg.inactive,

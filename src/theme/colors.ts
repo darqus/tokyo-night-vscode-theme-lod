@@ -35,7 +35,7 @@ export const buildColorsWithContext = (context?: ThemeContext): ColorMap => {
     getInputColors(),
     getActivityBarColors(context),
     getSideBarColors(context),
-    getListColors(),
+    getListColors(context),
     getEditorColors(context),
     getTabColors(context),
     getStatusBarColors(context),
@@ -48,7 +48,7 @@ export const buildColorsWithContext = (context?: ThemeContext): ColorMap => {
     getMergeColors(),
     getChartColors(),
     getDebugColors(),
-    getQuickInputColors(),
+    getQuickInputColors(context),
     getMiscColors(context),
   ]
 
