@@ -119,7 +119,7 @@ export class AdaptiveThemeGenerator {
       {
         name: 'tokyo-night-high-contrast',
         displayName: 'Tokyo Night High Contrast',
-        variant: 'custom',
+        variant: 'high-contrast',
         customModification: {
           saturationMultiplier: 1.3,
           contrastBoost: 1.5,
@@ -130,7 +130,7 @@ export class AdaptiveThemeGenerator {
       {
         name: 'tokyo-night-low-contrast',
         displayName: 'Tokyo Night Low Contrast',
-        variant: 'custom',
+        variant: 'tokyo-night',
         customModification: {
           saturationMultiplier: 0.6,
           contrastBoost: 0.5,
@@ -141,7 +141,7 @@ export class AdaptiveThemeGenerator {
       {
         name: 'tokyo-night-pastel',
         displayName: 'Tokyo Night Pastel',
-        variant: 'custom',
+        variant: 'tokyo-night',
         customModification: {
           saturationMultiplier: 0.3,
           lightnessOffset: 20,
@@ -166,7 +166,7 @@ export class AdaptiveThemeGenerator {
     return this.generateTheme({
       name,
       displayName,
-      variant: 'custom',
+      variant: 'tokyo-night',
       customModification: modification,
       type,
     })
@@ -178,15 +178,15 @@ export class AdaptiveThemeGenerator {
   static createFromPreset(
     name: string,
     displayName: string,
-    presetName: keyof typeof paletteVariants,
+    presetVariant: PaletteVariant,
     type: 'dark' | 'light' | 'storm' | 'moon' | 'contrast' | 'pastel' = 'dark'
-  ): ThemeData {
-    const preset = paletteVariants[presetName]()
-
-    // Конвертируем палитру в модификацию (упрощенно)
-    const modification: PaletteModification = {}
-
-    return this.createCustomTheme(name, displayName, modification, type)
+  ): ThemeObject {
+    return this.generateTheme({
+      name,
+      displayName,
+      variant: presetVariant,
+      type,
+    })
   }
 }
 
