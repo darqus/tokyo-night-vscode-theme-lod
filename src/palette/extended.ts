@@ -388,7 +388,7 @@ export const extendedPalette = {
 
   // === ЦВЕТА ACTIVITY BAR ===
   activityBar: {
-    inactive: '#3b3e52' as Hex, // Неактивный элемент в activity bar
+    inactive: '#6b7089' as Hex, // Неактивный элемент в activity bar (дополнительно осветлен для лучшей читаемости)
   },
 
   // === ЦВЕТА СПИСКОВ ===

@@ -1,5 +1,8 @@
 import { palette, extendedPalette } from '../palette'
-import { getAdaptiveMenuBackground } from '../utils/adaptive-background'
+import {
+  getAdaptiveMenuBackground,
+  getAdaptiveActivityBarActiveBackground,
+} from '../utils/adaptive-background'
 import type { ThemeContext } from '../generators/adaptive-theme-generator'
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
@@ -10,17 +13,24 @@ export const getMenuColors = (
   // Получаем адаптивный фон меню
   const menuBackground = getAdaptiveMenuBackground(context)
 
-  return {
-    // Панель меню (menubar) - АДАПТИВНЫЙ фон в зависимости от типа темы
-    'menubar.selectionForeground': extendedPalette.text.primary, // #a9b1d6
-    'menubar.selectionBackground': extendedPalette.selection.menuSelection, // #1e202e
-    'menubar.selectionBorder': extendedPalette.selection.menuBorder, // #1b1e2e
+  // Используем цвет неактивного элемента activity bar
+  const activityBarInactiveColor = extendedPalette.activityBar.inactive // #3b3e52
 
-    // Выпадающие меню - АДАПТИВНЫЙ фон в зависимости от типа темы
-    'menu.foreground': extendedPalette.text.muted, // #787c99
+  // Для hover используем активный цвет activity bar
+  const activityBarActiveBackground =
+    getAdaptiveActivityBarActiveBackground(context)
+
+  return {
+    // Панель меню (menubar) - используем цвет неактивного элемента activity bar
+    'menubar.selectionForeground': palette.fg.primary, // При выделении - основной цвет текста
+    'menubar.selectionBackground': activityBarActiveBackground, // При выделении - активный цвет activity bar
+    'menubar.selectionBorder': activityBarActiveBackground, // Граница при выделении
+
+    // Выпадающие меню - используем цвет неактивного элемента activity bar
+    'menu.foreground': activityBarInactiveColor, // #3b3e52 - цвет неактивного элемента activity bar
     'menu.background': menuBackground,
-    'menu.selectionForeground': extendedPalette.text.primary, // #a9b1d6
-    'menu.selectionBackground': extendedPalette.selection.menuSelection, // #1e202e
+    'menu.selectionForeground': palette.fg.primary, // При выделении - основной цвет текста
+    'menu.selectionBackground': activityBarActiveBackground, // При выделении - активный цвет activity bar
     'menu.separatorBackground': extendedPalette.bg.border, // #101014
     'menu.border': extendedPalette.bg.border, // #101014
   }

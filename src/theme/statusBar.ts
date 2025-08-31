@@ -1,8 +1,9 @@
-import { palette, core, basePalette } from '../palette'
+import { palette, core, basePalette, extendedPalette } from '../palette'
 import {
   getAdaptiveStatusBarBackground,
   getAdaptiveButtonBackground,
   getAdaptiveWidgetBackground,
+  getAdaptiveActivityBarActiveBackground,
 } from '../utils/adaptive-background'
 import type { ThemeContext } from '../generators/adaptive-theme-generator'
 import type { Hex } from '../types/palette'
@@ -11,11 +12,18 @@ export const getStatusBarColors = (context?: ThemeContext) => {
   // Получаем адаптивный фон строки состояния
   const statusBarBackground = getAdaptiveStatusBarBackground(context)
 
+  // Используем цвет неактивного элемента activity bar
+  const activityBarInactiveColor = extendedPalette.activityBar.inactive // #3b3e52
+
+  // Для hover используем активный цвет activity bar
+  const activityBarActiveBackground =
+    getAdaptiveActivityBarActiveBackground(context)
+
   // Адаптивный цвет текста в зависимости от типа темы
   const statusBarForeground =
     context?.type === 'light'
       ? ('#1f2328' as Hex) // Тёмный для светлой темы (максимальная контрастность)
-      : palette.fg.primary // Светлый для тёмных тем
+      : activityBarInactiveColor // Используем цвет неактивного элемента activity bar
 
   return {
     // Строка состояния - АДАПТИВНЫЙ фон и текст в зависимости от типа темы
@@ -30,13 +38,12 @@ export const getStatusBarColors = (context?: ThemeContext) => {
     'statusBar.debuggingBorder': palette.line.border,
     'statusBar.noFolderBorder': palette.line.border,
     'statusBar.focusBorder': palette.ui.sash.hover,
-    'statusBarItem.activeBackground': palette.bg.active,
+    'statusBarItem.activeBackground': activityBarActiveBackground, // Используем цвет active activity bar
     'statusBarItem.hoverForeground': palette.fg.primary,
-    'statusBarItem.hoverBackground': core.tokens.statusBarItemHoverBackground,
+    'statusBarItem.hoverBackground': activityBarActiveBackground, // Используем цвет active activity bar
     'statusBarItem.prominentBackground': palette.bg.overlay,
     'statusBarItem.prominentForeground': palette.fg.primary,
-    'statusBarItem.prominentHoverBackground':
-      core.tokens.statusBarItemProminentHoverBackground,
+    'statusBarItem.prominentHoverBackground': activityBarActiveBackground, // Используем цвет active activity bar
     'statusBarItem.prominentHoverForeground': palette.fg.onSelection,
     // Remote индикатор - АДАПТИВНЫЕ фоны в зависимости от типа темы
     'statusBarItem.remoteBackground': getAdaptiveButtonBackground(context),

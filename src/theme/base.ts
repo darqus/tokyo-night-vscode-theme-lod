@@ -5,6 +5,7 @@ import type { Hex } from '../types/palette'
 import {
   getAdaptiveBaseBackground,
   getAdaptiveWidgetBackground,
+  getAdaptiveActivityBarActiveBackground,
 } from '../utils/adaptive-background'
 import { getAdaptiveFocusBorder } from '../utils/adaptive-border'
 import type { ThemeContext } from '../generators/adaptive-theme-generator'
@@ -22,6 +23,8 @@ export const getBaseColors = (
   const baseBackground = getAdaptiveBaseBackground(context)
   const widgetBackground = getAdaptiveWidgetBackground(context)
   const focusBorder = getAdaptiveFocusBorder(context)
+  const activityBarActiveBackground =
+    getAdaptiveActivityBarActiveBackground(context)
 
   return {
     // Верхний уровень и основа - используем централизованную палитру
@@ -75,34 +78,34 @@ export const getBaseColors = (
     'textCodeBlock.background': widgetBackground,
     'textSeparator.foreground': extendedPalette.special.textSeparator, // #7bb0f9
 
-    // Заголовок окна - адаптивный текст
+    // Заголовок окна - используем цвет неактивного элемента activity bar
     'titleBar.activeForeground':
       context?.type === 'light'
         ? ('#57606a' as Hex)
-        : extendedPalette.text.muted,
+        : extendedPalette.activityBar.inactive, // #3b3e52 - цвет неактивного элемента activity bar
     'titleBar.inactiveForeground':
       context?.type === 'light'
         ? ('#8c959f' as Hex)
-        : extendedPalette.text.muted,
+        : extendedPalette.activityBar.inactive, // #3b3e52 - цвет неактивного элемента activity bar
     'titleBar.activeBackground': baseBackground,
     'titleBar.inactiveBackground': baseBackground,
     'titleBar.border': extendedPalette.bg.border, // #101014
 
-    // Command Center - адаптивный текст
+    // Command Center - используем цвет неактивного элемента activity bar
     'commandCenter.foreground':
       context?.type === 'light'
         ? ('#57606a' as Hex)
-        : extendedPalette.command.foreground,
+        : extendedPalette.activityBar.inactive, // #3b3e52 - цвет неактивного элемента activity bar
     'commandCenter.activeForeground':
       context?.type === 'light'
         ? ('#24292f' as Hex)
-        : extendedPalette.command.activeForeground,
+        : extendedPalette.text.primary, // При активации - основной цвет текста
     'commandCenter.inactiveForeground':
       context?.type === 'light'
         ? ('#8c959f' as Hex)
-        : extendedPalette.command.inactiveForeground,
+        : extendedPalette.activityBar.inactive, // #3b3e52 - цвет неактивного элемента activity bar
     'commandCenter.background': widgetBackground,
-    'commandCenter.activeBackground': extendedPalette.command.activeBackground, // #13151d
+    'commandCenter.activeBackground': activityBarActiveBackground, // Используем активный цвет activity bar
     'commandCenter.border': extendedPalette.border.widget, // #272a31
     'commandCenter.inactiveBorder': extendedPalette.border.widget, // #272a31
 
