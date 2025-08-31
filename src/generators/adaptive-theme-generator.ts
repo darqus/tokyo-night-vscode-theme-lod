@@ -27,7 +27,7 @@ export interface ThemeContext {
   adaptedPalette: ReturnType<typeof createAdaptedPalette>
   variant: PaletteVariant
   displayName: string
-  type: 'dark' | 'light'
+  type: 'dark' | 'light' | 'storm' | 'moon' | 'contrast' | 'pastel' | 'neon'
 }
 
 /**
@@ -44,12 +44,33 @@ export class AdaptiveThemeGenerator {
       config.customModification
     )
 
+    // Определяем тип темы на основе варианта
+    let themeType: ThemeContext['type'] = config.type || 'dark'
+    if (config.variant === 'tokyo-light') themeType = 'light'
+    else if (config.variant === 'tokyo-storm') themeType = 'storm'
+    else if (config.variant === 'tokyo-moon') themeType = 'moon'
+    else if (
+      config.customModification?.contrastBoost &&
+      config.customModification.contrastBoost > 1.2
+    )
+      themeType = 'contrast'
+    else if (
+      config.customModification?.saturationMultiplier &&
+      config.customModification.saturationMultiplier < 0.5
+    )
+      themeType = 'pastel'
+    else if (
+      config.customModification?.saturationMultiplier &&
+      config.customModification.saturationMultiplier > 1.8
+    )
+      themeType = 'neon'
+
     // Создаем контекст темы
     const themeContext: ThemeContext = {
       adaptedPalette,
       variant: config.variant,
       displayName: config.displayName,
-      type: config.type || 'dark',
+      type: themeType,
     }
 
     // Временно заменяем глобальную extendedPalette
@@ -111,6 +132,39 @@ export class AdaptiveThemeGenerator {
           saturationMultiplier: 1.3,
           contrastBoost: 1.5,
           lightnessOffset: 8,
+        },
+        type: 'dark',
+      },
+      {
+        name: 'tokyo-night-low-contrast',
+        displayName: 'Tokyo Night Low Contrast',
+        variant: 'custom',
+        customModification: {
+          saturationMultiplier: 0.6,
+          contrastBoost: 0.5,
+          lightnessOffset: -5,
+        },
+        type: 'dark',
+      },
+      {
+        name: 'tokyo-night-pastel',
+        displayName: 'Tokyo Night Pastel',
+        variant: 'custom',
+        customModification: {
+          saturationMultiplier: 0.3,
+          lightnessOffset: 20,
+          contrastBoost: 0.8,
+        },
+        type: 'dark',
+      },
+      {
+        name: 'tokyo-night-neon',
+        displayName: 'Tokyo Night Neon',
+        variant: 'custom',
+        customModification: {
+          saturationMultiplier: 2.0,
+          lightnessOffset: 15,
+          hueShift: 10,
         },
         type: 'dark',
       },

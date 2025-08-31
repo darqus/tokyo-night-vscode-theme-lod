@@ -1,23 +1,36 @@
 import { palette, basePalette, extendedPalette } from '../palette'
+import { getAdaptiveActivityBarBackground } from '../utils/adaptive-background'
+import type { ThemeContext } from '../generators/adaptive-theme-generator'
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
 
-export const getActivityBarColors = (): Partial<
-  Record<VSCodeColorKey, Hex>
-> => ({
-  // Панель действий (Activity Bar) - используем централизованную палитру
-  'activityBar.background': extendedPalette.bg.secondary, // #16161e
-  'activityBar.foreground': extendedPalette.text.muted, // #787c99
-  // activeBorder и activeBackground закомментированы в оригинале
-  'activityBar.inactiveForeground': extendedPalette.activityBar.inactive, // #3b3e52
-  'activityBar.border': extendedPalette.bg.secondary, // #16161e
+export const getActivityBarColors = (
+  context?: ThemeContext
+): Partial<Record<VSCodeColorKey, Hex>> => {
+  // Получаем адаптивный фон панели активности
+  const activityBarBackground = context
+    ? getAdaptiveActivityBarBackground(
+        context.variant,
+        context.displayName,
+        context.adaptedPalette
+      )
+    : extendedPalette.bg.secondary
 
-  // Значки уведомлений на иконках - используем централизованную палитру
-  'activityBarBadge.background': extendedPalette.badge.activityBar, // #3d59a1
-  'activityBarBadge.foreground': extendedPalette.text.white, // #ffffff
+  return {
+    // Панель действий (Activity Bar) - АДАПТИВНЫЙ фон в зависимости от типа темы
+    'activityBar.background': activityBarBackground,
+    'activityBar.foreground': extendedPalette.text.muted, // #787c99
+    // activeBorder и activeBackground закомментированы в оригинале
+    'activityBar.inactiveForeground': extendedPalette.activityBar.inactive, // #3b3e52
+    'activityBar.border': activityBarBackground,
 
-  // Панель действий в верхней позиции (Activity Bar: Top) - используем централизованную палитру
-  'activityBarTop.background': extendedPalette.bg.secondary, // #16161e
-  'activityBarTop.foreground': extendedPalette.text.muted, // #787c99
-  'activityBarTop.inactiveForeground': extendedPalette.activityBar.inactive, // #3b3e52
-})
+    // Значки уведомлений на иконках - используем централизованную палитру
+    'activityBarBadge.background': extendedPalette.badge.activityBar, // #3d59a1
+    'activityBarBadge.foreground': extendedPalette.text.white, // #ffffff
+
+    // Панель действий в верхней позиции (Activity Bar: Top) - используем централизованную палитру
+    'activityBarTop.background': activityBarBackground,
+    'activityBarTop.foreground': extendedPalette.text.muted, // #787c99
+    'activityBarTop.inactiveForeground': extendedPalette.activityBar.inactive, // #3b3e52
+  }
+}

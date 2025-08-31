@@ -1,18 +1,33 @@
 import { palette, extendedPalette } from '../palette'
+import { getAdaptiveMenuBackground } from '../utils/adaptive-background'
+import type { ThemeContext } from '../generators/adaptive-theme-generator'
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
 
-export const getMenuColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
-  // Панель меню (menubar) - используем централизованную палитру
-  'menubar.selectionForeground': extendedPalette.text.primary, // #a9b1d6
-  'menubar.selectionBackground': extendedPalette.selection.menuSelection, // #1e202e
-  'menubar.selectionBorder': extendedPalette.selection.menuBorder, // #1b1e2e
+export const getMenuColors = (
+  context?: ThemeContext
+): Partial<Record<VSCodeColorKey, Hex>> => {
+  // Получаем адаптивный фон меню
+  const menuBackground = context
+    ? getAdaptiveMenuBackground(
+        context.variant,
+        context.displayName,
+        context.adaptedPalette
+      )
+    : extendedPalette.bg.secondary
 
-  // Выпадающие меню - используем централизованную палитру
-  'menu.foreground': extendedPalette.text.muted, // #787c99
-  'menu.background': extendedPalette.bg.secondary, // #16161e
-  'menu.selectionForeground': extendedPalette.text.primary, // #a9b1d6
-  'menu.selectionBackground': extendedPalette.selection.menuSelection, // #1e202e
-  'menu.separatorBackground': extendedPalette.bg.border, // #101014
-  'menu.border': extendedPalette.bg.border, // #101014
-})
+  return {
+    // Панель меню (menubar) - АДАПТИВНЫЙ фон в зависимости от типа темы
+    'menubar.selectionForeground': extendedPalette.text.primary, // #a9b1d6
+    'menubar.selectionBackground': extendedPalette.selection.menuSelection, // #1e202e
+    'menubar.selectionBorder': extendedPalette.selection.menuBorder, // #1b1e2e
+
+    // Выпадающие меню - АДАПТИВНЫЙ фон в зависимости от типа темы
+    'menu.foreground': extendedPalette.text.muted, // #787c99
+    'menu.background': menuBackground,
+    'menu.selectionForeground': extendedPalette.text.primary, // #a9b1d6
+    'menu.selectionBackground': extendedPalette.selection.menuSelection, // #1e202e
+    'menu.separatorBackground': extendedPalette.bg.border, // #101014
+    'menu.border': extendedPalette.bg.border, // #101014
+  }
+}

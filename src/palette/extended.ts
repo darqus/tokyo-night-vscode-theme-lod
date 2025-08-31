@@ -16,10 +16,101 @@ export const extendedPalette = {
     border: '#101014' as Hex, // Границы панелей
     tree: '#2b2b3b' as Hex, // Направляющие дерева файлов
 
-    // === АДАПТИВНЫЕ ФОНЫ РЕДАКТОРА ПО ТИПАМ ТЕМ ===
+    // === АДАПТИВНЫЕ ФОНЫ ПО ТИПАМ ТЕМ ===
+    adaptive: {
+      // Фоны редактора
+      editor: {
+        dark: '#1a1b26' as Hex, // Темные темы - стандартный Tokyo Night
+        light: '#ffffff' as Hex, // Светлые темы - чистый белый фон
+        storm: '#24283b' as Hex, // Storm - более глубокий синий
+        moon: '#222436' as Hex, // Moon - более теплый тон
+        contrast: '#0d1017' as Hex, // High contrast - почти черный
+        pastel: '#1e1f2e' as Hex, // Pastel - мягче стандартного
+        neon: '#101218' as Hex, // Neon - темнее для контраста с яркими цветами
+      },
+
+      // Фоны терминала
+      terminal: {
+        dark: '#16161e' as Hex, // Темнее редактора для различия
+        light: '#f8f8f8' as Hex, // Светло-серый для светлых тем
+        storm: '#1f2335' as Hex, // Холодный оттенок
+        moon: '#1e1e2e' as Hex, // Теплый темный
+        contrast: '#000000' as Hex, // Максимальный контраст
+        pastel: '#1a1a26' as Hex, // Мягкий темный
+        neon: '#0a0d15' as Hex, // Очень темный для neon эффектов
+      },
+
+      // Фоны боковых панелей (Explorer, Extensions, etc.)
+      sideBar: {
+        dark: '#16161e' as Hex, // Классический темный
+        light: '#f3f3f3' as Hex, // Светлый серый
+        storm: '#1f2335' as Hex, // Storm стиль
+        moon: '#1e1e2e' as Hex, // Moon стиль
+        contrast: '#0a0a0a' as Hex, // Высокий контраст
+        pastel: '#1c1c28' as Hex, // Пастельный
+        neon: '#0c0f18' as Hex, // Для neon тем
+      },
+
+      // Фоны панели активности (Activity Bar)
+      activityBar: {
+        dark: '#16161e' as Hex, // Стандартный
+        light: '#eeeeee' as Hex, // Светлый
+        storm: '#1d2032' as Hex, // Storm
+        moon: '#1c1c2c' as Hex, // Moon
+        contrast: '#050505' as Hex, // Контрастный
+        pastel: '#1a1a26' as Hex, // Пастельный
+        neon: '#0a0d16' as Hex, // Neon
+      },
+
+      // Фоны строки состояния (Status Bar)
+      statusBar: {
+        dark: '#16161e' as Hex, // Стандартный
+        light: '#e8e8e8' as Hex, // Светлый
+        storm: '#1d2032' as Hex, // Storm
+        moon: '#1c1c2c' as Hex, // Moon
+        contrast: '#000000' as Hex, // Черный для контраста
+        pastel: '#1a1a26' as Hex, // Пастельный
+        neon: '#0a0d16' as Hex, // Neon
+      },
+
+      // Фоны вкладок (Tab Bar)
+      tabBar: {
+        dark: '#1a1b26' as Hex, // Как редактор
+        light: '#ffffff' as Hex, // Белый
+        storm: '#24283b' as Hex, // Storm
+        moon: '#222436' as Hex, // Moon
+        contrast: '#0d1017' as Hex, // Контрастный
+        pastel: '#1e1f2e' as Hex, // Пастельный
+        neon: '#101218' as Hex, // Neon
+      },
+
+      // Фоны меню и выпадающих списков
+      menu: {
+        dark: '#0c0f17' as Hex, // Темнее основного
+        light: '#ffffff' as Hex, // Белый
+        storm: '#1a1e2e' as Hex, // Storm
+        moon: '#1a1a2a' as Hex, // Moon
+        contrast: '#000000' as Hex, // Черный
+        pastel: '#1c1d29' as Hex, // Пастельный
+        neon: '#080b13' as Hex, // Neon
+      },
+
+      // Фоны уведомлений и всплывающих окон
+      notification: {
+        dark: '#16161e' as Hex, // Стандартный
+        light: '#f0f0f0' as Hex, // Светлый
+        storm: '#1f2335' as Hex, // Storm
+        moon: '#1e1e2e' as Hex, // Moon
+        contrast: '#0a0a0a' as Hex, // Контрастный
+        pastel: '#1c1c28' as Hex, // Пастельный
+        neon: '#0c0f18' as Hex, // Neon
+      },
+    },
+
+    // Оригинальная система (для обратной совместимости)
     editor: {
       dark: '#1a1b26' as Hex, // Темные темы - стандартный Tokyo Night
-      light: '#d5d6db' as Hex, // Светлые темы - светлый фон
+      light: '#ffffff' as Hex, // Светлые темы - чистый белый фон
       storm: '#24283b' as Hex, // Storm - более глубокий синий
       moon: '#222436' as Hex, // Moon - более теплый тон
       contrast: '#0d1017' as Hex, // High contrast - почти черный
