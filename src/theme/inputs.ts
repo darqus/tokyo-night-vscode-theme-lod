@@ -13,11 +13,18 @@ export const getInputColors = (
   const widgetBackground = getAdaptiveWidgetBackground(context)
   const menuBackground = getAdaptiveMenuBackground(context)
 
+  // Адаптивные цвета текста для светлой темы
+  const inputForeground = context?.type === 'light' ? '#1f2328' as Hex : basePalette.inputFg
+  const dropdownForeground = context?.type === 'light' ? '#3d4752' as Hex : extendedPalette.dropdown.foreground
+  
+  // Адаптивные границы для светлой темы
+  const inputBorder = context?.type === 'light' ? '#d1d5da' as Hex : extendedPalette.border.input
+
   return {
     // Поля ввода - используем АДАПТИВНЫЕ фоны
     'input.background': widgetBackground, // АДАПТИВНЫЙ фон полей ввода
-    'input.foreground': basePalette.inputFg, // #a9b1d6
-    'input.border': extendedPalette.border.input, // #272a31
+    'input.foreground': inputForeground, // АДАПТИВНЫЙ цвет текста
+    'input.border': inputBorder, // АДАПТИВНАЯ граница
     'input.placeholderForeground': extendedPalette.text.placeholder, // #999a9d
     'inputOption.activeForeground': extendedPalette.text.light, // #e5e5e5
     'inputOption.activeBackground': extendedPalette.input.optionActive, // #7aa2f733
@@ -36,10 +43,10 @@ export const getInputColors = (
     'inputValidation.errorBorder': extendedPalette.input.validationErrorBorder, // #e46876
 
     // Выпадающие списки - АДАПТИВНЫЕ фоны
-    'dropdown.foreground': extendedPalette.dropdown.foreground, // #bababc
+    'dropdown.foreground': dropdownForeground, // АДАПТИВНЫЙ цвет текста
     'dropdown.background': menuBackground, // АДАПТИВНЫЙ фон dropdown
     'dropdown.listBackground': menuBackground, // АДАПТИВНЫЙ фон списка dropdown
-    'dropdown.border': extendedPalette.border.dropdown, // #272a31
+    'dropdown.border': inputBorder, // АДАПТИВНАЯ граница
 
     // Переключатели (checkbox / radio)
     'checkbox.background': extendedPalette.checkbox.background, // #0c0f17

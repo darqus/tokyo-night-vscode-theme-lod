@@ -16,6 +16,9 @@ export const getEditorColors = (
   const widgetBackground = getAdaptiveWidgetBackground(context)
   const tabBarBackground = getAdaptiveTabBarBackground(context)
 
+  // Адаптивный цвет текста для светлой темы
+  const editorForeground = context?.type === 'light' ? '#1f2328' as Hex : palette.fg.primary
+
   return {
     // === ПОДСВЕТКА СКОБОК И НАПРАВЛЯЮЩИЕ ===
     // Оптимизированная различимость цветов для вложенных скобок
@@ -58,7 +61,7 @@ export const getEditorColors = (
     /** АДАПТИВНЫЙ основной цвет фона редактора */
     'editor.background': editorBackground,
     /** Основной цвет текста в редакторе */
-    'editor.foreground': palette.fg.primary,
+    'editor.foreground': editorForeground,
     /** Цвет текста-заполнителя в редакторе */
     'editor.placeholder.foreground': palette.ui.input.placeholder,
     /** Цвет фона для свернутых (collapsed) областей кода */
