@@ -140,7 +140,7 @@ class LightThemeContrastAnalyzer {
       if (element.fg && element.bg) {
         const ratio = this.getContrastRatio(element.fg, element.bg)
         const level = this.getContrastLevel(ratio)
-        
+
         results.push({
           element: element.name,
           foregroundColor: element.fg,
@@ -166,7 +166,11 @@ class LightThemeContrastAnalyzer {
     console.log(`\n📊 Общая статистика:`)
     console.log(`✅ Прошли проверку: ${passed.length}`)
     console.log(`❌ Не прошли проверку: ${failed.length}`)
-    console.log(`📈 Общий процент прохождения: ${Math.round((passed.length / results.length) * 100)}%`)
+    console.log(
+      `📈 Общий процент прохождения: ${Math.round(
+        (passed.length / results.length) * 100
+      )}%`
+    )
 
     if (failed.length > 0) {
       console.log(`\n❌ Проблемные элементы:`)
@@ -193,7 +197,7 @@ class LightThemeContrastAnalyzer {
         const targetRatio = 4.5
         const currentRatio = result.ratio
         const improvement = targetRatio / currentRatio
-        
+
         if (improvement > 1) {
           console.log(`\n   ${result.element}:`)
           console.log(`   - Увеличить контраст в ${improvement.toFixed(2)} раз`)

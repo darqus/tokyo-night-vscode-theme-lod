@@ -17,7 +17,8 @@ export const getEditorColors = (
   const tabBarBackground = getAdaptiveTabBarBackground(context)
 
   // Адаптивный цвет текста для светлой темы
-  const editorForeground = context?.type === 'light' ? '#1f2328' as Hex : palette.fg.primary
+  const editorForeground =
+    context?.type === 'light' ? ('#1f2328' as Hex) : palette.fg.primary
 
   return {
     // === ПОДСВЕТКА СКОБОК И НАПРАВЛЯЮЩИЕ ===
