@@ -2,7 +2,14 @@ import fs from 'fs'
 import path from 'path'
 
 /**
- * Анализ контрастности новых адаптивных Git-бейджей
+ * Анали  // Анализируем ключевые темы
+  const themeFiles = [
+    'tokyo-night-dark-color-theme.json',
+    'tokyo-night-light-color-theme.json',
+    'tokyo-night-storm-color-theme.json',
+    'tokyo-night-high-contrast-color-theme.json',
+    'tokyo-night-pastel-color-theme.json'
+  ]тности новых адаптивных Git-бейджей
  * Проверяет, что каждый тип темы имеет свои специфические цвета
  */
 

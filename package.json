@@ -46,7 +46,6 @@
     "protanopia",
     "deuteranopia",
     "gradient",
-    "neon",
     "pastel",
     "retro",
     "adaptive",
@@ -104,11 +103,6 @@
         "label": "Tokyo Night Moon",
         "uiTheme": "vs-dark",
         "path": "./themes/tokyo-night-moon-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night Neon",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-neon-color-theme.json"
       },
       {
         "label": "Tokyo Night Pastel",

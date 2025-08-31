@@ -221,15 +221,6 @@ export class ThemeGenerator {
     // Экспериментальные цветовые схемы
     const experimentalThemes = [
       {
-        name: 'tokyo-night-neon',
-        displayName: 'Tokyo Night Neon',
-        modification: {
-          saturationMultiplier: 2.0,
-          lightnessOffset: 15,
-          hueShift: 10,
-        },
-      },
-      {
         name: 'tokyo-night-pastel',
         displayName: 'Tokyo Night Pastel',
         modification: {

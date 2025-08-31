@@ -26,7 +26,6 @@ export const extendedPalette = {
         moon: '#222436' as Hex, // Moon - более теплый тон
         contrast: '#0d1017' as Hex, // High contrast - почти черный
         pastel: '#1e1f2e' as Hex, // Pastel - мягче стандартного
-        neon: '#101218' as Hex, // Neon - темнее для контраста с яркими цветами
       },
 
       // Фоны терминала
@@ -37,7 +36,6 @@ export const extendedPalette = {
         moon: '#1e1e2e' as Hex, // Теплый темный
         contrast: '#000000' as Hex, // Максимальный контраст
         pastel: '#1a1a26' as Hex, // Мягкий темный
-        neon: '#0a0d15' as Hex, // Очень темный для neon эффектов
       },
 
       // Фоны боковых панелей (Explorer, Extensions, etc.)
@@ -48,7 +46,6 @@ export const extendedPalette = {
         moon: '#1e1e2e' as Hex, // Moon стиль
         contrast: '#0a0a0a' as Hex, // Высокий контраст
         pastel: '#1c1c28' as Hex, // Пастельный
-        neon: '#0c0f18' as Hex, // Для neon тем
       },
 
       // Фоны панели активности (Activity Bar)
@@ -59,7 +56,6 @@ export const extendedPalette = {
         moon: '#1c1c2c' as Hex, // Moon
         contrast: '#050505' as Hex, // Контрастный
         pastel: '#1a1a26' as Hex, // Пастельный
-        neon: '#0a0d16' as Hex, // Neon
       },
 
       // Фоны строки состояния (Status Bar)
@@ -70,7 +66,6 @@ export const extendedPalette = {
         moon: '#1c1c2c' as Hex, // Moon
         contrast: '#000000' as Hex, // Черный для контраста
         pastel: '#1a1a26' as Hex, // Пастельный
-        neon: '#0a0d16' as Hex, // Neon
       },
 
       // Фоны вкладок (Tab Bar)
@@ -81,7 +76,6 @@ export const extendedPalette = {
         moon: '#222436' as Hex, // Moon
         contrast: '#0d1017' as Hex, // Контрастный
         pastel: '#1e1f2e' as Hex, // Пастельный
-        neon: '#101218' as Hex, // Neon
       },
 
       // Фоны меню и выпадающих списков
@@ -92,7 +86,6 @@ export const extendedPalette = {
         moon: '#1a1a2a' as Hex, // Moon
         contrast: '#000000' as Hex, // Черный
         pastel: '#1c1d29' as Hex, // Пастельный
-        neon: '#080b13' as Hex, // Neon
       },
 
       // Фоны уведомлений и всплывающих окон
@@ -103,7 +96,6 @@ export const extendedPalette = {
         moon: '#1c1c2c' as Hex, // Moon
         contrast: '#0a0a0a' as Hex, // Контрастный
         pastel: '#1a1a26' as Hex, // Пастельный
-        neon: '#0a0d16' as Hex, // Neon
       },
 
       // Фоны базовых элементов (titleBar, командный центр)
@@ -114,7 +106,6 @@ export const extendedPalette = {
         moon: '#1c1c2c' as Hex, // Moon
         contrast: '#000000' as Hex, // Черный
         pastel: '#1a1a26' as Hex, // Пастельный
-        neon: '#0a0d16' as Hex, // Neon
       },
 
       // Фоны виджетов и диалогов
@@ -125,7 +116,6 @@ export const extendedPalette = {
         moon: '#222436' as Hex, // Moon
         contrast: '#0d1017' as Hex, // Контрастный
         pastel: '#1e1f2e' as Hex, // Пастельный
-        neon: '#101218' as Hex, // Neon
       },
 
       // Фоны списков и элементов выбора
@@ -136,7 +126,6 @@ export const extendedPalette = {
         moon: '#222436' as Hex, // Moon
         contrast: '#0d1017' as Hex, // Контрастный
         pastel: '#1e1f2e' as Hex, // Пастельный
-        neon: '#101218' as Hex, // Neon
       },
 
       // Фоны кнопок и интерактивных элементов
@@ -147,7 +136,6 @@ export const extendedPalette = {
         moon: '#1c1c2c' as Hex, // Moon
         contrast: '#000000' as Hex, // Черный
         pastel: '#1a1a26' as Hex, // Пастельный
-        neon: '#0a0d16' as Hex, // Neon
       },
     },
 
@@ -159,7 +147,6 @@ export const extendedPalette = {
       moon: '#222436' as Hex, // Moon - более теплый тон
       contrast: '#0d1017' as Hex, // High contrast - почти черный
       pastel: '#1e1f2e' as Hex, // Pastel - мягче стандартного
-      neon: '#101218' as Hex, // Neon - темнее для контраста с яркими цветами
     },
   },
 

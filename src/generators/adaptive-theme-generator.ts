@@ -27,7 +27,7 @@ export interface ThemeContext {
   adaptedPalette: ReturnType<typeof createAdaptedPalette>
   variant: PaletteVariant
   displayName: string
-  type: 'dark' | 'light' | 'storm' | 'moon' | 'contrast' | 'pastel' | 'neon'
+  type: 'dark' | 'light' | 'storm' | 'moon' | 'contrast' | 'pastel'
 }
 
 /**
@@ -59,11 +59,6 @@ export class AdaptiveThemeGenerator {
       config.customModification.saturationMultiplier < 0.5
     )
       themeType = 'pastel'
-    else if (
-      config.customModification?.saturationMultiplier &&
-      config.customModification.saturationMultiplier > 1.8
-    )
-      themeType = 'neon'
 
     // Создаем контекст темы
     const themeContext: ThemeContext = {
@@ -154,17 +149,6 @@ export class AdaptiveThemeGenerator {
           saturationMultiplier: 0.3,
           lightnessOffset: 20,
           contrastBoost: 0.8,
-        },
-        type: 'dark',
-      },
-      {
-        name: 'tokyo-night-neon',
-        displayName: 'Tokyo Night Neon',
-        variant: 'custom',
-        customModification: {
-          saturationMultiplier: 2.0,
-          lightnessOffset: 15,
-          hueShift: 10,
         },
         type: 'dark',
       },

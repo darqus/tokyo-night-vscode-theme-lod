@@ -53,7 +53,6 @@ function getAdaptiveGitColorsForTheme(
   const isMoonTheme = variant.includes('moon') || type === 'moon'
   const isContrastTheme = variant.includes('contrast') || type === 'contrast'
   const isPastelTheme = variant.includes('pastel') || type === 'pastel'
-  const isNeonTheme = variant.includes('neon') || type === 'neon'
 
   if (isLightTheme) {
     // Светлая тема - темные цвета с высоким контрастом
@@ -127,44 +126,6 @@ function getAdaptiveGitColorsForTheme(
         remoteRefColor: '#40ff00' as Hex, // Яркий зеленый для удаленных ссылок
         baseRefColor: '#8000ff' as Hex, // Яркий фиолетовый для базовых ссылок
         hoverDefault: '#ffffff' as Hex, // Белый текст для наведения
-      },
-    }
-  }
-
-  if (isNeonTheme) {
-    // Неоновая тема - яркие светящиеся цвета
-    return {
-      badge: {
-        background: '#aa00cc' as Hex, // Убираем прозрачность для лучшего контраста
-        foreground: '#00ffff' as Hex, // Неоновый циан
-        activityBar: '#00ff88' as Hex, // Неоновый зеленый
-        extension: '#ff0088' as Hex, // Неоновый розовый
-        extensionForeground: '#ffffff' as Hex, // Белый текст
-      },
-      decoration: {
-        modified: '#00aaff' as Hex, // Неоновый синий
-        deleted: '#ff4466' as Hex, // Неоновый красный
-        added: '#44ff88' as Hex, // Неоновый зеленый
-        untracked: '#88ff44' as Hex, // Лаймовый неон
-        ignored: '#888888' as Hex, // Приглушенный серый
-        conflicting: '#ffaa00' as Hex, // Неоновый оранжевый
-        renamed: '#aa44ff' as Hex, // Неоновый фиолетовый
-        stageModified: '#00aaff' as Hex, // Неоновый синий
-        stageDeleted: '#ff4466' as Hex, // Неоновый красный
-      },
-      scmGraph: {
-        foreground1: '#ff6600' as Hex, // Неоновый оранжевый
-        foreground2: '#ffdd00' as Hex, // Неоновый желтый
-        foreground3: '#00ffaa' as Hex, // Неоновый морской
-        foreground4: '#0088ff' as Hex, // Неоновый синий
-        foreground5: '#cc00ff' as Hex, // Неоновый фиолетовый
-        hoverLabel: '#1a0033' as Hex, // Темный фон
-        hoverAdditions: '#44ff88' as Hex, // Неоновый зеленый
-        hoverDeletions: '#ff4466' as Hex, // Неоновый красный
-        refColor: '#0088ff' as Hex, // Неоновый синий
-        remoteRefColor: '#88ff44' as Hex, // Неоновый лайм для удаленных ссылок
-        baseRefColor: '#aa44ff' as Hex, // Неоновый фиолетовый для базовых ссылок
-        hoverDefault: '#00ffff' as Hex, // Неоновый циан для наведения
       },
     }
   }

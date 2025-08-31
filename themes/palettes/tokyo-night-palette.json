@@ -49,10 +49,6 @@
         "pastel": {
           "value": "#1e1f2e",
           "type": "color"
-        },
-        "neon": {
-          "value": "#101218",
-          "type": "color"
         }
       },
       "terminal": {
@@ -78,10 +74,6 @@
         },
         "pastel": {
           "value": "#1a1a26",
-          "type": "color"
-        },
-        "neon": {
-          "value": "#0a0d15",
           "type": "color"
         }
       },
@@ -109,10 +101,6 @@
         "pastel": {
           "value": "#1c1c28",
           "type": "color"
-        },
-        "neon": {
-          "value": "#0c0f18",
-          "type": "color"
         }
       },
       "activityBar": {
@@ -138,10 +126,6 @@
         },
         "pastel": {
           "value": "#1a1a26",
-          "type": "color"
-        },
-        "neon": {
-          "value": "#0a0d16",
           "type": "color"
         }
       },
@@ -169,10 +153,6 @@
         "pastel": {
           "value": "#1a1a26",
           "type": "color"
-        },
-        "neon": {
-          "value": "#0a0d16",
-          "type": "color"
         }
       },
       "tabBar": {
@@ -198,10 +178,6 @@
         },
         "pastel": {
           "value": "#1e1f2e",
-          "type": "color"
-        },
-        "neon": {
-          "value": "#101218",
           "type": "color"
         }
       },
@@ -229,10 +205,6 @@
         "pastel": {
           "value": "#1c1d29",
           "type": "color"
-        },
-        "neon": {
-          "value": "#080b13",
-          "type": "color"
         }
       },
       "notification": {
@@ -258,10 +230,6 @@
         },
         "pastel": {
           "value": "#1a1a26",
-          "type": "color"
-        },
-        "neon": {
-          "value": "#0a0d16",
           "type": "color"
         }
       },
@@ -289,10 +257,6 @@
         "pastel": {
           "value": "#1a1a26",
           "type": "color"
-        },
-        "neon": {
-          "value": "#0a0d16",
-          "type": "color"
         }
       },
       "widget": {
@@ -318,10 +282,6 @@
         },
         "pastel": {
           "value": "#1e1f2e",
-          "type": "color"
-        },
-        "neon": {
-          "value": "#101218",
           "type": "color"
         }
       },
@@ -349,10 +309,6 @@
         "pastel": {
           "value": "#1e1f2e",
           "type": "color"
-        },
-        "neon": {
-          "value": "#101218",
-          "type": "color"
         }
       },
       "button": {
@@ -378,10 +334,6 @@
         },
         "pastel": {
           "value": "#1a1a26",
-          "type": "color"
-        },
-        "neon": {
-          "value": "#0a0d16",
           "type": "color"
         }
       }
@@ -409,10 +361,6 @@
       },
       "pastel": {
         "value": "#1e1f2e",
-        "type": "color"
-      },
-      "neon": {
-        "value": "#101218",
         "type": "color"
       }
     }
