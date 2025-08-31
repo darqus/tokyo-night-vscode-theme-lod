@@ -1,12 +1,12 @@
 # 🌃 Tokyo Night Theme Collection
 
-> **18 adaptive theme variants** powered by a centralized palette system with programmatic generation capabilities.
+> **17 adaptive theme variants** powered by a centralized palette system with programmatic generation capabilities.
 
 ![Tokyo Night Collection](static/ss_tokyo_night_dark.png)
 
 ## 🎨 **Collection Overview**
 
-A comprehensive collection of **18 Tokyo Night theme variants** featuring:
+A comprehensive collection of **17 Tokyo Night theme variants** featuring:
 
 - **Seasonal themes** (Spring, Summer, Autumn, Winter)
 - **Accessibility options** (High/Low Contrast, Color-blind friendly)
@@ -17,7 +17,7 @@ All themes are **programmatically generated** from a centralized palette system 
 
 ## ✨ **Key Features**
 
-- 🎯 **18 Theme Variants** - Complete collection for every preference
+- 🎯 **17 Theme Variants** - Complete collection for every preference
 - 🎨 **Adaptive Palette System** - Centralized color management
 - 🤖 **Programmatic Generation** - CLI tools for custom themes
 - ♿ **Accessibility Support** - Color-blind friendly variants
@@ -25,7 +25,7 @@ All themes are **programmatically generated** from a centralized palette system 
 - 🏗️ **TypeScript Architecture** - Modern, type-safe codebase
 - 📦 **Auto-packaging** - Themes auto-update in package.json
 
-## 🌈 **Available Themes (18 Variants)**
+## 🌈 **Available Themes (17 Variants)**
 
 ### 🌃 **Core Themes**
 
@@ -64,7 +64,7 @@ All themes are **programmatically generated** from a centralized palette system 
 
 1. Open VS Code Command Palette (`Ctrl+Shift+P`)
 2. Type "Preferences: Color Theme"
-3. Choose any of the **18 Tokyo Night variants**
+3. Choose any of the **17 Tokyo Night variants**
 
 ### **Online Preview**
 
@@ -130,7 +130,7 @@ tokyo-night-vscode-theme-lod/
 │   ├── types/               # 📋 TypeScript definitions
 │   ├── utils/               # 🔧 Utilities
 │   └── validation/          # ✅ Quality assurance
-├── themes/                  # 🎯 Generated themes (18 variants)
+├── themes/                  # 🎯 Generated themes (17 variants)
 ├── docs/                    # 📚 Comprehensive documentation
 ├── scripts/                 # ⚙️ Automation & tooling
 └── analysis/                # 📊 Migration reports & analytics
@@ -195,7 +195,7 @@ npm install && npm run setup
 
 # Theme development
 npm run build:complete        # Full build + auto-update package.json
-npm run generate:all          # Generate all 18 theme variants
+npm run generate:all          # Generate all 17 theme variants
 npm run validate:all          # Validate all themes
 npm run test                  # Run comprehensive tests
 
@@ -226,7 +226,7 @@ npm run theme-cli -- export --format=css  # Export to design tools
 | Metric | Value | Status |
 |--------|-------|--------|
 | **Build Time** | ~4.5ms | ✅ Optimal |
-| **Theme Count** | 18 variants | ✅ Complete |
+| **Theme Count** | 17 variants | ✅ Complete |
 | **Package Size** | 575.82KB | ✅ Optimized |
 | **Hardcoded Colors** | 0 | ✅ Eliminated |
 | **Centralized Colors** | 80+ | ✅ Comprehensive |
@@ -263,7 +263,7 @@ We welcome contributions to the Tokyo Night Theme Collection!
 - 🎯 **Zero Hardcoded Colors** - Complete migration from 200+ hex values
 - 🤖 **Full Automation** - CLI-driven theme generation pipeline
 - ♿ **Accessibility First** - WCAG-compliant color combinations
-- 🌈 **18 Theme Variants** - Comprehensive collection for every use case
+- 🌈 **17 Theme Variants** - Comprehensive collection for every use case
 
 ## 📄 **License & Attribution**
 
