@@ -89,12 +89,12 @@
   --tokyo-bg-adaptive-selection-listInactive-moon: #21213a;
   --tokyo-bg-adaptive-selection-listInactive-contrast: #1e2632;
   --tokyo-bg-adaptive-selection-listInactive-pastel: #1e1f2b;
-  --tokyo-bg-adaptive-selection-listHover-dark: #13131a;
+  --tokyo-bg-adaptive-selection-listHover-dark: #252837;
   --tokyo-bg-adaptive-selection-listHover-light: #eeeff1;
-  --tokyo-bg-adaptive-selection-listHover-storm: #151827;
-  --tokyo-bg-adaptive-selection-listHover-moon: #1a1a2d;
-  --tokyo-bg-adaptive-selection-listHover-contrast: #1a2330;
-  --tokyo-bg-adaptive-selection-listHover-pastel: #191a24;
+  --tokyo-bg-adaptive-selection-listHover-storm: #292b38;
+  --tokyo-bg-adaptive-selection-listHover-moon: #2b2e4a;
+  --tokyo-bg-adaptive-selection-listHover-contrast: #2e3947;
+  --tokyo-bg-adaptive-selection-listHover-pastel: #282a33;
   --tokyo-bg-adaptive-selection-activityBarActive-dark: #1e202e;
   --tokyo-bg-adaptive-selection-activityBarActive-light: #dedfe3;
   --tokyo-bg-adaptive-selection-activityBarActive-storm: #1c1f35;
@@ -127,7 +127,7 @@
   --tokyo-bg-editor-pastel: #1e1f2e;
   --tokyo-selection-listActive: #202330;
   --tokyo-selection-listInactive: #1c1d29;
-  --tokyo-selection-listHover: #13131a;
+  --tokyo-selection-listHover: #252837;
   --tokyo-selection-listDrop: #1e202e;
   --tokyo-selection-menuSelection: #1e202e;
   --tokyo-selection-menuBorder: #1b1e2e;

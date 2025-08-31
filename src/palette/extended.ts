@@ -162,12 +162,12 @@ export const extendedPalette = {
 
         // Наведение на элемент списка
         listHover: {
-          dark: '#13131a' as Hex, // Темные темы - тонкий
+          dark: '#252837' as Hex, // Темные темы - светлее активного (L=18%)
           light: '#eeeff1' as Hex, // Светлые темы - едва заметный (холодный)
-          storm: '#151827' as Hex, // Storm - холодный
-          moon: '#1a1a2d' as Hex, // Moon - теплый
-          contrast: '#1a2330' as Hex, // Контрастный - заметнее
-          pastel: '#191a24' as Hex, // Пастельный
+          storm: '#292b38' as Hex, // Storm - холодный (L=19%)
+          moon: '#2b2e4a' as Hex, // Moon - теплый (L=23%)
+          contrast: '#2e3947' as Hex, // Контрастный - заметнее (L=23%)
+          pastel: '#282a33' as Hex, // Пастельный (L=18%)
         },
 
         // Активные элементы панели активности (Activity Bar)
@@ -230,7 +230,7 @@ export const extendedPalette = {
   selection: {
     listActive: '#202330' as Hex, // Активный элемент в списках
     listInactive: '#1c1d29' as Hex, // Неактивный выбранный элемент
-    listHover: '#13131a' as Hex, // Наведение на элемент списка (темнее)
+    listHover: '#252837' as Hex, // Наведение на элемент списка (светлее активного)
     listDrop: '#1e202e' as Hex, // Выпадающие списки и меню
     menuSelection: '#1e202e' as Hex, // Выделение в меню
     menuBorder: '#1b1e2e' as Hex, // Граница выделения в меню

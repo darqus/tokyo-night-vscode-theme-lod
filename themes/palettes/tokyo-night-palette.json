@@ -392,7 +392,7 @@
         },
         "listHover": {
           "dark": {
-            "value": "#13131a",
+            "value": "#252837",
             "type": "color"
           },
           "light": {
@@ -400,19 +400,19 @@
             "type": "color"
           },
           "storm": {
-            "value": "#151827",
+            "value": "#292b38",
             "type": "color"
           },
           "moon": {
-            "value": "#1a1a2d",
+            "value": "#2b2e4a",
             "type": "color"
           },
           "contrast": {
-            "value": "#1a2330",
+            "value": "#2e3947",
             "type": "color"
           },
           "pastel": {
-            "value": "#191a24",
+            "value": "#282a33",
             "type": "color"
           }
         },
@@ -561,7 +561,7 @@
       "type": "color"
     },
     "listHover": {
-      "value": "#13131a",
+      "value": "#252837",
       "type": "color"
     },
     "listDrop": {
