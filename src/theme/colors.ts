@@ -20,9 +20,15 @@ import { getQuickInputColors } from './quickInput'
 import { getMiscColors } from './misc'
 import type { ColorMap } from './types'
 import { composeColors } from './utils'
+import type { ThemeContext } from '../generators/adaptive-theme-generator'
 
 // Aggregates all theme color segments into a single flat map
 export const buildColors = (): ColorMap => {
+  return buildColorsWithContext()
+}
+
+// Новая функция с поддержкой адаптивного контекста
+export const buildColorsWithContext = (context?: ThemeContext): ColorMap => {
   const parts: ColorMap[] = [
     getBaseColors(),
     getButtonColors(),
@@ -30,7 +36,7 @@ export const buildColors = (): ColorMap => {
     getActivityBarColors(),
     getSideBarColors(),
     getListColors(),
-    getEditorColors(),
+    getEditorColors(context),
     getTabColors(),
     getStatusBarColors(),
     getTerminalColors(),

@@ -5,19 +5,7 @@ import {
   PaletteModification,
   PaletteVariant,
 } from '../palette/adapters'
-import { getBaseColors } from '../theme/base'
-import { getListColors } from '../theme/lists'
-import { getMenuColors } from '../theme/menus'
-import { getEditorColors } from '../theme/editor'
-import { getSideBarColors } from '../theme/sideBar'
-import { getTabColors } from '../theme/tabs'
-import { getGitColors } from '../theme/git'
-import { getActivityBarColors } from '../theme/activityBar'
-import { getInputColors } from '../theme/inputs'
-import { getButtonColors } from '../theme/buttons'
-import { getStatusBarColors } from '../theme/statusBar'
-import { getTerminalColors } from '../theme/terminal'
-import { getMiscColors } from '../theme/misc'
+import { buildColorsWithContext } from '../theme/colors'
 import { semanticTokenColors } from '../semanticTokenColors'
 import { getTokenColors } from '../tokenColors'
 
@@ -35,8 +23,11 @@ export interface ThemeGeneratorConfig {
 /**
  * Контекст для генерации темы с адаптированной палитрой
  */
-interface ThemeContext {
+export interface ThemeContext {
   adaptedPalette: ReturnType<typeof createAdaptedPalette>
+  variant: PaletteVariant
+  displayName: string
+  type: 'dark' | 'light'
 }
 
 /**
@@ -53,6 +44,14 @@ export class AdaptiveThemeGenerator {
       config.customModification
     )
 
+    // Создаем контекст темы
+    const themeContext: ThemeContext = {
+      adaptedPalette,
+      variant: config.variant,
+      displayName: config.displayName,
+      type: config.type || 'dark',
+    }
+
     // Временно заменяем глобальную extendedPalette
     const originalExtendedPalette =
       require('../palette/extended').extendedPalette
@@ -63,21 +62,7 @@ export class AdaptiveThemeGenerator {
       const theme: ThemeData = {
         name: config.displayName,
         type: config.type || 'dark',
-        colors: {
-          ...getBaseColors(),
-          ...getListColors(),
-          ...getMenuColors(),
-          ...getEditorColors(),
-          ...getSideBarColors(),
-          ...getTabColors(),
-          ...getGitColors(),
-          ...getActivityBarColors(),
-          ...getInputColors(),
-          ...getButtonColors(),
-          ...getStatusBarColors(),
-          ...getTerminalColors(),
-          ...getMiscColors(),
-        },
+        colors: buildColorsWithContext(themeContext),
         semanticTokenColors: semanticTokenColors,
         tokenColors: getTokenColors(),
       }

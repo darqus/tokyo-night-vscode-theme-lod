@@ -1,1 +1,1 @@
-export { buildColors } from './colors'
+export { buildColors, buildColorsWithContext } from './colors'

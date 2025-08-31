@@ -15,6 +15,17 @@ export const extendedPalette = {
     input: '#14141b' as Hex, // Поля ввода
     border: '#101014' as Hex, // Границы панелей
     tree: '#2b2b3b' as Hex, // Направляющие дерева файлов
+
+    // === АДАПТИВНЫЕ ФОНЫ РЕДАКТОРА ПО ТИПАМ ТЕМ ===
+    editor: {
+      dark: '#1a1b26' as Hex, // Темные темы - стандартный Tokyo Night
+      light: '#d5d6db' as Hex, // Светлые темы - светлый фон
+      storm: '#24283b' as Hex, // Storm - более глубокий синий
+      moon: '#222436' as Hex, // Moon - более теплый тон
+      contrast: '#0d1017' as Hex, // High contrast - почти черный
+      pastel: '#1e1f2e' as Hex, // Pastel - мягче стандартного
+      neon: '#101218' as Hex, // Neon - темнее для контраста с яркими цветами
+    },
   },
 
   // === ЦВЕТА ВЫДЕЛЕНИЙ И ИНТЕРАКТИВНЫХ СОСТОЯНИЙ ===

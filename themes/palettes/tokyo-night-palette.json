@@ -23,6 +23,36 @@
     "tree": {
       "value": "#2b2b3b",
       "type": "color"
+    },
+    "editor": {
+      "dark": {
+        "value": "#1a1b26",
+        "type": "color"
+      },
+      "light": {
+        "value": "#d5d6db",
+        "type": "color"
+      },
+      "storm": {
+        "value": "#24283b",
+        "type": "color"
+      },
+      "moon": {
+        "value": "#222436",
+        "type": "color"
+      },
+      "contrast": {
+        "value": "#0d1017",
+        "type": "color"
+      },
+      "pastel": {
+        "value": "#1e1f2e",
+        "type": "color"
+      },
+      "neon": {
+        "value": "#101218",
+        "type": "color"
+      }
     }
   },
   "selection": {

@@ -5,6 +5,13 @@
   --tokyo-bg-input: #14141b;
   --tokyo-bg-border: #101014;
   --tokyo-bg-tree: #2b2b3b;
+  --tokyo-bg-editor-dark: #1a1b26;
+  --tokyo-bg-editor-light: #d5d6db;
+  --tokyo-bg-editor-storm: #24283b;
+  --tokyo-bg-editor-moon: #222436;
+  --tokyo-bg-editor-contrast: #0d1017;
+  --tokyo-bg-editor-pastel: #1e1f2e;
+  --tokyo-bg-editor-neon: #101218;
   --tokyo-selection-listActive: #202330;
   --tokyo-selection-listInactive: #1c1d29;
   --tokyo-selection-listHover: #13131a;
