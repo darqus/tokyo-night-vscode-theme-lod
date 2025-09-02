@@ -175,6 +175,7 @@ npm run theme-cli -- export --format=figma
 - [Development Guide](docs/DEVELOPMENT.md) - Setup and workflow
 - [Architecture](docs/ARCHITECTURE.md) - System design principles
 - [Contributing](docs/CONTRIBUTING.md) - How to contribute
+- [Release System](docs/RELEASE_SYSTEM.md) - Automated release management
 - [API Documentation](docs/) - Complete API reference
 
 ### **🔬 Analysis & Reports**
@@ -198,6 +199,11 @@ npm run test                  # Run tests
 
 # Custom theme creation
 npm run theme-cli -- custom --name=my-theme --hue=90 --saturation=1.5
+
+# Release management
+npm run release               # Smart automatic release
+npm run release:dry           # Preview release changes
+npm run release:minor         # Force minor release
 ```
 
 ## 🧪 **Quality Assurance**

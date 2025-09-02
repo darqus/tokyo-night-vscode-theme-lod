@@ -70,7 +70,13 @@
     "generate:all": "ts-node src/generators/theme-generator.ts --all",
     "theme-cli": "ts-node src/cli/theme-cli.ts",
     "package": "npm run generate:all && vsce package",
-    "publish": "vsce publish"
+    "publish": "vsce publish",
+    "release": "ts-node scripts/release.ts",
+    "release:bash": "./scripts/release.sh",
+    "release:dry": "ts-node scripts/release.ts --dry-run",
+    "release:patch": "ts-node scripts/release.ts --patch",
+    "release:minor": "ts-node scripts/release.ts --minor",
+    "release:major": "ts-node scripts/release.ts --major"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
