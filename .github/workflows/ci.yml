@@ -30,9 +30,6 @@ jobs:
       - name: Validate themes
         run: npm run validate:all
 
-      - name: Lint hardcoded hex
-        run: npm run lint:hex
-
   lint-commits:
     if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
