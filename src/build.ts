@@ -1,7 +1,29 @@
 /**
- * Новая упрощенная сборка темы Tokyo Night
+ * Сборка Tokyo Night темы
  */
-import { buildTheme } from './build-new'
+import * as fs from 'node:fs'
+import * as path from 'node:path'
+import { generateTheme } from './generators/theme'
 
-// Запускаем новую сборку
-buildTheme()
+const root = path.resolve(__dirname, '..')
+const themePath = path.join(root, 'themes', 'tokyo-night-dark-color-theme.json')
+
+export const buildTheme = () => {
+  console.log('🏗️  Сборка Tokyo Night темы...')
+  
+  const themesDir = path.dirname(themePath)
+  if (!fs.existsSync(themesDir)) {
+    fs.mkdirSync(themesDir, { recursive: true })
+  }
+  
+  const theme = generateTheme()
+  const themeJson = JSON.stringify(theme, null, 2) + '\n'
+  fs.writeFileSync(themePath, themeJson, 'utf8')
+  
+  console.log(`✅ Тема создана: ${themePath}`)
+  console.log(`📊 Цветов: ${Object.keys(theme.colors).length}, Токенов: ${theme.tokenColors.length}`)
+}
+
+if (require.main === module) {
+  buildTheme()
+}

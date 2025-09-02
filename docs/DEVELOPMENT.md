@@ -1,376 +1,122 @@
-# 💻 Development Guide
+# 👨‍💻 Руководство разработчика
 
-> Complete guide for developers working on the Tokyo Night Lod theme project.
+## 🚀 Быстрый старт
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-Before starting development, ensure you have:
-
-- **Node.js** 18.0 or higher
-- **npm** 8.0 or higher
-- **VS Code** 1.74.0 or higher
-- **TypeScript** 5.9+ (installed via npm)
-- **Git** for version control
-
-### Environment Setup
-
+### Установка
 ```bash
-# Clone the repository
 git clone https://github.com/darqus/tokyo-night-vscode-theme-lod.git
 cd tokyo-night-vscode-theme-lod
-
-# Install dependencies
 npm install
-
-# Setup development environment
-npm run setup
-
-# Verify installation
-npm run validate
 ```
 
-### VS Code Workspace Setup
-
-1. **Open the project** in VS Code
-2. **Install recommended extensions**:
-   - **ESLint** - Code linting
-   - **Prettier** - Code formatting
-   - **TypeScript** - TypeScript support
-3. **Configure workspace**:
-   - Open Command Palette (Ctrl+Shift+P)
-   - Select "TypeScript: Select TypeScript Version"
-   - Choose "Use Workspace Version"
-
-## 📁 Project Structure
-
-```
-tokyo-night-vscode-theme-lod/
-├── src/                          # Source code
-│   ├── palette.ts                # Central color palette
-│   ├── build.ts                  # Theme generator
-│   ├── tokenColors.ts            # Syntax colors
-│   ├── semanticTokenColors.ts   # Semantic colors
-│   ├── components/               # Theme components
-│   ├── theme/                    # Theme modules
-│   │   ├── activityBar.ts        # Activity bar colors
-│   │   ├── editor.ts             # Editor colors
-│   │   ├── sideBar.ts            # Sidebar colors
-│   │   ├── statusBar.ts          # Status bar colors
-│   │   ├── terminal.ts           # Terminal colors
-│   │   └── ...                   # Other theme components
-│   ├── utils/                    # Utility functions
-│   │   ├── color.ts              # Color utilities
-│   │   └── colorSystem.ts        # Color system utilities
-│   ├── types/                    # TypeScript types
-│   │   ├── palette.ts            # Color palette types
-│   │   └── theme.ts              # Theme types
-│   ├── validation/               # Validation utilities
-│   │   ├── allowedProperties.ts  # Allowed theme properties
-│   │   ├── propertyValidator.ts  # Property validation
-│   │   └── themeValidator.ts     # Theme validation
-│   ├── scripts/                  # Build scripts
-│   │   └── validate-theme.ts     # Theme validation script
-├── themes/                       # Generated themes
-│   └── tokyo-night-dark-color-theme.json
-├── docs/                         # Documentation
-├── scripts/                      # Automation scripts
-│   ├── build-monitor.js          # Build monitoring
-│   ├── bundle-analyzer.js        # Bundle analysis
-│   ├── cli.ts                    # CLI interface
-│   ├── lint-hex.ts               # Hex color linting
-│   ├── release.ts                # Release management
-│   ├── setup-dev.js              # Development setup
-│   ├── smart-version.ts          # Smart versioning
-│   ├── smoke-compare.ts          # Smoke testing
-│   ├── test-smart-version.ts     # Version testing
-│   ├── theme-debug.js            # Theme debugging
-│   └── visual-test.js            # Visual testing
-├── tests/                        # Test files
-│   └── unit/                     # Unit tests
-│       ├── colorUtils.test.ts    # Color utility tests
-│       ├── palette.test.ts       # Palette tests
-│       └── theme.test.ts         # Theme tests
-├── analysis/                     # Analysis and optimization
-├── static/                       # Static assets
-└── configuration files           # Various config files
-```
-
-## 🛠️ Development Workflow
-
-### 1. Making Changes
-
-#### Color Changes
-
+### Основные команды
 ```bash
-# Edit color palette
-nano src/palette.ts
-
-# Build theme
-npm run build
-
-# Test changes
-npm run test
+npm run build              # Сборка основной темы
+npm run generate:all       # Генерация всех 17 вариантов
+npm run test              # Запуск тестов
+npm run theme-cli         # CLI для кастомных тем
 ```
 
-#### Theme Component Changes
+## 🎨 Работа с палитрами
 
-```bash
-# Edit specific theme component
-nano src/theme/editor.ts
-
-# Build and validate
-npm run build
-npm run validate
-```
-
-#### New Features
-
-```bash
-# Create feature branch
-git checkout -b feature/new-feature
-
-# Make changes
-# ... (your changes)
-
-# Test thoroughly
-npm run test
-npm run validate
-
-# Commit changes
-git commit -m "feat: add new feature description"
-```
-
-### 2. Building and Testing
-
-```bash
-# Build theme from source (using ts-node)
-npm run build
-
-# Run all tests
-npm run test
-
-# Run specific test types
-npm run test:unit
-npm run test:visual
-npm run test:smoke
-
-# Validate theme structure
-npm run validate
-
-# Lint code (includes import cycle detection)
-npm run lint
-
-# Check for import cycles
-npm run lint:cycles
-```
-
-### 3. Debugging
-
-```bash
-# Debug theme generation
-npm run debug:theme
-
-# Visual testing with comparison
-npm run test:visual
-
-# Theme validation with detailed output
-npm run validate:verbose
-
-# Check color contrast
-npm run lint:colors
-
-# Analyze import dependencies
-npm run analyze:dependencies
-```
-
-## 🎨 Working with Colors
-
-### Color System Architecture
-
-The project uses a centralized color system:
-
+### Создание нового цвета
 ```typescript
-// src/palette.ts
-export const palette = {
-  // Base colors
-  base: {
-    black: '#1a1b26',
-    dark0: '#16161e',
-    dark1: '#1f2336',
-    // ... more base colors
-  },
-
-  // UI colors
-  ui: {
-    background: '#1a1b26',
-    foreground: '#a9b1d6',
-    // ... more UI colors
-  },
-
-  // Syntax colors
-  syntax: {
-    keyword: '#bb9af7',
-    string: '#9ece6a',
-    // ... more syntax colors
-  }
-};
-```
-
-### Adding New Colors
-
-```typescript
-// 1. Add to palette
-export const palette = {
-  // ... existing colors
-  newColor: {
-    primary: '#your-color',
-    secondary: '#your-secondary-color'
-  }
-};
-
-// 2. Update types
-// src/types/palette.ts
-export interface Palette {
-  // ... existing properties
-  newColor: {
-    primary: string;
-    secondary: string;
-  };
+// src/palette/extended.ts
+export const extendedPalette = {
+  // ... существующие цвета
+  myNewColor: hsl(240, 50, 60), // HSL формат
 }
-
-// 3. Use in theme components
-// src/theme/editor.ts
-import { palette } from '../palette';
-
-export const editor = {
-  // ... existing colors
-  newFeature: {
-    background: palette.newColor.primary,
-    foreground: palette.newColor.secondary
-  }
-};
 ```
 
-### Color Validation
-
-```bash
-# Validate color contrast ratios
-npm run lint:colors
-
-# Check color consistency
-npm run validate:colors
-
-# Generate color analysis
-npm run analyze:colors
-```
-
-## 🧪 Testing
-
-### Unit Tests
-
+### Адаптивные варианты
 ```typescript
-// tests/unit/colorUtils.test.ts
-import { hexToRgb, rgbToHex } from '../../src/utils/color';
-
-describe('Color Utilities', () => {
-  test('hexToRgb converts hex to rgb', () => {
-    expect(hexToRgb('#ffffff')).toEqual({ r: 255, g: 255, b: 255 });
-  });
-
-  test('rgbToHex converts rgb to hex', () => {
-    expect(rgbToHex(255, 255, 255)).toBe('#ffffff');
-  });
-});
+// Создание сезонного варианта
+const autumnPalette = createAdaptedPalette('autumn', {
+  hueShift: -30,           // Сдвиг оттенка
+  saturationMultiplier: 0.8, // Насыщенность
+  lightnessOffset: -5      // Яркость
+})
 ```
 
-### Integration Tests
+## 🤖 Генерация тем
 
+### Создание кастомной темы
+```bash
+npm run theme-cli -- custom --name=my-theme --hue=60 --saturation=1.3
+```
+
+### Программная генерация
 ```typescript
-// tests/integration/theme.test.ts
-import { buildTheme } from '../../src/build';
-import { validateTheme } from '../../src/validation/themeValidator';
+import { generateTheme } from './src/generators/theme'
+import { createAdaptedPalette } from './src/palette/adapters'
 
-describe('Theme Integration', () => {
-  test('builds valid theme', () => {
-    const theme = buildTheme();
-    const validation = validateTheme(theme);
-    expect(validation.isValid).toBe(true);
-  });
-});
+const customPalette = createAdaptedPalette('custom', {
+  hueShift: 45,
+  saturationMultiplier: 1.2
+})
+
+const theme = generateTheme(customPalette)
 ```
 
-### Visual Tests
+## 🧪 Тестирование
 
+### Unit тесты
+```bash
+npm run test:unit         # Основные тесты
+npm run test:watch        # Режим наблюдения
+npm run test:coverage     # Покрытие кода
+```
+
+### Валидация тем
+```bash
+npm run validate          # Проверка структуры темы
+```
+
+## 📦 Сборка и публикация
+
+### Локальная сборка
+```bash
+npm run build             # Сборка темы
+npm run package           # Создание .vsix пакета
+```
+
+### Публикация
+```bash
+npm run publish           # Публикация в Marketplace
+```
+
+## 🔧 Структура кода
+
+### Основные модули
+- `src/palette/` - Система цветовых палитр
+- `src/generators/` - Генераторы тем
+- `src/core/` - Основные компоненты
+- `src/types/` - TypeScript определения
+
+### Соглашения
+- Используйте HSL формат для цветов
+- Следуйте семантическому именованию
+- Добавляйте тесты для новой функциональности
+- Обновляйте документацию при изменениях
+
+## 🐛 Отладка
+
+### Проверка цветов
 ```typescript
-// tests/visual/visual.test.ts
-import { compareWithReference } from '../../scripts/visual-test';
+import { validateColors } from './src/utils/color'
 
-describe('Visual Testing', () => {
-  test('matches reference theme', async () => {
-    const result = await compareWithReference();
-    expect(result.matches).toBe(true);
-  });
-});
+const isValid = validateColors(theme.colors)
 ```
 
-## 🔧 Scripts and Tools
-
-### Development Scripts
-
+### Анализ контраста
 ```bash
-# Development setup
-npm run setup
-
-# Build theme
-npm run build
-
-# Clean build artifacts
-npm run clean:dist
+npm run theme-cli -- analyze  # Анализ текущей палитры
 ```
 
-### Analysis Scripts
+## 🤝 Вклад в проект
 
-```bash
-# Analyze bundle size
-npm run analyze:bundle
-
-# Analyze color usage
-npm run analyze:colors
-
-# Analyze theme structure
-npm run analyze:structure
-
-# Performance analysis
-npm run analyze:performance
-```
-
-### Quality Assurance
-
-```bash
-# Full quality check
-npm run qa
-
-# Code quality check
-npm run lint
-
-# Type checking
-npm run type-check
-
-# Security audit
-npm run audit
-
-# Documentation generation
-npm run docs:generate
-```
-
-## 🚀 Deployment and Release
-
-### Preparing for Release
-
-```bash
-# Update version (automatic)
-npm run version
-
-#
+1. Форкните репозиторий
+2. Создайте ветку для функции (`git checkout -b feat/amazing-feature`)
+3. Зафиксируйте изменения (`git commit -m 'feat: add amazing feature'`)
+4. Отправьте в ветку (`git push origin feat/amazing-feature`)
+5. Откройте Pull Request

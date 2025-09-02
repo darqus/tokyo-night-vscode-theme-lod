@@ -1,4 +1,10 @@
-node_modules
+node_modules/
 *.vsix
-.*cache
-build-metrics.json
+*.log
+.DS_Store
+dist/
+build/
+coverage/
+.nyc_output/
+*.tsbuildinfo
+.vscode/settings.json

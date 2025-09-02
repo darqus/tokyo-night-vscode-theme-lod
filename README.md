@@ -189,18 +189,15 @@ npm run theme-cli -- export --format=figma
 # Setup development environment
 git clone https://github.com/darqus/tokyo-night-vscode-theme-lod.git
 cd tokyo-night-vscode-theme-lod
-npm install && npm run setup
+npm install
 
 # Theme development
-npm run build:complete        # Full build + auto-update package.json
+npm run build                 # Build main theme
 npm run generate:all          # Generate all 17 theme variants
-npm run validate:all          # Validate all themes
-npm run test                  # Run comprehensive tests
+npm run test                  # Run tests
 
 # Custom theme creation
 npm run theme-cli -- custom --name=my-theme --hue=90 --saturation=1.5
-npm run theme-cli -- analyze  # Analyze current palette
-npm run theme-cli -- export --format=css  # Export to design tools
 ```
 
 ## 🧪 **Quality Assurance**
@@ -223,12 +220,10 @@ npm run theme-cli -- export --format=css  # Export to design tools
 
 | Metric | Value | Status |
 |--------|-------|--------|
-| **Build Time** | ~4.5ms | ✅ Optimal |
-| **Theme Count** | 17 variants | ✅ Complete |
-| **Package Size** | 575.82KB | ✅ Optimized |
-| **Hardcoded Colors** | 0 | ✅ Eliminated |
-| **Centralized Colors** | 80+ | ✅ Comprehensive |
-| **Test Coverage** | High | ✅ Robust |
+| **Build Time** | ~4.5ms | ✅ |
+| **Theme Variants** | 17 | ✅ |
+| **Hardcoded Colors** | 0 | ✅ |
+| **Semantic Colors** | 80+ | ✅ |
 
 ## 🤝 **Contributing & Community**
 
