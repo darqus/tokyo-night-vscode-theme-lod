@@ -17,26 +17,27 @@ export const interfacePalette: InterfacePalette = {
     active: withAlpha(basePalette.blue, 0.12),
     selection: withAlpha(basePalette.blue, 0.2),
   },
-  
+
   // Текстовые цвета (автогенерация)
   text: {
     primary: basePalette.white,
+    inverse: basePalette.black,
     muted: mix(basePalette.white, basePalette.gray, 0.4),
     subtle: mix(basePalette.white, basePalette.gray, 0.6),
     inactive: mix(basePalette.white, basePalette.gray, 0.8),
   },
-  
+
   // Границы (автогенерация)
   border: {
     default: mix(basePalette.black, basePalette.gray, 0.4),
     focus: withAlpha(basePalette.blue, 0.6),
   },
-  
+
   // Состояния (семантические цвета)
   state: {
     info: basePalette.cyan,
     success: basePalette.green,
     warning: basePalette.yellow,
     error: basePalette.red,
-  }
+  },
 }

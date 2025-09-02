@@ -2,7 +2,8 @@
  * Генератор финальной темы VS Code
  */
 import { interfacePalette } from '../core/interface'
-import { withAlpha } from '../core/utils'
+import { basePalette } from '../core/palette'
+import { darken, withAlpha } from '../core/utils'
 import { generateTokenColors, generateSemanticTokens } from './tokens'
 import type { VSCodeTheme } from '../types/theme'
 
@@ -11,26 +12,26 @@ import type { VSCodeTheme } from '../types/theme'
  */
 const generateInterfaceColors = () => ({
   // Основные цвета
-  'foreground': interfacePalette.text.primary,
-  'descriptionForeground': interfacePalette.text.muted,
-  'disabledForeground': interfacePalette.text.inactive,
-  'focusBorder': interfacePalette.border.focus,
-  'errorForeground': interfacePalette.state.error,
+  foreground: interfacePalette.text.primary,
+  descriptionForeground: interfacePalette.text.muted,
+  disabledForeground: interfacePalette.text.inactive,
+  focusBorder: interfacePalette.border.focus,
+  errorForeground: interfacePalette.state.error,
   'selection.background': interfacePalette.bg.selection,
   'widget.shadow': interfacePalette.bg.overlay,
-  
+
   // Title Bar (главное меню)
   'titleBar.activeBackground': interfacePalette.bg.base,
   'titleBar.activeForeground': interfacePalette.text.primary,
   'titleBar.inactiveBackground': interfacePalette.bg.base,
   'titleBar.inactiveForeground': interfacePalette.text.muted,
   'titleBar.border': interfacePalette.border.default,
-  
+
   // Menu Bar
   'menubar.selectionForeground': interfacePalette.text.primary,
   'menubar.selectionBackground': interfacePalette.bg.hover,
   'menubar.selectionBorder': interfacePalette.border.focus,
-  
+
   // Menu (контекстное меню)
   'menu.foreground': interfacePalette.text.primary,
   'menu.background': interfacePalette.bg.elevated,
@@ -39,7 +40,7 @@ const generateInterfaceColors = () => ({
   'menu.selectionBorder': interfacePalette.border.focus,
   'menu.separatorBackground': interfacePalette.border.default,
   'menu.border': interfacePalette.border.default,
-  
+
   // Command Center & Quick Input (командная панель)
   'commandCenter.foreground': interfacePalette.text.muted,
   'commandCenter.activeForeground': interfacePalette.text.primary,
@@ -51,7 +52,7 @@ const generateInterfaceColors = () => ({
   'quickInputTitle.background': interfacePalette.bg.overlay,
   'quickInputList.focusBackground': interfacePalette.bg.selection,
   'quickInputList.focusForeground': interfacePalette.text.primary,
-  
+
   // Редактор
   'editor.background': interfacePalette.bg.base,
   'editor.foreground': interfacePalette.text.primary,
@@ -75,14 +76,14 @@ const generateInterfaceColors = () => ({
   'editorLineNumber.foreground': interfacePalette.text.subtle,
   'editorLineNumber.activeForeground': interfacePalette.text.muted,
   'editorRuler.foreground': interfacePalette.border.default,
-  
+
   // Editor Groups
   'editorGroup.border': interfacePalette.border.default,
   'editorGroup.dropBackground': interfacePalette.bg.overlay,
   'editorGroupHeader.noTabsBackground': interfacePalette.bg.base,
   'editorGroupHeader.tabsBackground': interfacePalette.bg.base,
   'editorGroupHeader.tabsBorder': interfacePalette.border.default,
-  
+
   // Activity Bar
   'activityBar.background': interfacePalette.bg.base,
   'activityBar.foreground': interfacePalette.text.muted,
@@ -92,7 +93,7 @@ const generateInterfaceColors = () => ({
   'activityBar.border': interfacePalette.border.default,
   'activityBarBadge.background': interfacePalette.state.info,
   'activityBarBadge.foreground': interfacePalette.bg.base,
-  
+
   // Side Bar
   'sideBar.background': interfacePalette.bg.base,
   'sideBar.foreground': interfacePalette.text.primary,
@@ -101,7 +102,7 @@ const generateInterfaceColors = () => ({
   'sideBarSectionHeader.background': interfacePalette.bg.elevated,
   'sideBarSectionHeader.foreground': interfacePalette.text.primary,
   'sideBarSectionHeader.border': interfacePalette.border.default,
-  
+
   // Status Bar
   'statusBar.background': interfacePalette.bg.base,
   'statusBar.foreground': interfacePalette.text.muted,
@@ -118,7 +119,7 @@ const generateInterfaceColors = () => ({
   'statusBarItem.errorForeground': interfacePalette.bg.base,
   'statusBarItem.warningBackground': interfacePalette.state.warning,
   'statusBarItem.warningForeground': interfacePalette.bg.base,
-  
+
   // Tabs
   'tab.activeBackground': interfacePalette.bg.elevated,
   'tab.activeForeground': interfacePalette.text.primary,
@@ -135,7 +136,7 @@ const generateInterfaceColors = () => ({
   'tab.unfocusedInactiveBackground': interfacePalette.bg.base,
   'tab.unfocusedInactiveForeground': interfacePalette.text.inactive,
   'tab.lastPinnedBorder': interfacePalette.border.default,
-  
+
   // Lists
   'list.activeSelectionBackground': interfacePalette.bg.selection,
   'list.activeSelectionForeground': interfacePalette.text.primary,
@@ -150,10 +151,10 @@ const generateInterfaceColors = () => ({
   'list.invalidItemForeground': interfacePalette.state.error,
   'list.errorForeground': interfacePalette.state.error,
   'list.warningForeground': interfacePalette.state.warning,
-  
+
   // Tree
   'tree.indentGuidesStroke': interfacePalette.border.default,
-  
+
   // Input
   'input.background': interfacePalette.bg.input,
   'input.foreground': interfacePalette.text.primary,
@@ -170,7 +171,7 @@ const generateInterfaceColors = () => ({
   'inputValidation.warningBackground': interfacePalette.state.warning,
   'inputValidation.warningForeground': interfacePalette.bg.base,
   'inputValidation.warningBorder': interfacePalette.state.warning,
-  
+
   // Button
   'button.background': interfacePalette.state.info,
   'button.foreground': interfacePalette.bg.base,
@@ -180,20 +181,20 @@ const generateInterfaceColors = () => ({
   'button.secondaryBackground': interfacePalette.bg.elevated,
   'button.secondaryForeground': interfacePalette.text.primary,
   'button.secondaryHoverBackground': interfacePalette.bg.hover,
-  
+
   // Dropdown
   'dropdown.background': interfacePalette.bg.elevated,
   'dropdown.foreground': interfacePalette.text.primary,
   'dropdown.border': interfacePalette.border.default,
   'dropdown.listBackground': interfacePalette.bg.elevated,
-  
+
   // Badge
   'badge.background': interfacePalette.state.info,
   'badge.foreground': interfacePalette.bg.base,
-  
+
   // Progress Bar
   'progressBar.background': interfacePalette.state.info,
-  
+
   // Panel
   'panel.background': interfacePalette.bg.base,
   'panel.border': interfacePalette.border.default,
@@ -207,7 +208,7 @@ const generateInterfaceColors = () => ({
   'panelSectionHeader.background': interfacePalette.bg.elevated,
   'panelSectionHeader.foreground': interfacePalette.text.primary,
   'panelSectionHeader.border': interfacePalette.border.default,
-  
+
   // Terminal
   'terminal.background': interfacePalette.bg.base,
   'terminal.foreground': interfacePalette.text.primary,
@@ -217,13 +218,13 @@ const generateInterfaceColors = () => ({
   'terminal.tab.activeBorder': interfacePalette.state.info,
   'terminalCursor.background': interfacePalette.bg.base,
   'terminalCursor.foreground': interfacePalette.text.primary,
-  
+
   // Scrollbar
   'scrollbar.shadow': interfacePalette.bg.overlay,
   'scrollbarSlider.background': interfacePalette.bg.hover,
   'scrollbarSlider.hoverBackground': interfacePalette.bg.active,
   'scrollbarSlider.activeBackground': interfacePalette.bg.selection,
-  
+
   // Notifications
   'notifications.background': interfacePalette.bg.elevated,
   'notifications.foreground': interfacePalette.text.primary,
@@ -235,14 +236,14 @@ const generateInterfaceColors = () => ({
   'notificationsErrorIcon.foreground': interfacePalette.state.error,
   'notificationsWarningIcon.foreground': interfacePalette.state.warning,
   'notificationsInfoIcon.foreground': interfacePalette.state.info,
-  
+
   // Extensions
   'extensionButton.prominentBackground': interfacePalette.state.info,
   'extensionButton.prominentForeground': interfacePalette.bg.base,
   'extensionButton.prominentHoverBackground': interfacePalette.state.info,
   'extensionBadge.remoteBackground': interfacePalette.state.info,
   'extensionBadge.remoteForeground': interfacePalette.bg.base,
-  
+
   // Git
   'gitDecoration.addedResourceForeground': interfacePalette.state.success,
   'gitDecoration.modifiedResourceForeground': interfacePalette.state.info,
@@ -250,15 +251,55 @@ const generateInterfaceColors = () => ({
   'gitDecoration.untrackedResourceForeground': interfacePalette.state.success,
   'gitDecoration.ignoredResourceForeground': interfacePalette.text.inactive,
   'gitDecoration.conflictingResourceForeground': interfacePalette.state.warning,
+  'gitDecoration.renamedResourceForeground': withAlpha(
+    interfacePalette.state.info,
+    0.8
+  ),
+  'gitDecoration.stageModifiedResourceForeground': withAlpha(
+    interfacePalette.state.info,
+    0.9
+  ),
+  'gitDecoration.stageDeletedResourceForeground': withAlpha(
+    interfacePalette.state.error,
+    0.9
+  ),
   'gitDecoration.submoduleResourceForeground': interfacePalette.text.muted,
-  
+
+  // SCM Graph (Git History)
+  'scmGraph.historyItemHoverLabelForeground': interfacePalette.text.inverse,
+  'scmGraph.foreground1': basePalette.blue,
+  'scmGraph.foreground2': basePalette.magenta,
+  'scmGraph.foreground3': basePalette.teal,
+  'scmGraph.foreground4': basePalette.cyan,
+  'scmGraph.foreground5': basePalette.purple,
+  'scmGraph.historyItemHoverAdditionsForeground':
+    interfacePalette.state.success,
+  'scmGraph.historyItemHoverDeletionsForeground': interfacePalette.state.error,
+  'scmGraph.historyItemRefColor': basePalette.blue,
+  'scmGraph.historyItemRemoteRefColor': basePalette.magenta,
+  'scmGraph.historyItemBaseRefColor': basePalette.teal,
+  'scmGraph.historyItemHoverDefaultLabelForeground': basePalette.black,
+  'scmGraph.historyItemHoverDefaultLabelBackground': basePalette.blue,
+
   // Diff Editor
-  'diffEditor.insertedTextBackground': withAlpha(interfacePalette.state.success, 0.15),
-  'diffEditor.removedTextBackground': withAlpha(interfacePalette.state.error, 0.15),
-  'diffEditor.insertedLineBackground': withAlpha(interfacePalette.state.success, 0.1),
-  'diffEditor.removedLineBackground': withAlpha(interfacePalette.state.error, 0.1),
+  'diffEditor.insertedTextBackground': withAlpha(
+    interfacePalette.state.success,
+    0.15
+  ),
+  'diffEditor.removedTextBackground': withAlpha(
+    interfacePalette.state.error,
+    0.15
+  ),
+  'diffEditor.insertedLineBackground': withAlpha(
+    interfacePalette.state.success,
+    0.1
+  ),
+  'diffEditor.removedLineBackground': withAlpha(
+    interfacePalette.state.error,
+    0.1
+  ),
   'diffEditor.diagonalFill': interfacePalette.bg.overlay,
-  
+
   // Settings
   'settings.headerForeground': interfacePalette.text.primary,
   'settings.modifiedItemIndicator': interfacePalette.state.info,
@@ -274,18 +315,18 @@ const generateInterfaceColors = () => ({
   'settings.numberInputBackground': interfacePalette.bg.input,
   'settings.numberInputForeground': interfacePalette.text.primary,
   'settings.numberInputBorder': interfacePalette.border.default,
-  
+
   // Breadcrumbs
   'breadcrumb.foreground': interfacePalette.text.muted,
   'breadcrumb.background': interfacePalette.bg.base,
   'breadcrumb.focusForeground': interfacePalette.text.primary,
   'breadcrumb.activeSelectionForeground': interfacePalette.text.primary,
   'breadcrumbPicker.background': interfacePalette.bg.elevated,
-  
+
   // Widgets
   'widget.border': interfacePalette.border.default,
   // 'widget.foreground': удалено (запрещенное свойство),
-  
+
   // Peek View Widget
   'peekView.border': interfacePalette.border.focus,
   'peekViewEditor.background': interfacePalette.bg.elevated,
@@ -299,13 +340,13 @@ const generateInterfaceColors = () => ({
   'peekViewTitle.background': interfacePalette.bg.overlay,
   'peekViewTitleDescription.foreground': interfacePalette.text.muted,
   'peekViewTitleLabel.foreground': interfacePalette.text.primary,
-  
+
   // Editor Widget
   'editorWidget.background': interfacePalette.bg.elevated,
   'editorWidget.foreground': interfacePalette.text.primary,
   'editorWidget.border': interfacePalette.border.default,
   'editorWidget.resizeBorder': interfacePalette.border.focus,
-  
+
   // Editor Suggest Widget
   'editorSuggestWidget.background': interfacePalette.bg.elevated,
   'editorSuggestWidget.border': interfacePalette.border.default,
@@ -315,34 +356,36 @@ const generateInterfaceColors = () => ({
   'editorSuggestWidget.selectedForeground': interfacePalette.text.primary,
   'editorSuggestWidget.selectedIconForeground': interfacePalette.text.primary,
   'editorSuggestWidgetStatus.foreground': interfacePalette.text.muted,
-  
+
   // Editor Hover Widget
   'editorHoverWidget.background': interfacePalette.bg.elevated,
   'editorHoverWidget.border': interfacePalette.border.default,
   'editorHoverWidget.foreground': interfacePalette.text.primary,
   'editorHoverWidget.highlightForeground': interfacePalette.state.info,
   'editorHoverWidget.statusBarBackground': interfacePalette.bg.overlay,
-  
+
   // Debug Exception Widget
   'debugExceptionWidget.background': interfacePalette.state.error,
   'debugExceptionWidget.border': interfacePalette.state.error,
-  
+
   // Editor Marker Navigation
   'editorMarkerNavigation.background': interfacePalette.bg.elevated,
   'editorMarkerNavigationError.background': interfacePalette.state.error,
   'editorMarkerNavigationWarning.background': interfacePalette.state.warning,
   'editorMarkerNavigationInfo.background': interfacePalette.state.info,
-  
+
   // Merge Conflicts (удалены устаревшие свойства)
   'merge.border': interfacePalette.border.default,
-  
+
   // Editor Overview Ruler
   'editorOverviewRuler.border': interfacePalette.border.default,
   'editorOverviewRuler.findMatchForeground': interfacePalette.state.warning,
   'editorOverviewRuler.rangeHighlightForeground': interfacePalette.state.info,
-  'editorOverviewRuler.selectionHighlightForeground': interfacePalette.bg.selection,
+  'editorOverviewRuler.selectionHighlightForeground':
+    interfacePalette.bg.selection,
   'editorOverviewRuler.wordHighlightForeground': interfacePalette.bg.hover,
-  'editorOverviewRuler.wordHighlightStrongForeground': interfacePalette.bg.selection,
+  'editorOverviewRuler.wordHighlightStrongForeground':
+    interfacePalette.bg.selection,
   'editorOverviewRuler.modifiedForeground': interfacePalette.state.info,
   'editorOverviewRuler.addedForeground': interfacePalette.state.success,
   'editorOverviewRuler.deletedForeground': interfacePalette.state.error,
@@ -350,7 +393,7 @@ const generateInterfaceColors = () => ({
   'editorOverviewRuler.warningForeground': interfacePalette.state.warning,
   'editorOverviewRuler.infoForeground': interfacePalette.state.info,
   'editorOverviewRuler.bracketMatchForeground': interfacePalette.border.focus,
-  
+
   // Minimap
   'minimap.findMatchHighlight': interfacePalette.state.warning,
   'minimap.selectionHighlight': interfacePalette.bg.selection,
@@ -364,12 +407,12 @@ const generateInterfaceColors = () => ({
   'minimapGutter.addedBackground': interfacePalette.state.success,
   'minimapGutter.modifiedBackground': interfacePalette.state.info,
   'minimapGutter.deletedBackground': interfacePalette.state.error,
-  
+
   // Problem Matcher
   'problemsErrorIcon.foreground': interfacePalette.state.error,
   'problemsWarningIcon.foreground': interfacePalette.state.warning,
   'problemsInfoIcon.foreground': interfacePalette.state.info,
-  
+
   // Charts (для расширений)
   'charts.foreground': interfacePalette.text.primary,
   'charts.lines': interfacePalette.border.default,
@@ -379,29 +422,29 @@ const generateInterfaceColors = () => ({
   'charts.orange': interfacePalette.state.warning,
   'charts.green': interfacePalette.state.success,
   'charts.purple': interfacePalette.state.info,
-  
+
   // Ports
   'ports.iconRunningProcessForeground': interfacePalette.state.success,
-  
+
   // Checkbox
   'checkbox.background': interfacePalette.bg.elevated,
   'checkbox.foreground': interfacePalette.text.primary,
   'checkbox.border': interfacePalette.border.default,
-  
+
   // Toolbar
   'toolbar.hoverBackground': interfacePalette.bg.hover,
   'toolbar.hoverOutline': interfacePalette.border.focus,
   'toolbar.activeBackground': interfacePalette.bg.selection,
-  
+
   // Icon
   'icon.foreground': interfacePalette.text.muted,
-  
+
   // Keybinding
   'keybindingLabel.background': interfacePalette.bg.elevated,
   'keybindingLabel.foreground': interfacePalette.text.primary,
   'keybindingLabel.border': interfacePalette.border.default,
   'keybindingLabel.bottomBorder': interfacePalette.border.default,
-  
+
   // Welcome Page
   'welcomePage.background': interfacePalette.bg.base,
   'welcomePage.progress.background': interfacePalette.bg.elevated,
@@ -409,17 +452,18 @@ const generateInterfaceColors = () => ({
   'welcomePage.tileBackground': interfacePalette.bg.elevated,
   'welcomePage.tileHoverBackground': interfacePalette.bg.hover,
   'welcomePage.tileBorder': interfacePalette.border.default,
-  
+
   // Walkthrough
   'walkThrough.embeddedEditorBackground': interfacePalette.bg.elevated,
-  
+
   // Debug
   'debugToolBar.background': interfacePalette.bg.elevated,
   'debugToolBar.border': interfacePalette.border.default,
   'debugIcon.breakpointForeground': interfacePalette.state.error,
   'debugIcon.breakpointDisabledForeground': interfacePalette.text.inactive,
   'debugIcon.breakpointUnverifiedForeground': interfacePalette.text.muted,
-  'debugIcon.breakpointCurrentStackframeForeground': interfacePalette.state.warning,
+  'debugIcon.breakpointCurrentStackframeForeground':
+    interfacePalette.state.warning,
   'debugIcon.breakpointStackframeForeground': interfacePalette.state.info,
   'debugIcon.startForeground': interfacePalette.state.success,
   'debugIcon.pauseForeground': interfacePalette.state.info,
@@ -436,7 +480,7 @@ const generateInterfaceColors = () => ({
   'debugConsole.errorForeground': interfacePalette.state.error,
   'debugConsole.sourceForeground': interfacePalette.text.primary,
   'debugConsoleInputIcon.foreground': interfacePalette.text.primary,
-  
+
   // Testing
   'testing.iconFailed': interfacePalette.state.error,
   'testing.iconErrored': interfacePalette.state.error,

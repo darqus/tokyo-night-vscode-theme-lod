@@ -42,6 +42,7 @@ export interface InterfacePalette {
   }
   text: {
     primary: Hex
+    inverse: Hex
     muted: Hex
     subtle: Hex
     inactive: Hex
