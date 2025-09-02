@@ -1,108 +1,78 @@
-import type { Hex } from './palette'
-import type { TokenColor } from '../tokenColors'
-import type { SemanticTokenStyle } from '../semanticTokenColors'
-
 /**
- * Основные типы для Tokyo Night Lod темы
+ * TypeScript типы для темы
  */
 
-export interface ComponentStates {
-  default: ComponentStyle
-  hover?: ComponentStyle
-  active?: ComponentStyle
-  focus?: ComponentStyle
-  disabled?: ComponentStyle
-}
+export type Hex = `#${string}`
 
-export interface ComponentStyle {
-  background?: Hex | 'transparent'
-  foreground?: Hex
-  border?: Hex | 'transparent'
-  shadow?: string
-}
-
-export interface UIComponent {
+export interface VSCodeTheme {
   name: string
-  states: ComponentStates
-}
-
-export interface ColorScale {
-  50: Hex // Самый светлый
-  100: Hex
-  200: Hex
-  300: Hex
-  400: Hex
-  500: Hex // Базовый
-  600: Hex
-  700: Hex
-  800: Hex
-  900: Hex // Самый темный
-}
-
-export interface ValidationRule {
-  name: string
-  description: string
-  validate: (theme: ThemeData) => ValidationResult
-}
-
-export interface ValidationResult {
-  passed: boolean
-  issues: ValidationIssue[]
-}
-
-export interface ValidationIssue {
-  severity: 'error' | 'warning' | 'info'
-  message: string
-  suggestion?: string
-}
-
-export interface ThemeData {
-  name: string
-  type: 'dark' | 'light' | 'hc-dark' | 'hc-light' // Валидные VS Code типы тем
+  type: 'dark' | 'light'
   colors: Record<string, string>
   tokenColors: TokenColor[]
-  semanticTokenColors: Record<string, SemanticTokenStyle>
+  semanticTokenColors?: Record<string, SemanticTokenStyle>
 }
 
-/**
- * Полный объект темы (включая метаданные), используемый в сборщике варианта темы
- */
-export interface ThemeObject extends ThemeData {
-  displayName: string
-  author: string
-  maintainers: string[]
-  semanticClass?: string
-  semanticHighlighting: boolean
-}
-
-export interface ThemeConfig {
-  // Define theme configuration properties as needed
-  // For now, this can be a flexible type until specific config needs are identified
-  [key: string]: unknown
-}
-
-export interface ThemePlugin {
+export interface TokenColor {
   name: string
-  version: string
-  description: string
-  apply: (theme: ThemeData, config?: ThemeConfig) => ThemeData
-  isCompatible: (themeVersion: string) => boolean
+  scope: string | string[]
+  settings: {
+    fontStyle?: string
+    foreground?: string
+    background?: string
+  }
 }
 
-export interface ThemeSettings {
-  contrast: 'low' | 'normal' | 'high'
+export interface SemanticTokenStyle {
+  foreground?: string
+  bold?: boolean
+  italic?: boolean
+  underline?: boolean
+  strikethrough?: boolean
+}
 
-  syntax: {
-    enableSemanticHighlighting: boolean
-    bracketPairColorization: boolean
-    customLanguageSupport: string[]
+export interface InterfacePalette {
+  bg: {
+    base: Hex
+    elevated: Hex
+    overlay: Hex
+    input: Hex
+    hover: Hex
+    active: Hex
+    selection: Hex
   }
-
-  ui: {
-    activityBarPosition: 'left' | 'right'
-    tabBarStyle: 'classic' | 'modern' | 'minimal'
-    statusBarStyle: 'minimal' | 'full'
+  text: {
+    primary: Hex
+    muted: Hex
+    subtle: Hex
+    inactive: Hex
   }
+  border: {
+    default: Hex
+    focus: Hex
+  }
+  state: {
+    info: Hex
+    success: Hex
+    warning: Hex
+    error: Hex
+  }
+}
 
-  customColors?: Record<string, string>
+export interface SyntaxPalette {
+  keyword: Hex
+  string: Hex
+  number: Hex
+  comment: Hex
+  variable: Hex
+  function: Hex
+  class: Hex
+  type: Hex
+  operator: Hex
+  punctuation: Hex
+  constant: Hex
+  property: Hex
+  tag: Hex
+  attribute: Hex
+  invalid: Hex
+  deprecated: Hex
 }
