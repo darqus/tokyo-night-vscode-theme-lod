@@ -26,11 +26,11 @@ check_dependencies() {
     command -v npm >/dev/null 2>&1 || error "npm не установлен"
     command -v node >/dev/null 2>&1 || error "Node.js не установлен"
     
-    # Проверка VSCE
-    if ! command -v vsce >/dev/null 2>&1; then
-        warning "VSCE не установлен глобально. Устанавливаю..."
-        npm install -g @vscode/vsce --force
-    fi
+    # Проверка VSCE (опционально)
+    # if ! command -v vsce >/dev/null 2>&1; then
+    #     warning "VSCE не установлен глобально. Устанавливаю..."
+    #     npm install -g @vscode/vsce --force
+    # fi
     
     success "Все зависимости установлены"
 }
@@ -177,15 +177,17 @@ push_to_remote() {
 
 # Публикация в маркетплейс
 publish_to_marketplace() {
-    info "Публикация в VS Code Marketplace..."
+    info "Пропуск публикации в VS Code Marketplace (нет ключа)..."
     
     npm run package
     
-    if vsce publish; then
-        success "Опубликовано в VS Code Marketplace"
-    else
-        error "Не удалось опубликовать в маркетплейс. Проверьте токен VSCE."
-    fi
+    # if vsce publish; then
+    #     success "Опубликовано в VS Code Marketplace"
+    # else
+    #     error "Не удалось опубликовать в маркетплейс. Проверьте токен VSCE."
+    # fi
+    
+    warning "Публикация в маркетплейс пропущена. Для публикации настройте VSCE токен."
 }
 
 # Создание GitHub релиза

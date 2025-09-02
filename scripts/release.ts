@@ -164,17 +164,17 @@ class ReleaseManager {
   }
 
   private publishToMarketplace(): void {
-    console.log('📦 Publishing to VS Code Marketplace...')
+    console.log('📦 Skipping VS Code Marketplace publishing (no key)...')
     
     try {
       this.exec('npm run package')
-      this.exec('npm run publish')
-      console.log('✅ Published to VS Code Marketplace')
+      // this.exec('npm run publish')
+      console.log('⚠️  Marketplace publishing skipped. To publish, configure VSCE token.')
     } catch (error) {
-      console.error('❌ Failed to publish to marketplace')
-      console.error('Please check your VSCE token and try manually:')
+      console.error('❌ Failed to create package')
+      console.error('Please check your setup and try manually:')
       console.error('  npm run package')
-      console.error('  npm run publish')
+      // console.error('  npm run publish')
       throw error
     }
   }
