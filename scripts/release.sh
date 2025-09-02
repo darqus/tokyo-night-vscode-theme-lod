@@ -313,7 +313,7 @@ main() {
     generate_changelog
     commit_and_tag $new_version
     push_to_remote
-    publish_to_marketplace
+    # publish_to_marketplace
     create_github_release $new_version
     
     local end_time=$(date +%s)

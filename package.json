@@ -71,7 +71,6 @@
     "generate:all": "ts-node src/generators/theme-generator.ts --all",
     "theme-cli": "ts-node src/cli/theme-cli.ts",
     "package": "npm run generate:all && vsce package",
-    "publish": "vsce publish",
     "release": "ts-node scripts/release.ts",
     "release:bash": "bash scripts/release.sh",
     "release:dry": "ts-node scripts/release.ts --dry-run",

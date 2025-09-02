@@ -255,7 +255,7 @@ class ReleaseManager {
       this.pushToRemote()
 
       // Публикация в маркетплейс
-      this.publishToMarketplace()
+      // this.publishToMarketplace()
 
       // Создание GitHub релиза
       this.createGitHubRelease(newVersion)
