@@ -92,56 +92,45 @@ const theme = generateTheme(basePalette)
 ```text
 tokyo-night-vscode-theme-lod/
 ├── src/
-│   ├── palette/             # 🎨 Centralized palette system
-│   │   ├── extended.ts      #    80+ semantic colors (0 hardcoded)
-│   │   ├── adapters.ts      #    HSL transformation engine
-│   │   └── core.ts          #    Base color definitions
-│   ├── generators/          # 🤖 Theme generation system
-│   │   ├── adaptive-theme-generator.ts  # Programmatic theme creation
-│   │   └── theme-generator.ts           # Batch generation & export
-│   ├── cli/                 # 💻 Command-line interface
-│   │   └── theme-cli.ts     #    CLI for custom theme creation
-│   ├── theme/               # 🧩 Theme components
-│   │   ├── base.ts          #    Base UI colors
-│   │   ├── editor.ts        #    Editor-specific colors
-│   │   ├── lists.ts         #    Lists and trees
-│   │   └── [10+ components] #    Modular theme parts
+│   ├── core/                # 🎨 Core palette system
+│   │   └── palette.ts       #    Base color definitions
+│   ├── generators/          # 🤖 Theme generation
+│   │   └── theme.ts         #    Main theme generator
 │   ├── types/               # 📋 TypeScript definitions
-│   ├── utils/               # 🔧 Utilities
-│   └── validation/          # ✅ Quality assurance
-├── themes/                  # 🎯 Generated themes (17 variants)
-├── docs/                    # 📚 Comprehensive documentation
-├── scripts/                 # ⚙️ Automation & tooling
-└── analysis/                # 📊 Migration reports & analytics
+│   └── utils/               # 🔧 Color utilities
+├── themes/                  # 🎯 Generated theme files
+├── tests/                   # 🧪 Unit tests
+├── scripts/                 # ⚙️ Build & release automation
+└── docs/                    # 📚 Documentation
 ```
 
-## 🏗️ **Technical Innovation**
+## 🏗️ **Technical Features**
 
 ### **🎯 Zero Hardcoded Colors**
 
-- **Before**: 200+ scattered hex values across theme files
-- **After**: 0 hardcoded colors, 80+ centralized palette definitions
-- **Result**: Single source of truth for all color management
+- **Centralized Palette**: All colors defined in one place
+- **Programmatic Generation**: Theme built from base palette
+- **Consistent Design**: Single source of truth for colors
 
-### **🤖 Programmatic Generation**
+### **🤖 Modern Build System**
 
 ```bash
-# Generate seasonal themes
-npm run generate:seasonal
+# Build theme
+npm run build
 
-# Create accessibility variants
-npm run generate:accessibility
+# Validate theme
+npm run validate
 
-# Export palettes to design tools
-npm run theme-cli -- export --format=figma
+# Run tests
+npm test
 ```
 
-### **🌈 Advanced Color Science**
+### **🌈 Color Science**
 
-- **HSL Transformations**: Hue rotation, saturation scaling, lightness adjustment
-- **Contrast Enhancement**: Automatic WCAG compliance optimization
-- **Color Harmony**: Scientifically-based palette relationships
-- **Accessibility**: Color-blind friendly adaptations
+- **HSL Color Space**: Scientific color relationships
+- **WCAG Compliance**: Accessible contrast ratios
+- **Color Harmony**: Carefully balanced palette
+- **Professional Design**: Optimized for productivity
 
 ## 📚 **Documentation**
 
@@ -174,17 +163,14 @@ cd tokyo-night-vscode-theme-lod
 npm install
 
 # Theme development
-npm run build                 # Build main theme
-npm run generate:all          # Generate all 17 theme variants
+npm run build                 # Build theme
+npm run validate              # Validate theme
 npm run test                  # Run tests
-
-# Custom theme creation
-npm run theme-cli -- custom --name=my-theme --hue=90 --saturation=1.5
 
 # Release management
 npm run release               # Smart automatic release
 npm run release:dry           # Preview release changes
-npm run release:minor         # Force minor release
+npm run package               # Create .vsix package
 ```
 
 ## 🧪 **Quality Assurance**
@@ -208,13 +194,13 @@ npm run release:minor         # Force minor release
 | Metric | Value | Status |
 |--------|-------|--------|
 | **Build Time** | ~4.5ms | ✅ |
-| **Theme Variants** | 17 | ✅ |
+| **Theme Files** | 1 | ✅ |
 | **Hardcoded Colors** | 0 | ✅ |
-| **Semantic Colors** | 80+ | ✅ |
+| **Base Colors** | 12 | ✅ |
 
 ## 🤝 **Contributing & Community**
 
-We welcome contributions to the Tokyo Night Theme Collection!
+We welcome contributions to the Tokyo Night Theme!
 
 ### **How to Contribute**
 
@@ -240,10 +226,10 @@ We welcome contributions to the Tokyo Night Theme Collection!
 
 **Key Achievements:**
 
-- 🎯 **Zero Hardcoded Colors** - Complete migration from 200+ hex values
-- 🤖 **Full Automation** - CLI-driven theme generation pipeline
-- ♿ **Accessibility First** - WCAG-compliant color combinations
-- 🌈 **17 Theme Variants** - Comprehensive collection for every use case
+- 🎯 **Zero Hardcoded Colors** - Centralized palette system
+- 🤖 **Modern Architecture** - TypeScript-based build system
+- ♿ **Accessibility First** - WCAG-compliant contrast ratios
+- 🌃 **Beautiful Design** - Carefully crafted Tokyo Night theme
 
 ## 📄 **License & Attribution**
 
@@ -268,7 +254,7 @@ This project is licensed under the **MIT License** - see [LICENSE](LICENSE) for 
 
 <div align="center">
 
-**🌃 Tokyo Night Theme Collection**
+**🌃 Tokyo Night Theme**
 *Crafted with ❤️ for developers who appreciate beautiful, functional code environments*
 
 **[⭐ Star on GitHub](https://github.com/darqus/tokyo-night-vscode-theme-lod)** | **[📦 Install from Marketplace](https://marketplace.visualstudio.com/items?itemName=lod-inc.tokyo-night-lod)** | **[📖 Read the Docs](docs/)**
