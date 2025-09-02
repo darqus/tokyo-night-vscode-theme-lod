@@ -1,109 +1,90 @@
-# 🌃 Tokyo Night Theme Collection
+# 🌃 Tokyo Night Theme
 
-> **17 adaptive theme variants** powered by a centralized palette system with programmatic generation capabilities.
+> **Beautiful dark theme** for VS Code with carefully crafted colors and modern design.
 
-![Tokyo Night Collection](static/ss_tokyo_night_dark.png)
+![Tokyo Night Theme](static/ss_tokyo_night_dark.png)
 
-## 🎨 **Collection Overview**
+## 🎨 **Theme Overview**
 
-A comprehensive collection of **17 Tokyo Night theme variants** featuring:
+A beautiful **Tokyo Night dark theme** featuring:
 
-- **Seasonal themes** (Spring, Summer, Autumn, Winter)
-- **Accessibility options** (High/Low Contrast, Color-blind friendly)
-- **Creative variants** (Pastel, Retro)
-- **Gradient transitions** and **experimental palettes**
+- **Carefully crafted color palette** - Inspired by Tokyo's neon-lit nights
+- **Excellent readability** - Optimized contrast ratios
+- **Modern design** - Clean and professional appearance
+- **Comprehensive coverage** - All VS Code UI elements styled
 
-All themes are **programmatically generated** from a centralized palette system with **zero hardcoded colors**.
+The theme is **programmatically generated** from a centralized palette system with **zero hardcoded colors**.
 
 ## ✨ **Key Features**
 
-- 🎯 **17 Theme Variants** - Complete collection for every preference
-- 🎨 **Adaptive Palette System** - Centralized color management
-- 🤖 **Programmatic Generation** - CLI tools for custom themes
-- ♿ **Accessibility Support** - Color-blind friendly variants
-- 🌈 **HSL Transformations** - Advanced color manipulation
+- 🎯 **Single Focused Theme** - Tokyo Night Dark optimized for productivity
+- 🎨 **Centralized Palette System** - Consistent color management
+- 🤖 **Programmatic Generation** - Modern build system
+- ♿ **Accessibility Focused** - WCAG compliant contrast ratios
+- 🌈 **Advanced Color Science** - HSL-based color relationships
 - 🏗️ **TypeScript Architecture** - Modern, type-safe codebase
-- 📦 **Auto-packaging** - Themes auto-update in package.json
+- 📦 **Automated Build** - Consistent theme generation
 
-## 🌈 **Available Themes (17 Variants)**
+## 🌃 **Tokyo Night Dark Theme**
 
-### 🌃 **Core Themes**
+A single, carefully crafted dark theme that captures the essence of Tokyo's neon-lit nights:
 
-- **Tokyo Night Dark** - Original dark theme
-- **Tokyo Night Storm** - Cooler storm variant
-- **Tokyo Night Moon** - Muted lunar variant
-
-### 🌸 **Seasonal Collection**
-
-- **Tokyo Night Spring** - Fresh spring palette
-- **Tokyo Night Summer** - Bright summer colors
-- **Tokyo Night Autumn** - Warm autumn tones
-- **Tokyo Night Winter** - Cool winter atmosphere
-
-### ♿ **Accessibility Themes**
-
-- **Tokyo Night High Contrast** - Enhanced contrast (2.0×)
-- **Tokyo Night Low Contrast** - Reduced contrast (0.5×)
-- **Tokyo Night Protanopia Friendly** - Red-green color blind support
-- **Tokyo Night Deuteranopia Friendly** - Green-red color blind support
-
-### 🎭 **Creative Variants**
-
-- **Tokyo Night Pastel** - Soft pastel tones (0.3× saturation)
-- **Tokyo Night Retro** - Nostalgic retro palette
-
-### 🌊 **Gradient Collection**
-
-- **Tokyo Night Gradient 1-3** - Smooth transitions between palettes
+- **🌃 Tokyo Night Dark** - The main theme with perfect balance of colors
+- **🎨 Rich Color Palette** - Blues, purples, and accent colors
+- **📝 Excellent Readability** - Optimized for long coding sessions
+- **✨ Modern Design** - Clean, professional appearance
 
 ## 🚀 **Quick Start**
 
-### **Theme Selection**
+### **Installation**
+
+1. Open VS Code Extensions (`Ctrl+Shift+X`)
+2. Search for "Tokyo Night Theme Collection"
+3. Click Install
+
+### **Activation**
 
 1. Open VS Code Command Palette (`Ctrl+Shift+P`)
 2. Type "Preferences: Color Theme"
-3. Choose any of the **17 Tokyo Night variants**
+3. Select **Tokyo Night Dark**
 
 ### **Online Preview**
 
 [Try in vscode.dev](https://vscode.dev/theme/lod-inc.tokyo-night-lod)
 
-### **Installation**
+### **Manual Installation**
 
 ```bash
 # From VS Code Marketplace
 ext install lod-inc.tokyo-night-lod
-
-# Or search "Tokyo Night Theme Collection"
 ```
 
 ## 🛠️ **For Developers**
 
-### **Create Custom Themes**
+### **Development Setup**
 
 ```bash
-# Generate custom theme with CLI
-npm run theme-cli -- custom --name=my-theme --hue=60 --saturation=1.3
+# Clone and setup
+git clone https://github.com/darqus/tokyo-night-vscode-theme-lod.git
+cd tokyo-night-vscode-theme-lod
+npm install
 
-# Generate all variants
-npm run generate:all
+# Build theme
+npm run build
 
-# Full build with auto-update
-npm run build:complete
+# Run tests
+npm test
 ```
 
-### **Palette System**
+### **Theme Architecture**
 
 ```typescript
-// All themes use centralized palette
-import { extendedPalette } from './src/palette/extended'
+// Centralized palette system
+import { basePalette } from './src/core/palette'
+import { generateTheme } from './src/generators/theme'
 
-// Create adaptive variants
-import { createAdaptedPalette } from './src/palette/adapters'
-const customPalette = createAdaptedPalette('custom', {
-  hueShift: 45,
-  saturationMultiplier: 1.2
-})
+// Theme generation
+const theme = generateTheme(basePalette)
 ```
 
 ## 📁 **Project Architecture**
