@@ -248,11 +248,11 @@ class ReleaseManager {
         this.buildProject()
       }
 
-      // Генерация .vsix пакета
-      this.generatePackage()
-
       // Поднятие версии
       const newVersion = this.bumpVersion(releaseType, options.prerelease || false)
+
+      // Генерация .vsix пакета с новой версией
+      this.generatePackage()
 
       // Генерация changelog
       this.generateChangelog()

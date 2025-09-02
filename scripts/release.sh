@@ -314,9 +314,9 @@ main() {
     # Выполнение релиза
     run_tests $skip_tests
     build_project $skip_build
-    generate_package
     
     local new_version=$(bump_version $release_type $prerelease)
+    generate_package
     
     generate_changelog
     commit_and_tag $new_version
