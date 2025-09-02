@@ -3,7 +3,7 @@ import { join } from 'path';
 import {
   AdaptiveThemeGenerator,
 } from './adaptive-theme-generator';
-import type { ThemeObject } from '../types/theme';
+import type { VSCodeTheme } from '../types/theme';
 
 /**
  * Integration module for generating and exporting themes
@@ -34,7 +34,7 @@ export class ThemeGenerator {
   /**
    * Saves the theme to a file
    */
-  private saveTheme(theme: ThemeObject): void {
+  private saveTheme(theme: VSCodeTheme): void {
     const filename = `${theme.name
       .replace(/\s+/g, '-')
       .toLowerCase()}-color-theme.json`;
