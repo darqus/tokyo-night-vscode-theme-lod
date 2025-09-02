@@ -122,6 +122,12 @@ class ReleaseManager {
     console.log('✅ Build completed')
   }
 
+  private generatePackage(): void {
+    console.log('📦 Generating .vsix package...')
+    this.exec('npm run package')
+    console.log('✅ Package generated')
+  }
+
   private bumpVersion(type: string, prerelease: boolean): string {
     console.log(`📈 Bumping ${type} version...`)
     
@@ -241,6 +247,9 @@ class ReleaseManager {
       if (!options.skipBuild) {
         this.buildProject()
       }
+
+      // Генерация .vsix пакета
+      this.generatePackage()
 
       // Поднятие версии
       const newVersion = this.bumpVersion(releaseType, options.prerelease || false)

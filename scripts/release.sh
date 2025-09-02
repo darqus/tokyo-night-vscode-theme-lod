@@ -123,6 +123,13 @@ build_project() {
     success "Сборка завершена"
 }
 
+# Генерация .vsix пакета
+generate_package() {
+    info "Генерация .vsix пакета..."
+    npm run package
+    success "Пакет сгенерирован"
+}
+
 # Поднятие версии
 bump_version() {
     local release_type=$1
@@ -307,6 +314,7 @@ main() {
     # Выполнение релиза
     run_tests $skip_tests
     build_project $skip_build
+    generate_package
     
     local new_version=$(bump_version $release_type $prerelease)
     
