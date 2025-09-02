@@ -263,7 +263,7 @@ class ReleaseManager {
       console.log(`🎉 Release v${newVersion} completed successfully in ${duration}s!`)
       
     } catch (error) {
-      console.error('❌ Release failed:', error.message)
+      console.error('❌ Release failed:', error instanceof Error ? error.message : String(error))
       process.exit(1)
     }
   }
