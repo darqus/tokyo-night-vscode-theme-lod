@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.14](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.14.13...v1.14.14) (2025-09-03)
+
+
+### Features
+
+* **theme:** enhance color system and build process ([b3422ad](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/b3422ad6035a65529494468322277ee243e1f8a9))
+
 ### [1.14.13](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.14.12...v1.14.13) (2025-09-03)
 
 
