@@ -145,8 +145,8 @@ class ReleaseManager {
   private generateChangelog(): void {
     console.log('📝 Generating changelog...')
     try {
-      // Используем standard-version для генерации changelog
-      this.exec('npx standard-version --skip.tag --skip.commit')
+      // Используем standard-version для генерации changelog без поднятия версии
+      this.exec('npx standard-version --skip.tag --skip.commit --skip.bump')
       console.log('✅ Changelog updated')
     } catch (error) {
       console.warn('⚠️  Could not generate changelog automatically')
