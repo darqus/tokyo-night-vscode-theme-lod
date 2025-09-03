@@ -39,6 +39,9 @@ export interface InterfacePalette {
     hover: Hex
     active: Hex
     selection: Hex
+    hoverSubtle: Hex
+    hoverMuted: Hex
+    hoverActive: Hex
   }
   text: {
     primary: Hex
@@ -56,6 +59,10 @@ export interface InterfacePalette {
     success: Hex
     warning: Hex
     error: Hex
+    infoHover: Hex
+    successHover: Hex
+    warningHover: Hex
+    errorHover: Hex
   }
 }
 

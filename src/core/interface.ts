@@ -16,6 +16,10 @@ export const interfacePalette: InterfacePalette = {
     hover: withAlpha(basePalette.blue, 0.08),
     active: withAlpha(basePalette.blue, 0.12),
     selection: withAlpha(basePalette.blue, 0.2),
+    // Специализированные hover цвета
+    hoverSubtle: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.08),
+    hoverMuted: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.12),
+    hoverActive: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.15),
   },
 
   // Текстовые цвета (автогенерация)
@@ -39,5 +43,10 @@ export const interfacePalette: InterfacePalette = {
     success: basePalette.green,
     warning: basePalette.yellow,
     error: basePalette.red,
+    // Hover варианты для состояний
+    infoHover: withAlpha(basePalette.cyan, 0.8),
+    successHover: withAlpha(basePalette.green, 0.8),
+    warningHover: withAlpha(basePalette.yellow, 0.8),
+    errorHover: withAlpha(basePalette.red, 0.8),
   },
 }

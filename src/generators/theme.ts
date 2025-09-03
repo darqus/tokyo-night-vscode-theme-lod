@@ -110,44 +110,26 @@ const generateInterfaceColors = () => ({
   'statusBar.noFolderBackground': interfacePalette.bg.base,
   'statusBar.debuggingBackground': interfacePalette.state.warning,
   'statusBar.debuggingForeground': interfacePalette.bg.base,
-  'statusBarItem.activeBackground': withAlpha(
-    interfacePalette.text.muted,
-    0.15
-  ),
-  'statusBarItem.hoverBackground': withAlpha(interfacePalette.text.muted, 0.12),
+  'statusBarItem.activeBackground': interfacePalette.bg.hoverActive,
+  'statusBarItem.hoverBackground': interfacePalette.bg.hoverMuted,
   'statusBarItem.hoverForeground': interfacePalette.text.primary,
   'statusBarItem.prominentBackground': interfacePalette.state.info,
   'statusBarItem.prominentForeground': interfacePalette.text.inverse,
-  'statusBarItem.prominentHoverBackground': withAlpha(
-    interfacePalette.state.info,
-    0.8
-  ),
+  'statusBarItem.prominentHoverBackground': interfacePalette.state.infoHover,
   'statusBarItem.prominentHoverForeground': interfacePalette.text.inverse,
   'statusBarItem.errorBackground': interfacePalette.state.error,
   'statusBarItem.errorForeground': interfacePalette.text.inverse,
-  'statusBarItem.errorHoverBackground': withAlpha(
-    interfacePalette.state.error,
-    0.8
-  ),
+  'statusBarItem.errorHoverBackground': interfacePalette.state.errorHover,
   'statusBarItem.errorHoverForeground': interfacePalette.text.inverse,
   'statusBarItem.warningBackground': interfacePalette.state.warning,
   'statusBarItem.warningForeground': interfacePalette.text.inverse,
-  'statusBarItem.warningHoverBackground': withAlpha(
-    interfacePalette.state.warning,
-    0.8
-  ),
+  'statusBarItem.warningHoverBackground': interfacePalette.state.warningHover,
   'statusBarItem.warningHoverForeground': interfacePalette.text.inverse,
   'statusBarItem.remoteBackground': interfacePalette.state.info,
   'statusBarItem.remoteForeground': interfacePalette.text.inverse,
-  'statusBarItem.remoteHoverBackground': withAlpha(
-    interfacePalette.state.info,
-    0.8
-  ),
+  'statusBarItem.remoteHoverBackground': interfacePalette.state.infoHover,
   'statusBarItem.remoteHoverForeground': interfacePalette.text.inverse,
-  'statusBarItem.compactHoverBackground': withAlpha(
-    interfacePalette.text.muted,
-    0.08
-  ),
+  'statusBarItem.compactHoverBackground': interfacePalette.bg.hoverSubtle,
 
   // Tabs
   'tab.activeBackground': interfacePalette.bg.elevated,
