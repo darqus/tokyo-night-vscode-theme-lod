@@ -24,7 +24,7 @@ export const syntaxPalette: SyntaxPalette = {
   punctuation: basePalette.white,    // Скобки, точки, запятые
   
   // Специальные
-  constant: basePalette.orange,      // Константы (true, false, null)
+  constant: basePalette.yellow,      // Константы (true, false, null)
   property: basePalette.cyan,        // Свойства объектов
   tag: basePalette.red,             // HTML теги
   attribute: basePalette.magenta,    // HTML атрибуты

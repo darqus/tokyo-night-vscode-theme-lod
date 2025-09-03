@@ -414,7 +414,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
       "foreground": "#7dcfff",
     },
     "variable.readonly": {
-      "foreground": "#ff9e64",
+      "foreground": "#e0af68",
     },
   },
   "tokenColors": [

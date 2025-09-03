@@ -5,6 +5,20 @@
 type Hex = `#${string}`
 
 /**
+ * Валидация hex цвета
+ */
+const validateHex = (hex: string): boolean => {
+  return /^#[0-9a-f]{6}$/i.test(hex)
+}
+
+/**
+ * Ограничение значения в диапазоне
+ */
+const clamp = (value: number, min: number, max: number): number => {
+  return Math.max(min, Math.min(max, value))
+}
+
+/**
  * Парсинг hex цвета в RGB
  */
 const parseHex = (hex: string): { r: number; g: number; b: number } => {
@@ -26,22 +40,36 @@ const rgbToHex = (r: number, g: number, b: number): Hex => {
 }
 
 /**
- * Смешивание двух цветов
+ * Смешивание двух цветов (с кэшированием)
  */
-export const mix = (color1: string, color2: string, ratio: number): Hex => {
+import { getCachedColor } from './cache'
+
+const mixColors = (color1: string, color2: string, ratio: number): Hex => {
+  if (!validateHex(color1)) throw new Error(`Invalid hex color: ${color1}`)
+  if (!validateHex(color2)) throw new Error(`Invalid hex color: ${color2}`)
+  
+  const clampedRatio = clamp(ratio, 0, 1)
   const c1 = parseHex(color1)
   const c2 = parseHex(color2)
-  const r = c1.r * (1 - ratio) + c2.r * ratio
-  const g = c1.g * (1 - ratio) + c2.g * ratio
-  const b = c1.b * (1 - ratio) + c2.b * ratio
+  const r = c1.r * (1 - clampedRatio) + c2.r * clampedRatio
+  const g = c1.g * (1 - clampedRatio) + c2.g * clampedRatio
+  const b = c1.b * (1 - clampedRatio) + c2.b * clampedRatio
   return rgbToHex(r, g, b)
+}
+
+export const mix = (color1: string, color2: string, ratio: number): Hex => {
+  const key = `mix-${color1}-${color2}-${ratio}`
+  return getCachedColor(key, mixColors, color1, color2, ratio) as Hex
 }
 
 /**
  * Добавление прозрачности к цвету
  */
 export const withAlpha = (color: string, alpha: number): Hex => {
-  const alphaHex = Math.round(alpha * 255).toString(16).padStart(2, '0')
+  if (!validateHex(color)) throw new Error(`Invalid hex color: ${color}`)
+  
+  const clampedAlpha = clamp(alpha, 0, 1)
+  const alphaHex = Math.round(clampedAlpha * 255).toString(16).padStart(2, '0')
   return `${color}${alphaHex}` as Hex
 }
 

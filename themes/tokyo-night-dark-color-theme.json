@@ -506,7 +506,7 @@
       "foreground": "#7dcfff"
     },
     "variable.readonly": {
-      "foreground": "#ff9e64"
+      "foreground": "#e0af68"
     },
     "function": {
       "foreground": "#7aa2f7"

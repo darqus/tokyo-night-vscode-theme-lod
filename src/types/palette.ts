@@ -1,4 +1,13 @@
-export type Hex = `#${string}`
+// Более строгая типизация hex цветов
+export type Hex = `#${string}` & { readonly __brand: unique symbol }
+
+// Фабрика для создания валидных hex цветов
+export const createHex = (hex: string): Hex => {
+  if (!/^#[0-9a-f]{6}$/i.test(hex)) {
+    throw new Error(`Invalid hex color format: ${hex}`)
+  }
+  return hex as Hex
+}
 
 /**
  * Основная цветовая палитра для темы Tokyo Night Dark.
