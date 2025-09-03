@@ -501,3 +501,4 @@ export const generateTheme = (): VSCodeTheme => ({
   semanticTokenColors: generateSemanticTokens(),
 })
 // Test comment
+// Test release sync
