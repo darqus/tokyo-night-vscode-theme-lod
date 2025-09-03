@@ -66,6 +66,20 @@ export interface InterfacePalette {
     warningHover: Hex
     errorHover: Hex
   }
+  git: {
+    renamedResourceForeground: Hex
+    stageModifiedResourceForeground: Hex
+    stageDeletedResourceForeground: Hex
+  }
+  diff: {
+    insertedTextBackground: Hex
+    removedTextBackground: Hex
+    insertedLineBackground: Hex
+    removedLineBackground: Hex
+  }
+  minimap: {
+    findMatchHighlight: Hex
+  }
 }
 
 export interface SyntaxPalette {

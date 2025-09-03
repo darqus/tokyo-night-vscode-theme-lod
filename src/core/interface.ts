@@ -52,4 +52,18 @@ export const interfacePalette: InterfacePalette = {
     warningHover: withAlpha(basePalette.yellow, 0.8),
     errorHover: withAlpha(basePalette.red, 0.8),
   },
+  git: {
+    renamedResourceForeground: withAlpha(basePalette.cyan, 0.8),
+    stageModifiedResourceForeground: withAlpha(basePalette.cyan, 0.9),
+    stageDeletedResourceForeground: withAlpha(basePalette.red, 0.9),
+  },
+  diff: {
+    insertedTextBackground: withAlpha(basePalette.green, 0.15),
+    removedTextBackground: withAlpha(basePalette.red, 0.15),
+    insertedLineBackground: withAlpha(basePalette.green, 0.1),
+    removedLineBackground: withAlpha(basePalette.red, 0.1),
+  },
+  minimap: {
+    findMatchHighlight: withAlpha(basePalette.yellow, 0.5),
+  },
 }

@@ -3,7 +3,6 @@
  */
 import { interfacePalette } from '../core/interface'
 import { basePalette } from '../core/palette'
-import { darken, withAlpha } from '../core/utils'
 import { generateTokenColors, generateSemanticTokens } from './tokens'
 import type { VSCodeTheme } from '../types/theme'
 
@@ -262,18 +261,12 @@ const generateInterfaceColors = () => ({
   'gitDecoration.untrackedResourceForeground': interfacePalette.state.success,
   'gitDecoration.ignoredResourceForeground': interfacePalette.text.inactive,
   'gitDecoration.conflictingResourceForeground': interfacePalette.state.warning,
-  'gitDecoration.renamedResourceForeground': withAlpha(
-    interfacePalette.state.info,
-    0.8
-  ),
-  'gitDecoration.stageModifiedResourceForeground': withAlpha(
-    interfacePalette.state.info,
-    0.9
-  ),
-  'gitDecoration.stageDeletedResourceForeground': withAlpha(
-    interfacePalette.state.error,
-    0.9
-  ),
+  'gitDecoration.renamedResourceForeground':
+    interfacePalette.git.renamedResourceForeground,
+  'gitDecoration.stageModifiedResourceForeground':
+    interfacePalette.git.stageModifiedResourceForeground,
+  'gitDecoration.stageDeletedResourceForeground':
+    interfacePalette.git.stageDeletedResourceForeground,
   'gitDecoration.submoduleResourceForeground': interfacePalette.text.muted,
 
   // SCM Graph (Git History)
@@ -293,22 +286,14 @@ const generateInterfaceColors = () => ({
   'scmGraph.historyItemHoverDefaultLabelBackground': basePalette.blue,
 
   // Diff Editor
-  'diffEditor.insertedTextBackground': withAlpha(
-    interfacePalette.state.success,
-    0.15
-  ),
-  'diffEditor.removedTextBackground': withAlpha(
-    interfacePalette.state.error,
-    0.15
-  ),
-  'diffEditor.insertedLineBackground': withAlpha(
-    interfacePalette.state.success,
-    0.1
-  ),
-  'diffEditor.removedLineBackground': withAlpha(
-    interfacePalette.state.error,
-    0.1
-  ),
+  'diffEditor.insertedTextBackground':
+    interfacePalette.diff.insertedTextBackground,
+  'diffEditor.removedTextBackground':
+    interfacePalette.diff.removedTextBackground,
+  'diffEditor.insertedLineBackground':
+    interfacePalette.diff.insertedLineBackground,
+  'diffEditor.removedLineBackground':
+    interfacePalette.diff.removedLineBackground,
   'diffEditor.diagonalFill': interfacePalette.bg.overlay,
 
   // Settings
@@ -406,7 +391,7 @@ const generateInterfaceColors = () => ({
   'editorOverviewRuler.bracketMatchForeground': interfacePalette.border.focus,
 
   // Minimap
-  'minimap.findMatchHighlight': withAlpha(basePalette.yellow, 0.5),
+  'minimap.findMatchHighlight': interfacePalette.minimap.findMatchHighlight,
   'minimap.selectionHighlight': interfacePalette.bg.selection,
   'minimap.errorHighlight': interfacePalette.state.error,
   'minimap.warningHighlight': interfacePalette.state.warning,
