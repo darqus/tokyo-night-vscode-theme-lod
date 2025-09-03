@@ -116,9 +116,9 @@ class ReleaseManager {
   }
 
   private runTests(): void {
-    console.log('🧪 Running tests...')
-    this.exec('npm test')
-    console.log('✅ All tests passed')
+    console.log('🧪 Running validation and tests...')
+    this.exec('npm run validate:all')
+    console.log('✅ All validation and tests passed')
   }
 
   private buildProject(): void {

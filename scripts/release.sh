@@ -105,9 +105,9 @@ run_tests() {
         return
     fi
 
-    info "Запуск тестов..."
-    npm test
-    success "Все тесты прошли"
+    info "Запуск валидации и тестов..."
+    npm run validate:all
+    success "Вся валидация и тесты прошли"
 }
 
 # Сборка проекта
