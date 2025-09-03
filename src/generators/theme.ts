@@ -60,8 +60,8 @@ const generateInterfaceColors = () => ({
   'editor.selectionForeground': interfacePalette.text.primary,
   'editor.inactiveSelectionBackground': interfacePalette.bg.hover,
   'editor.lineHighlightBackground': interfacePalette.bg.hover,
-  // 'editor.lineHighlightBorder': удалено (transparent недопустим),
-  'editor.findMatchBackground': interfacePalette.state.warning,
+  'editor.findMatchBackground': withAlpha(basePalette.blue, 0.05),
+  'editor.findMatchBorder': withAlpha(basePalette.red, 0.5),
   'editor.findMatchHighlightBackground': interfacePalette.bg.selection,
   'editor.wordHighlightBackground': interfacePalette.bg.hover,
   'editor.wordHighlightStrongBackground': interfacePalette.bg.selection,
@@ -110,26 +110,44 @@ const generateInterfaceColors = () => ({
   'statusBar.noFolderBackground': interfacePalette.bg.base,
   'statusBar.debuggingBackground': interfacePalette.state.warning,
   'statusBar.debuggingForeground': interfacePalette.bg.base,
-  'statusBarItem.activeBackground': withAlpha(interfacePalette.text.muted, 0.15),
+  'statusBarItem.activeBackground': withAlpha(
+    interfacePalette.text.muted,
+    0.15
+  ),
   'statusBarItem.hoverBackground': withAlpha(interfacePalette.text.muted, 0.12),
   'statusBarItem.hoverForeground': interfacePalette.text.primary,
   'statusBarItem.prominentBackground': interfacePalette.state.info,
   'statusBarItem.prominentForeground': interfacePalette.text.inverse,
-  'statusBarItem.prominentHoverBackground': withAlpha(interfacePalette.state.info, 0.8),
+  'statusBarItem.prominentHoverBackground': withAlpha(
+    interfacePalette.state.info,
+    0.8
+  ),
   'statusBarItem.prominentHoverForeground': interfacePalette.text.inverse,
   'statusBarItem.errorBackground': interfacePalette.state.error,
   'statusBarItem.errorForeground': interfacePalette.text.inverse,
-  'statusBarItem.errorHoverBackground': withAlpha(interfacePalette.state.error, 0.8),
+  'statusBarItem.errorHoverBackground': withAlpha(
+    interfacePalette.state.error,
+    0.8
+  ),
   'statusBarItem.errorHoverForeground': interfacePalette.text.inverse,
   'statusBarItem.warningBackground': interfacePalette.state.warning,
   'statusBarItem.warningForeground': interfacePalette.text.inverse,
-  'statusBarItem.warningHoverBackground': withAlpha(interfacePalette.state.warning, 0.8),
+  'statusBarItem.warningHoverBackground': withAlpha(
+    interfacePalette.state.warning,
+    0.8
+  ),
   'statusBarItem.warningHoverForeground': interfacePalette.text.inverse,
   'statusBarItem.remoteBackground': interfacePalette.state.info,
   'statusBarItem.remoteForeground': interfacePalette.text.inverse,
-  'statusBarItem.remoteHoverBackground': withAlpha(interfacePalette.state.info, 0.8),
+  'statusBarItem.remoteHoverBackground': withAlpha(
+    interfacePalette.state.info,
+    0.8
+  ),
   'statusBarItem.remoteHoverForeground': interfacePalette.text.inverse,
-  'statusBarItem.compactHoverBackground': withAlpha(interfacePalette.text.muted, 0.08),
+  'statusBarItem.compactHoverBackground': withAlpha(
+    interfacePalette.text.muted,
+    0.08
+  ),
 
   // Tabs
   'tab.activeBackground': interfacePalette.bg.elevated,
@@ -406,7 +424,7 @@ const generateInterfaceColors = () => ({
   'editorOverviewRuler.bracketMatchForeground': interfacePalette.border.focus,
 
   // Minimap
-  'minimap.findMatchHighlight': interfacePalette.state.warning,
+  'minimap.findMatchHighlight': withAlpha(basePalette.yellow, 0.5),
   'minimap.selectionHighlight': interfacePalette.bg.selection,
   'minimap.errorHighlight': interfacePalette.state.error,
   'minimap.warningHighlight': interfacePalette.state.warning,
