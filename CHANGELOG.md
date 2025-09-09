@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.17](https://github.com/darqus/tokyo-night-moredn-vscode-theme/compare/v1.14.16...v1.14.17) (2025-09-09)
+
+
+### Features
+
+* **interface:** add lineNumber and lineNumberActive colors ([9255047](https://github.com/darqus/tokyo-night-moredn-vscode-theme/commit/9255047c2421a4066db08833345f2a8b72da9b61))
+
 ### [1.14.16](https://github.com/darqus/tokyo-night-moredn-vscode-theme/compare/v1.14.15...v1.14.16) (2025-09-09)
 
 
