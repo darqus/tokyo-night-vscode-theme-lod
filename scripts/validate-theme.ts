@@ -162,7 +162,7 @@ function printReport(result: ValidationResult): void {
 function main() {
   const themePath = path.join(
     __dirname,
-    '../themes/tokyo-night-dark-color-theme.json'
+    '../themes/tokyo-night-modern-color-theme.json'
   )
 
   if (!fs.existsSync(themePath)) {

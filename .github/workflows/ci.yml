@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [main, develop]
   pull_request:
-    branches: [ main, develop ]
+    branches: [main, develop]
   workflow_dispatch:
 
 jobs:
@@ -98,7 +98,7 @@ jobs:
         run: |
           npm run cli info
           npm run cli build
-          npm run validate themes/tokyo-night-dark-color-theme.json
+          npm run validate themes/tokyo-night-modern-color-theme.json
 
       - name: Check theme file sizes
         run: |

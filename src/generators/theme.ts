@@ -45,7 +45,7 @@ export const loadEnvVars = (): ThemeEnvVars => {
       'https://github.com/darqus/tokyo-night-vscode-theme-lod/issues',
     THEME_CATEGORIES: env.THEME_CATEGORIES || 'Themes',
     THEME_KEYWORDS: env.THEME_KEYWORDS || 'theme,tokyo,night,dark',
-    THEME_FILENAME: env.THEME_FILENAME || 'tokyo-night-dark-color-theme',
+    THEME_FILENAME: env.THEME_FILENAME || 'tokyo-night-modern-color-theme',
     THEME_TYPE: themeType === 'light' ? 'light' : 'dark',
   }
 }
