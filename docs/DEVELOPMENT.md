@@ -3,8 +3,8 @@
 ## Setup
 
 ```bash
-git clone https://github.com/darqus/tokyo-night-vscode-theme-lod.git
-cd tokyo-night-vscode-theme-lod
+git clone https://github.com/darqus/tokyo-night-moredn-vscode-theme.git
+cd tokyo-night-moredn-vscode-theme
 npm install
 ```
 

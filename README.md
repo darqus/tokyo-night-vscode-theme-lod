@@ -38,8 +38,8 @@ src/
 ## 🛠️ Development
 
 ```bash
-git clone https://github.com/darqus/tokyo-night-vscode-theme-lod.git
-cd tokyo-night-vscode-theme-lod
+git clone https://github.com/darqus/tokyo-night-moredn-vscode-theme.git
+cd tokyo-night-moredn-vscode-theme
 npm install
 npm run build       # Build theme (~0.6s)
 npm test           # Run tests (13 tests)
@@ -83,6 +83,6 @@ MIT License - see [LICENSE](LICENSE) for details.
 **🌃 Tokyo Night Modern**
 *Crafted with ❤️ for developers*
 
-[⭐ GitHub](https://github.com/darqus/tokyo-night-vscode-theme-lod) | [📦 Marketplace](https://marketplace.visualstudio.com/items?itemName=lod-inc.tokyo-night-modern)
+[⭐ GitHub](https://github.com/darqus/tokyo-night-moredn-vscode-theme) | [📦 Marketplace](https://marketplace.visualstudio.com/items?itemName=lod-inc.tokyo-night-modern)
 
 </div>

@@ -39,10 +39,10 @@ export const loadEnvVars = (): ThemeEnvVars => {
     THEME_LICENSE: env.THEME_LICENSE || 'MIT',
     THEME_REPOSITORY_URL:
       env.THEME_REPOSITORY_URL ||
-      'https://github.com/darqus/tokyo-night-vscode-theme-lod',
+      'https://github.com/darqus/tokyo-night-moredn-vscode-theme',
     THEME_BUGS_URL:
       env.THEME_BUGS_URL ||
-      'https://github.com/darqus/tokyo-night-vscode-theme-lod/issues',
+      'https://github.com/darqus/tokyo-night-moredn-vscode-theme/issues',
     THEME_CATEGORIES: env.THEME_CATEGORIES || 'Themes',
     THEME_KEYWORDS: env.THEME_KEYWORDS || 'theme,tokyo,night,dark',
     THEME_FILENAME: env.THEME_FILENAME || 'tokyo-night-modern-color-theme',
