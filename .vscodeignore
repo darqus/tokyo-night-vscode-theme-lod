@@ -18,6 +18,8 @@ scripts/**
 docs/**
 tests/**
 coverage/**
+static/**
+THEME_SUMMARY.md
 
 # Configuration files
 tsconfig.json
@@ -25,6 +27,8 @@ commitlint.config.js
 .prettierrc
 .eslintrc*
 .npmignore
+jest.config.js
+.releaserc.json
 
 # Development tools
 .env*
