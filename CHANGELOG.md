@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.15](https://github.com/darqus/tokyo-night-moredn-vscode-theme/compare/v1.14.14...v1.14.15) (2025-09-09)
+
+
+### Features
+
+* **theme:** add support for environment variables and dynamic configuration ([34f703f](https://github.com/darqus/tokyo-night-moredn-vscode-theme/commit/34f703f46339106027ff329ab76ad55c50bd7017))
+* **theme:** rename and update Tokyo Night theme ([a91e620](https://github.com/darqus/tokyo-night-moredn-vscode-theme/commit/a91e620a15d4def9a06dc5e4f1fb239276ea368b))
+* **theme:** rename and update Tokyo Night theme collection ([6c78a1a](https://github.com/darqus/tokyo-night-moredn-vscode-theme/commit/6c78a1a55692f18e155da8b826607041d2bdf0c6))
+
 ### [1.14.14](https://github.com/darqus/tokyo-night-moredn-vscode-theme/compare/v1.14.13...v1.14.14) (2025-09-03)
 
 ### Features
