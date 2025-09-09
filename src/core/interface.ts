@@ -39,8 +39,8 @@ export const interfacePalette: InterfacePalette = {
 
   // Границы (автогенерация)
   border: {
-    default: mix(basePalette.black, basePalette.gray, 0.4),
-    focus: withAlpha(basePalette.blue, 0.6),
+    default: mix(basePalette.black, basePalette.gray, 0.3),
+    focus: withAlpha(basePalette.blue, 0.4),
   },
 
   // Состояния (семантические цвета)
