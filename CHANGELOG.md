@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.18](https://github.com/darqus/tokyo-night-moredn-vscode-theme/compare/v1.14.17...v1.14.18) (2025-09-09)
+
+
+### Features
+
+* **static:** add screenshot of tokyo night modern theme ([55f5ac3](https://github.com/darqus/tokyo-night-moredn-vscode-theme/commit/55f5ac3a9f7d9a066b0da84f41a55dbd9b57da0b))
+
 ### [1.14.17](https://github.com/darqus/tokyo-night-moredn-vscode-theme/compare/v1.14.16...v1.14.17) (2025-09-09)
 
 
