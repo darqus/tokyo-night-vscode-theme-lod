@@ -2,7 +2,7 @@
 
 > **Beautiful modern dark theme** for VS Code with carefully crafted colors and contemporary design.
 
-![Tokyo Night Modern](static/ss_tokyo_night_dark.png)
+![Tokyo Night Modern](static/ss_tokyo_night_modern.png)
 
 ## 🎨 Overview
 
